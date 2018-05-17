@@ -5,10 +5,9 @@
              x:Class="LabClick.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Image x:Name="imgFoto"/>
+        <Button Text="Tirar Foto" Clicked="Button_Clicked"/>
+        <Button x:Name="btnSelecionarImagem" Text="Selecionar uma imagem" Clicked="btnSelecionarImagem_Clicked"/>
     </StackLayout>
 
 </ContentPage>
