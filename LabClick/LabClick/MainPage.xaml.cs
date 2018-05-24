@@ -1,6 +1,9 @@
-﻿using Plugin.Media;
+﻿using Newtonsoft.Json;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
+using System.IO;
+using System.Net.Http;
 using Xamarin.Forms;
 
 namespace LabClick
@@ -27,10 +30,19 @@ namespace LabClick
                 SaveToAlbum = true,
                 Name = "MinhaFoto.jpg"
             };
+
             var foto = await CrossMedia.Current.TakePhotoAsync(armazenamento);
 
             if (foto == null)
                 return;
+
+            Stream stm = foto.GetStream();
+            MemoryStream ms = new MemoryStream();
+            stm.CopyTo(ms);
+            byte[] bits = ms.ToArray();
+
+            var json = JsonConvert.SerializeObject(bits);
+
             imgFoto.Source = ImageSource.FromStream(() =>
             {
                 var stream = foto.GetStream();
@@ -41,19 +53,12 @@ namespace LabClick
 
         private async void btnSelecionarImagem_Clicked(object sender, EventArgs e)
         {
-            if (CrossMedia.Current.IsTakePhotoSupported)
-            {
-                var imagem = await CrossMedia.Current.PickPhotoAsync();
-                if (imagem != null)
-                {
-                    imgFoto.Source = ImageSource.FromStream(() =>
-                    {
-                        var stream = imagem.GetStream();
-                        imagem.Dispose();
-                        return stream;
-                    });
-                }
-            }
+            var byteArray = Convert.FromBase64String(imgFoto.Source.ToString());
+
+            HttpClient client = new HttpClient();
+            string url = @"http://192.168.0.15:3000/api/Teste/4";
+            var x = await client.GetAsync(url);
+
         }
     }
 }

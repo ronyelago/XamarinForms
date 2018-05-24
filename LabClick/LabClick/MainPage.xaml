@@ -7,7 +7,7 @@
     <StackLayout>
         <Image x:Name="imgFoto"/>
         <Button Text="Tirar Foto" Clicked="Button_Clicked"/>
-        <Button x:Name="btnSelecionarImagem" Text="Selecionar uma imagem" Clicked="btnSelecionarImagem_Clicked"/>
+        <Button x:Name="btnSelecionarImagem" Text="Salvar Imagem" Clicked="btnSelecionarImagem_Clicked"/>
     </StackLayout>
 
 </ContentPage>
