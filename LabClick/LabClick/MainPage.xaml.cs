@@ -4,6 +4,7 @@ using Plugin.Media.Abstractions;
 using System;
 using System.IO;
 using System.Net.Http;
+using System.Text;
 using Xamarin.Forms;
 
 namespace LabClick
@@ -40,8 +41,16 @@ namespace LabClick
             MemoryStream ms = new MemoryStream();
             stm.CopyTo(ms);
             byte[] bits = ms.ToArray();
-
             var json = JsonConvert.SerializeObject(bits);
+
+            string url = @"http://localhost:3000/testes";
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            HttpClient client = new HttpClient();
+
+            var response = client.PostAsync(url, content).Result;
+
 
             imgFoto.Source = ImageSource.FromStream(() =>
             {
