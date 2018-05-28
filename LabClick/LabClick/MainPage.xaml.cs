@@ -41,16 +41,24 @@ namespace LabClick
             MemoryStream ms = new MemoryStream();
             stm.CopyTo(ms);
             byte[] bits = ms.ToArray();
-            var json = JsonConvert.SerializeObject(bits);
 
-            string url = @"http://localhost:3000/testes";
+            var Teste = new
+            {
+                ExameId = 1,
+                ClinicaId = 3,
+                PacienteId = 2,
+                Imagem = bits,
+                Status = "Fumegou.",
+                DataCadastro = DateTime.Now
+            };
 
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var serialized = JsonConvert.SerializeObject(Teste);
 
             HttpClient client = new HttpClient();
+            Uri uri = new Uri(@"http://localhost:3000/testes");
+            var content = new StringContent(serialized, Encoding.UTF8, "application/json");
 
-            var response = client.PostAsync(url, content).Result;
-
+            var result = client.PostAsync(uri, content);
 
             imgFoto.Source = ImageSource.FromStream(() =>
             {
