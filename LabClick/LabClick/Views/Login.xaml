@@ -1,15 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Login">
+             x:Class="LabClick.Views.Login"
+             Title="LabClick - Login">
     <ContentPage.Content>
+        
         <StackLayout>
-            <Label Text="LabClick - Login" />
-            <!--<Label>Usuário</Label>-->
-            <Entry x:Name="txtUsuario" Placeholder="Usuário"></Entry>
-            <!--<Label>Senha</Label>-->
-            <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True"></Entry>
-            <Button x:Name="btnEntrar" Clicked="btnEntrar_Clicked" Text="Entrar"/>
+            <ScrollView>
+                <StackLayout Spacing="20">
+                    <Label Text="LabClick" Font="30" VerticalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
+                    <Entry x:Name="txtUsuario" Placeholder="Usuário"></Entry>
+                    <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True"></Entry>
+                    <Button x:Name="btnEntrar" Clicked="btnEntrar_Clicked" Text="Entrar"/>
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

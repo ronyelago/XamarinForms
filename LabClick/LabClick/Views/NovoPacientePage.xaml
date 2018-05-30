@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabClick.Views.NovoPacientePage">
+
+        <StackLayout>
+
+            <ScrollView>
+                <StackLayout Spacing="20">
+
+                    <Label Text="Cadastro de Paciente" 
+                       Font="20" VerticalTextAlignment="Center" 
+                       HorizontalOptions="Center" 
+                       FontAttributes="Bold">
+                    </Label>
+
+                    <!--Nome do paciente-->
+                    <StackLayout>
+                    <Label Text="Nome" 
+                                   VerticalOptions="FillAndExpand" 
+                                   HorizontalOptions="FillAndExpand"></Label>
+                        <Entry x:Name="txtNome" WidthRequest="200"/>
+                    </StackLayout>
+
+                    <!--Sobrenome do paciente-->
+                    <StackLayout>
+                    <Label Text="Sobrenome"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"></Label>
+                        <Entry x:Name="txtSobrenome" WidthRequest="200"/>
+                    </StackLayout>
+
+                    <!--Data de Nascimento-->
+                    <StackLayout>
+                        <Label Text="Data de Nascimento" 
+                               VerticalOptions="FillAndExpand"
+                               HorizontalOptions="FillAndExpand"></Label>
+                        <DatePicker HorizontalOptions="Start"></DatePicker>
+                    </StackLayout>
+
+                    <!--Gênero-->
+                    <StackLayout>
+                        <Picker Title="Gênero" VerticalOptions="CenterAndExpand">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Feminino</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+
+                    <!--Endereço-->
+                    <StackLayout>
+                        <Label Text="Endereço" 
+                           Font="15" VerticalTextAlignment="Center" 
+                           HorizontalOptions="Center" 
+                           FontAttributes="Bold">
+                        </Label>
+                        <!--CEP-->
+                        <StackLayout>
+                            <Label Text="CEP" 
+                                   VerticalOptions="FillAndExpand" 
+                                   HorizontalOptions="FillAndExpand"></Label>
+                            <Entry x:Name="txtCep" WidthRequest="200"></Entry>
+                        </StackLayout>
+
+                        <!--UF-->
+                        <StackLayout>
+                            <Label Text="UF:"
+                                   VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand"></Label>
+                            <Entry x:Name="txtUf" WidthRequest="200"/>
+                        </StackLayout>
+
+                        <!--Cidade-->
+                        <StackLayout>
+                            <Label Text="Cidade:"
+                                       VerticalOptions="FillAndExpand"
+                                       HorizontalOptions="FillAndExpand"></Label>
+                            <Entry x:Name="txtCidade" WidthRequest="200"/>
+                        </StackLayout>
+
+                        <!--Bairro-->
+                        <StackLayout>
+                            <Label Text="Bairro:"
+                                           VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"></Label>
+                            <Entry x:Name="txtBairro" WidthRequest="200"/>
+                        </StackLayout>
+
+                        <!--Rua-->
+                        <StackLayout>
+                            <Label Text="Rua:"
+                                           VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"></Label>
+                            <Entry x:Name="txtRua" WidthRequest="200"/>
+                        </StackLayout>
+
+                        <!--Número-->
+                        <StackLayout>
+                            <Label Text="Número:"
+                                           VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"></Label>
+                            <Entry x:Name="txtNumero" WidthRequest="200"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+
+                    <!--Botões Cancelar e Salvar-->
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="20">
+                        <StackLayout Orientation="Horizontal">
+                            <Button x:Name="btnCancelar"
+                                    Text="Cancelar"
+                                    Clicked="btnCancelar_Clicked"></Button>
+                            <Button x:Name="btnSalvar"
+                                    Text="Salvar"
+                                    Clicked="btnSalvar_Clicked"></Button>
+                        </StackLayout>
+                </StackLayout>
+
+            </StackLayout>
+            </ScrollView>
+            
+            
+            
+    </StackLayout>
+
+</ContentPage>
