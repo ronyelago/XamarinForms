@@ -35,12 +35,13 @@
                         <Label Text="Data de Nascimento" 
                                VerticalOptions="FillAndExpand"
                                HorizontalOptions="FillAndExpand"></Label>
-                        <DatePicker HorizontalOptions="Start"></DatePicker>
+                        <DatePicker HorizontalOptions="Start"
+                                    x:Name="dataNascimento"></DatePicker>
                     </StackLayout>
 
                     <!--Gênero-->
                     <StackLayout>
-                        <Picker Title="Gênero" VerticalOptions="CenterAndExpand">
+                        <Picker x:Name="pickerGenero" Title="Gênero" VerticalOptions="CenterAndExpand">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
                                 <x:String>Feminino</x:String>
