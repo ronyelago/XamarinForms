@@ -12,6 +12,11 @@
 
   <ItemGroup>
     <Folder Include="Serivices\Models\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Login.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

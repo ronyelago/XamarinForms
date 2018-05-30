@@ -1,17 +1,17 @@
-using System;
+using LabClick.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-[assembly: XamlCompilation (XamlCompilationOptions.Compile)]
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace LabClick
 {
-	public partial class App : Application
+    public partial class App : Application
 	{
 		public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+            MainPage = new NavigationPage(new Login());
 		}
 
 		protected override void OnStart ()

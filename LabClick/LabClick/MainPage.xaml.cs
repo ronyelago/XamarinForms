@@ -55,11 +55,12 @@ namespace LabClick
             var serialized = JsonConvert.SerializeObject(Teste);
 
             HttpClient client = new HttpClient();
-            Uri uri = new Uri(@"http://localhost:3000/testes");
+            Uri uri = new Uri(@"http://192.168.0.15:3000/testes");
             var content = new StringContent(serialized, Encoding.UTF8, "application/json");
 
             var result = client.PostAsync(uri, content);
 
+            
             imgFoto.Source = ImageSource.FromStream(() =>
             {
                 var stream = foto.GetStream();
@@ -68,13 +69,11 @@ namespace LabClick
             });
         }
 
-        private async void btnSelecionarImagem_Clicked(object sender, EventArgs e)
+        private void btnSelecionarImagem_Clicked(object sender, EventArgs e)
         {
-            var byteArray = Convert.FromBase64String(imgFoto.Source.ToString());
-
             HttpClient client = new HttpClient();
-            string url = @"http://192.168.0.15:3000/api/Teste/4";
-            var x = await client.GetAsync(url);
+            string url = @"http://192.168.0.15:3000/testes";
+            var response = client.GetAsync(url);
 
         }
     }
