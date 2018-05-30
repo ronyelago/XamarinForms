@@ -5,9 +5,10 @@
              x:Class="LabClick.MainPage">
 
     <StackLayout>
-        <Image x:Name="imgFoto" Aspect="AspectFit" />
-        <Button Text="Tirar Foto" Clicked="Button_Clicked"/>
-        <Button x:Name="btnSelecionarImagem" Text="Salvar Imagem" Clicked="btnSelecionarImagem_Clicked"/>
+        <Button x:Name="btnNovoPaciente" Text="Cadastrar novo Paciente"/>
+        <Button x:Name="btnPesquisarPaciente" Text="Pesquisar por Paciente"/>
+        <Button x:Name="btnResultados" Text="Resultados" />
+        <Button x:Name="btnEstatisticas" Text="Estatísticas" />
     </StackLayout>
 
 </ContentPage>

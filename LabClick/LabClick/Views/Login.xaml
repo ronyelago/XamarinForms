@@ -5,10 +5,10 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="LabClick - Login" />
-            <Label>Usuário</Label>
-            <Entry x:Name="txtUsuario"></Entry>
-            <Label>Senha</Label>
-            <Entry x:Name="txtSenha"></Entry>
+            <!--<Label>Usuário</Label>-->
+            <Entry x:Name="txtUsuario" Placeholder="Usuário"></Entry>
+            <!--<Label>Senha</Label>-->
+            <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True"></Entry>
             <Button x:Name="btnEntrar" Clicked="btnEntrar_Clicked" Text="Entrar"/>
         </StackLayout>
     </ContentPage.Content>
