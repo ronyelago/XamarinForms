@@ -17,12 +17,12 @@ namespace LabClick.Views
 			InitializeComponent ();
 		}
 
-        private async void btnCancelar_Clicked(object sender, EventArgs e)
+        private async void BtnCancelar_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());
         }
 
-        private void btnSalvar_Clicked(object sender, EventArgs e)
+        private async void BtnSalvar_Clicked(object sender, EventArgs e)
         {
             PacienteViewModel pacienteViewModel = new PacienteViewModel();
             pacienteViewModel.Paciente.Nome = $"{txtNome.Text} {txtSobrenome.Text}";
@@ -37,18 +37,31 @@ namespace LabClick.Views
             pacienteViewModel.Endereco.Numero = int.Parse(txtNumero.Text);
 
             Paciente paciente = pacienteViewModel.Paciente;
+            paciente.ClinicaId = 1;
+            paciente.EnderecoId = 1;
+
             var pacienteSerialized = JsonConvert.SerializeObject(paciente);
 
             HttpClient client = new HttpClient();
             Uri uri = new Uri(@"http://192.168.0.15:3000/paciente/pacientes");
             var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
 
-            var result = client.PostAsync(uri, content);
+            var result = await client.PostAsync(uri, content);
 
-            if (result.Result.IsSuccessStatusCode)
+            var response = result.Content.ReadAsStringAsync();
+
+            var p = JsonConvert.DeserializeObject<Paciente>(response.Result);
+
+            if (result.IsSuccessStatusCode)
             {
-                DisplayAlert("Sucesso", "Paciente cadastrado com sucesso!", "Ok");
-                Navigation.PushAsync(new MainPage());
+                await DisplayAlert("Sucesso", "Paciente cadastrado com sucesso!", "Ok");
+                await Navigation.PushAsync(new MainPage());
+
+            }
+
+            else
+            {
+                await DisplayAlert("Deu ruim", "Nãu rolou mano...", "Ok");
             }
         }
     }

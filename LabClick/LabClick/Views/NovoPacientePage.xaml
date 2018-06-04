@@ -109,12 +109,12 @@
                     <!--Botões Cancelar e Salvar-->
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="20">
                         <StackLayout Orientation="Horizontal">
-                            <Button x:Name="btnCancelar"
+                            <Button x:Name="BtnCancelar"
                                     Text="Cancelar"
-                                    Clicked="btnCancelar_Clicked"></Button>
-                            <Button x:Name="btnSalvar"
+                                    Clicked="BtnCancelar_Clicked"></Button>
+                            <Button x:Name="BtnSalvar"
                                     Text="Salvar"
-                                    Clicked="btnSalvar_Clicked"></Button>
+                                    Clicked="BtnSalvar_Clicked"></Button>
                         </StackLayout>
                 </StackLayout>
 

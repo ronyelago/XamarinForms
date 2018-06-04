@@ -48,7 +48,7 @@
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EnableProguard>true</EnableProguard>
-    <AndroidSupportedAbis>x86_64</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a;x86_64</AndroidSupportedAbis>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
   </PropertyGroup>
   <ItemGroup>
