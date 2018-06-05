@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.PesquisarPacientePage"
              Title="Pesquisa de Pacientes">
-    <StackLayout Orientation="Vertical">
-        
-        <SearchBar x:Name="PacienteSearchBar" 
+    <StackLayout>
+        <StackLayout Orientation="Vertical">
+            <SearchBar x:Name="PacienteSearchBar" 
                    SearchButtonPressed="PacienteSearchBar_SearchButtonPressed" />
-
-        <Switch></Switch>
-
-        <ListView x:Name="PacientesListView" />
-    
+            <ListView x:Name="PacientesListView" ItemTapped="PacientesListView_ItemTapped"/>
+        </StackLayout>
+        <StackLayout>
+            
+        </StackLayout>
     </StackLayout>
 </ContentPage>

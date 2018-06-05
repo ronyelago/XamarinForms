@@ -1,6 +1,7 @@
 ﻿using LabClick.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,7 +12,9 @@ namespace LabClick.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PesquisarPacientePage : ContentPage
 	{
-		public PesquisarPacientePage ()
+        List<Paciente> pacientes = new List<Paciente>();
+
+        public PesquisarPacientePage ()
 		{
 			InitializeComponent ();
 		}
@@ -22,7 +25,7 @@ namespace LabClick.Views
             var result = await client.GetAsync($@"http://192.168.0.15:3000/paciente/getByName={PacienteSearchBar.Text}");
             var content = result.Content.ReadAsStringAsync();
 
-            var pacientes = JsonConvert.DeserializeObject<List<Paciente>>(content.Result);
+            pacientes = JsonConvert.DeserializeObject<List<Paciente>>(content.Result);
 
             List<string> nomes = new List<string>();
 
@@ -32,6 +35,16 @@ namespace LabClick.Views
             }
 
             PacientesListView.ItemsSource = nomes;
+        }
+
+        private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var paciente = pacientes.FirstOrDefault(p => p.Nome == PacientesListView.SelectedItem.ToString());
+
+            var pacientePage = new PacientePage(paciente);
+            
+
+            Navigation.PushAsync(pacientePage);
         }
     }
 }
