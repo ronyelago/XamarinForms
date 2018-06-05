@@ -4,7 +4,11 @@
              x:Class="LabClick.Views.PesquisarPacientePage"
              Title="Pesquisa de Pacientes">
     <StackLayout Orientation="Vertical">
-        <SearchBar x:Name="PacienteSearchBar"></SearchBar>
-        <ListView x:Name="PacientesListView"></ListView>
+        
+        <SearchBar x:Name="PacienteSearchBar" 
+                   SearchButtonPressed="PacienteSearchBar_SearchButtonPressed" />
+        
+        <ListView x:Name="PacientesListView" />
+    
     </StackLayout>
 </ContentPage>
