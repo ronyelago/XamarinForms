@@ -22,7 +22,7 @@ namespace LabClick.Views
             await Navigation.PushAsync(new MainPage());
         }
 
-        private async void BtnSalvar_Clicked(object sender, EventArgs e)
+        private void BtnSalvar_Clicked(object sender, EventArgs e)
         {
             PacienteViewModel pacienteViewModel = new PacienteViewModel();
             pacienteViewModel.Paciente.Nome = $"{txtNome.Text} {txtSobrenome.Text}";
@@ -36,32 +36,39 @@ namespace LabClick.Views
             pacienteViewModel.Endereco.Logradouro = txtRua.Text;
             pacienteViewModel.Endereco.Numero = int.Parse(txtNumero.Text);
 
+            HttpClient client = new HttpClient();
+
+            //Cadastro do Endereço
+            Endereco endereco = pacienteViewModel.Endereco;
+            var enderecoSerialized = JsonConvert.SerializeObject(endereco);
+            var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
+            Uri urinho = new Uri(@"http://192.168.0.15:3000/endereco/enderecos");
+
+            var resultado = client.PostAsync(urinho, contentinho);
+            var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
+
+            //Cadastro do Paciente
             Paciente paciente = pacienteViewModel.Paciente;
             paciente.ClinicaId = 1;
-            paciente.EnderecoId = 1;
+            paciente.EnderecoId = enderecoId;
 
             var pacienteSerialized = JsonConvert.SerializeObject(paciente);
 
-            HttpClient client = new HttpClient();
             Uri uri = new Uri(@"http://192.168.0.15:3000/paciente/pacientes");
             var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
+            
+            var result = client.PostAsync(uri, content);
 
-            var result = await client.PostAsync(uri, content);
-
-            var response = result.Content.ReadAsStringAsync();
-
-            var p = JsonConvert.DeserializeObject<Paciente>(response.Result);
-
-            if (result.IsSuccessStatusCode)
+            if (result.Result.IsSuccessStatusCode)
             {
-                await DisplayAlert("Sucesso", "Paciente cadastrado com sucesso!", "Ok");
-                await Navigation.PushAsync(new MainPage());
+                DisplayAlert("Sucesso", "Paciente cadastrado com sucesso!", "Ok");
+                Navigation.PushAsync(new MainPage());
 
             }
 
             else
             {
-                await DisplayAlert("Deu ruim", "Nãu rolou mano...", "Ok");
+                DisplayAlert("Deu ruim", "Nãu rolou mano...", "Ok");
             }
         }
     }
