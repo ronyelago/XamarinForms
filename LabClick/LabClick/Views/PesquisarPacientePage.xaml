@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabClick.Views.PesquisarPacientePage"
+             Title="Pesquisa de Pacientes">
+    <StackLayout Orientation="Vertical">
+        <SearchBar x:Name="PacienteSearchBar"></SearchBar>
+        <ListView x:Name="PacientesListView"></ListView>
+    </StackLayout>
+</ContentPage>

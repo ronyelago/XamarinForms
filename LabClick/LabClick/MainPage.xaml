@@ -5,8 +5,8 @@
              x:Class="LabClick.MainPage">
 
     <StackLayout>
-        <Button x:Name="btnNovoPaciente" Text="Cadastrar novo Paciente" Clicked="btnNovoPaciente_Clicked"/>
-        <Button x:Name="btnPesquisarPaciente" Text="Pesquisar por Paciente"/>
+        <Button x:Name="btnNovoPaciente" Text="Cadastrar novo Paciente" Clicked="BtnNovoPaciente_Clicked"/>
+        <Button x:Name="btnPesquisarPaciente" Text="Pesquisar por Paciente" Clicked="BtnPesquisarPaciente_Clicked"/>
         <Button x:Name="btnResultados" Text="Resultados" />
         <Button x:Name="btnEstatisticas" Text="Estatísticas" />
     </StackLayout>

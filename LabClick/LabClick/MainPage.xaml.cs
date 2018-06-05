@@ -10,9 +10,14 @@ namespace LabClick
 			InitializeComponent();
         }
 
-        private async void btnNovoPaciente_Clicked(object sender, System.EventArgs e)
+        private void BtnNovoPaciente_Clicked(object sender, System.EventArgs e)
         {
-            await Navigation.PushAsync(new NovoPacientePage());
+            Navigation.PushAsync(new NovoPacientePage());
+        }
+
+        private void BtnPesquisarPaciente_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new PesquisarPacientePage());
         }
     }
 }
