@@ -159,4 +159,7 @@
       <Name>LabClick</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu.png" />
+  </ItemGroup>
 </Project>

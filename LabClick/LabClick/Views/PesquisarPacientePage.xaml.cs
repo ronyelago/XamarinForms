@@ -23,7 +23,7 @@ namespace LabClick.Views
         private async Task PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
             var client = new HttpClient();
-            var result = await client.GetAsync($@"http://192.168.0.15:3000/paciente/getByName={PacienteSearchBar.Text}");
+            var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
             var content = result.Content.ReadAsStringAsync();
 
             pacientes = JsonConvert.DeserializeObject<List<Paciente>>(content.Result);
@@ -42,7 +42,7 @@ namespace LabClick.Views
         {
             var paciente = pacientes.FirstOrDefault(p => p.Nome == PacientesListView.SelectedItem.ToString());
 
-            var pacientePage = new PacienteMasterPage(paciente);
+            var pacientePage = new PacienteMainPage(paciente);
             
 
             Navigation.PushAsync(pacientePage);
