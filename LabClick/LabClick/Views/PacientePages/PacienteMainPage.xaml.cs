@@ -14,6 +14,7 @@ namespace LabClick.Views.PacientePages
 
             this.Master = new PacienteMasterDetailPage();
             this.Detail = new NavigationPage(new PacienteDetails(paciente));
+            App.PacientMasterDetailPage = this;
 		}
 	}
 }

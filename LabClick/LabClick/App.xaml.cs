@@ -7,7 +7,9 @@ namespace LabClick
 {
     public partial class App : Application
 	{
-		public App ()
+        public static MasterDetailPage PacientMasterDetailPage { get; set; }
+
+        public App ()
 		{
 			InitializeComponent();
 

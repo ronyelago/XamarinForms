@@ -11,7 +11,7 @@ namespace LabClick.Views.PacientePages
 		{
 			InitializeComponent ();
 
-            this.txtNome.Text = paciente.Nome;
+            
 		}
 	}
 }

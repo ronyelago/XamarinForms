@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using LabClick.Views.ExamePages;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace LabClick.Views.PacientePages
@@ -10,5 +11,10 @@ namespace LabClick.Views.PacientePages
 		{
 			InitializeComponent ();
 		}
-	}
+
+        private void BtnExames_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new ExamesPage());
+        }
+    }
 }
