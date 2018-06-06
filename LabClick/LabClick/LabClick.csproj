@@ -23,7 +23,7 @@
     <EmbeddedResource Update="Views\NovoPacientePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PacientePage.xaml">
+    <EmbeddedResource Update="Views\PacientePages\PacienteMasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PesquisarPacientePage.xaml">

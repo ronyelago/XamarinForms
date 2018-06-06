@@ -1,4 +1,5 @@
 ﻿using LabClick.Models;
+using LabClick.Views.PacientePages;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace LabClick.Views
         {
             var paciente = pacientes.FirstOrDefault(p => p.Nome == PacientesListView.SelectedItem.ToString());
 
-            var pacientePage = new PacientePage(paciente);
+            var pacientePage = new PacienteMasterPage(paciente);
             
 
             Navigation.PushAsync(pacientePage);
