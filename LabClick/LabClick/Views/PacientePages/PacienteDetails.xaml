@@ -22,16 +22,6 @@
                            WidthRequest="200"/>
                 </StackLayout>
 
-                <!--Sobrenome do paciente-->
-                <StackLayout>
-                    <Label Text="Sobrenome"
-                           VerticalOptions="FillAndExpand"
-                           HorizontalOptions="FillAndExpand"/>
-                    <Entry x:Name="txtSobrenome" 
-                           IsEnabled="False"
-                           WidthRequest="200"/>
-                </StackLayout>
-
                 <!--Data de Nascimento-->
                 <StackLayout>
                     <Label Text="Data de Nascimento" 

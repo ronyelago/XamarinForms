@@ -16,5 +16,10 @@ namespace LabClick.Views.PacientePages
         {
             Navigation.PushAsync(new ExamesPage());
         }
+
+        private void BtnNovoExame_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new NovoExamePage());
+        }
     }
 }

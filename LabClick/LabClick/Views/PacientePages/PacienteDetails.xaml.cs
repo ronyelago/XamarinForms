@@ -11,7 +11,20 @@ namespace LabClick.Views.PacientePages
 		{
 			InitializeComponent ();
 
-            
-		}
-	}
+            txtNome.Text = paciente.Nome;
+            dataNascimento.Date = paciente.DataNascimento;
+            pickerGenero.SelectedItem = paciente.Sexo;
+
+            if (paciente.Endereco != null)
+            {
+                txtCep.Text = paciente.Endereco.Cep;
+                txtUf.Text = paciente.Endereco.UF;
+                txtCidade.Text = paciente.Endereco.Cidade;
+                txtBairro.Text = paciente.Endereco.Bairro;
+                txtRua.Text = paciente.Endereco.Logradouro;
+                txtNumero.Text = paciente.Endereco.Numero.ToString();
+            }
+
+        }
+    }
 }

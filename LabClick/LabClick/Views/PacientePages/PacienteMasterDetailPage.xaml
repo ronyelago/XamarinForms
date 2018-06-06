@@ -6,13 +6,14 @@
              BackgroundColor="SkyBlue">
 
         <StackLayout Padding="20">
-            <Button x:Name="BtnExames" 
-                    Text="Exames" 
-                    BackgroundColor="Blue"
+            <Button x:Name="BtnExames"
+                    Text="Exames"
+                    BackgroundColor="SkyBlue"
                     Clicked="BtnExames_Clicked"/>
-            <Button x:Name="BtnNovoExame" 
-                    Text="Novo Exame" 
-                    BackgroundColor="Blue"/>
+            <Button x:Name="BtnNovoExame"
+                    Text="Novo Exame"
+                    BackgroundColor="SkyBlue"
+                    Clicked="BtnNovoExame_Clicked"/>
         </StackLayout>
 
 </ContentPage>
