@@ -19,6 +19,7 @@ namespace LabClick
 
         public async static Task NavigateMasterDetail(Page page)
         {
+            App.PacientMasterDetailPage.IsPresented = false;
             await App.PacientMasterDetailPage.Navigation.PushAsync(page);
         }
 
