@@ -4,10 +4,25 @@
              x:Class="LabClick.Views.ExamePages.NovoExamePage">
 
     <StackLayout>
-
-        <StackLayout Orientation="Horizontal" HeightRequest="200" WidthRequest="150">
-            <Image x:Name="imgFoto" Aspect="AspectFit" HorizontalOptions="CenterAndExpand"/>
+        <!--title-->
+        <StackLayout Padding="10" >
+            <Label Font="30" 
+                   Text="Teste - Zika Vírus"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"/>
         </StackLayout>
+        <!--foto-->
+        <StackLayout Orientation="Horizontal" 
+                     HeightRequest="300" 
+                     WidthRequest="150" 
+                     BackgroundColor="LightGray"
+                     Padding="20">
+            <Image x:Name="imgFoto" 
+                   Aspect="AspectFill" 
+                   HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <!--buttons-->
         <StackLayout>
             <Button 
             x:Name="btnTeste"

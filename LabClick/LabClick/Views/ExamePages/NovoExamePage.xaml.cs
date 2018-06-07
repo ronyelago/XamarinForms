@@ -66,9 +66,9 @@ namespace LabClick.Views.ExamePages
         {
             var Teste = new
             {
-                ExameId = 1,
+                ExameId = 5,
                 ClinicaId = 3,
-                PacienteId = 2,
+                PacienteId = paciente.Id,
                 Imagem = pictureBits,
                 Status = "Em análise",
                 DataCadastro = DateTime.Now
