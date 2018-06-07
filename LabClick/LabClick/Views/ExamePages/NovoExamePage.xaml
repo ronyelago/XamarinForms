@@ -5,16 +5,19 @@
 
     <StackLayout>
 
-        <Image x:Name="imgFoto" Aspect="AspectFit"/>
-
-        <Button 
+        <StackLayout Orientation="Horizontal" HeightRequest="200" WidthRequest="150">
+            <Image x:Name="imgFoto" Aspect="AspectFit" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <StackLayout>
+            <Button 
             x:Name="btnTeste"
             Text="Fotografar Teste"
             Clicked="BtnTeste_ClickedAsync"/>
-        <Button 
+            <Button 
             x:Name="BtnEnviarTeste"
             Text="Enviar Teste"
-            Clicked="BtnEnviarTeste_ClickedAsync"/>        
-        
+            Clicked="BtnEnviarTeste_ClickedAsync"/>
+        </StackLayout>
+
     </StackLayout>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using LabClick.Views.ExamePages;
+﻿using LabClick.Models;
+using LabClick.Views.ExamePages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,19 +8,22 @@ namespace LabClick.Views.PacientePages
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PacienteMasterDetailPage : ContentPage
 	{
-		public PacienteMasterDetailPage ()
+        private Paciente paciente;
+
+		public PacienteMasterDetailPage (Paciente paciente)
 		{
 			InitializeComponent ();
+            this.paciente = paciente;
 		}
 
-        private void BtnExames_Clicked(object sender, System.EventArgs e)
+        private async void BtnExames_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ExamesPage());
+            await App.NavigateMasterDetail(new ExamesPage(paciente));
         }
 
-        private void BtnNovoExame_Clicked(object sender, System.EventArgs e)
+        private async void BtnNovoExame_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NovoExamePage());
+            await App.NavigateMasterDetail(new NovoExamePage(paciente));
         }
     }
 }

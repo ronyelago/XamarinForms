@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LabClick.Models;
+using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -15,11 +16,13 @@ namespace LabClick.Views.ExamePages
 	public partial class NovoExamePage : ContentPage
 	{
         private byte[] pictureBits;
+        private Paciente paciente;
 
-		public NovoExamePage ()
+		public NovoExamePage (Paciente paciente)
 		{
 			InitializeComponent ();
             BtnEnviarTeste.IsEnabled = false;
+            this.paciente = paciente;
 		}
 
         private async Task BtnTeste_ClickedAsync(object sender, EventArgs e)
@@ -74,7 +77,7 @@ namespace LabClick.Views.ExamePages
             var serialized = JsonConvert.SerializeObject(Teste);
 
             HttpClient client = new HttpClient();
-            Uri uri = new Uri(@"http://192.168.0.15:3000/teste/testes");
+            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
             var content = new StringContent(serialized, Encoding.UTF8, "application/json");
 
             var result = await client.PostAsync(uri, content);
@@ -82,6 +85,11 @@ namespace LabClick.Views.ExamePages
             if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Sucesso", "Teste enviado para análise.", "Ok");
+            }
+
+            else
+            {
+                await DisplayAlert("Falha", "Algo errado não deu certo.", "Ok");
             }
         }
     }

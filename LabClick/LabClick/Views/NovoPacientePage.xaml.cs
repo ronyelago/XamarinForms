@@ -42,7 +42,7 @@ namespace LabClick.Views
             Endereco endereco = pacienteViewModel.Endereco;
             var enderecoSerialized = JsonConvert.SerializeObject(endereco);
             var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
-            Uri urinho = new Uri(@"http://192.168.0.15:3000/endereco/enderecos");
+            Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/enderecos");
 
             var resultado = client.PostAsync(urinho, contentinho);
             var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
@@ -54,7 +54,7 @@ namespace LabClick.Views
 
             var pacienteSerialized = JsonConvert.SerializeObject(paciente);
 
-            Uri uri = new Uri(@"http://192.168.0.15:3000/paciente/pacientes");
+            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/pacientes");
             var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
             
             var result = client.PostAsync(uri, content);

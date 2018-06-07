@@ -12,7 +12,7 @@ namespace LabClick.Views.PacientePages
 		{
 			InitializeComponent ();
 
-            this.Master = new PacienteMasterDetailPage();
+            this.Master = new PacienteMasterDetailPage(paciente);
             this.Detail = new NavigationPage(new PacienteDetails(paciente));
             App.PacientMasterDetailPage = this;
 		}

@@ -1,4 +1,5 @@
 using LabClick.Views;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,11 @@ namespace LabClick
 
             MainPage = new NavigationPage(new Login());
 		}
+
+        public async static Task NavigateMasterDetail(Page page)
+        {
+            await App.PacientMasterDetailPage.Navigation.PushAsync(page);
+        }
 
 		protected override void OnStart ()
 		{
