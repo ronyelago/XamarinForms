@@ -1,6 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.ExamePages.ExamesPage">
+             x:Class="LabClick.Views.ExamePages.ExamesPage" x:Name="ExamesPage" Appearing="ExamesPage_Appearing">
+    <StackLayout>
+        
+        <StackLayout>
+            <Label Text="Exames" Font="20" FontAttributes="Bold"/>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                
+                <ListView x:Name="ExamesList">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell x:Name="ExamesTextCell"
+                                      Text="{Binding Exame.Nome, StringFormat='Teste: {0}'}" 
+                                      Detail="{Binding Status, StringFormat='Status: {0}'}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+        </ScrollView>
+        
+        
+    </StackLayout>
 
 </ContentPage>

@@ -1,4 +1,5 @@
 using LabClick.Views;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,12 +10,14 @@ namespace LabClick
     public partial class App : Application
 	{
         public static MasterDetailPage PacientMasterDetailPage { get; set; }
+        public static HttpClient Client { get; set; }
 
         public App ()
 		{
 			InitializeComponent();
 
             MainPage = new NavigationPage(new Login());
+            Client = new HttpClient();
 		}
 
         public async static Task NavigateMasterDetail(Page page)

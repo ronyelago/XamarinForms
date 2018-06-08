@@ -44,7 +44,9 @@ namespace LabClick.Views.ExamePages
             var foto = await CrossMedia.Current.TakePhotoAsync(armazenamento);
 
             if (foto == null)
+            {
                 return;
+            }
 
             Stream stm = foto.GetStream();
             MemoryStream ms = new MemoryStream();
