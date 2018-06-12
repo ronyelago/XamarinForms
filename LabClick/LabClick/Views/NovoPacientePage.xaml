@@ -39,7 +39,15 @@
                                     x:Name="dataNascimento"></DatePicker>
                     </StackLayout>
 
-                    <!--Gênero-->
+                <!--CPF-->
+                <StackLayout>
+                    <Label Text="CPF"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"></Label>
+                    <Entry x:Name="txtCpf" WidthRequest="200"/>
+                </StackLayout>
+
+                <!--Gênero-->
                     <StackLayout>
                         <Picker x:Name="pickerGenero" Title="Gênero" VerticalOptions="CenterAndExpand">
                             <Picker.Items>

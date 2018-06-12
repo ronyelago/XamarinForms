@@ -14,9 +14,13 @@ namespace LabClick
 
         public App ()
 		{
-			InitializeComponent();
+            InitializeComponent();
 
-            MainPage = new NavigationPage(new Login());
+            MainPage = new NavigationPage(new Login())
+            {
+                BarBackgroundColor = Color.LightSeaGreen
+            };
+
             Client = new HttpClient();
 		}
 

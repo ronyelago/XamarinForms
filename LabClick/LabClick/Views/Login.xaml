@@ -3,17 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Login"
              Title="LabClick - Login">
+
+
     <ContentPage.Content>
-        
-        <StackLayout>
-            <ScrollView>
-                <StackLayout Spacing="20">
-                    <Label Text="LabClick" Font="30" VerticalTextAlignment="Center" HorizontalOptions="Center" FontAttributes="Bold"/>
-                    <Entry x:Name="txtUsuario" Placeholder="Usuário"></Entry>
-                    <Entry x:Name="txtSenha" Placeholder="Senha" IsPassword="True"></Entry>
-                    <Button x:Name="btnEntrar" Clicked="btnEntrar_Clicked" Text="Entrar"/>
-                </StackLayout>
-            </ScrollView>
+        <StackLayout BackgroundColor="LightSeaGreen">
+            <StackLayout Spacing="20" HorizontalOptions="Center" WidthRequest="300">
+                <Label Text="LabClick" 
+                   Font="30"
+                   Margin="50"
+                   VerticalTextAlignment="Center" 
+                   HorizontalOptions="Center" 
+                   FontAttributes="Bold"/>
+                <Entry x:Name="txtUsuario" 
+                   Placeholder="Usuário"/>
+                <Entry x:Name="txtSenha" 
+                   Placeholder="Senha" 
+                   IsPassword="True"/>
+                <Button x:Name="btnEntrar" 
+                    Clicked="btnEntrar_Clicked"
+                    Text="Entrar"
+                    TextColor="White"
+                    BackgroundColor="Gray"
+                    HorizontalOptions="Center"
+                    WidthRequest="100"/>
+            </StackLayout>
         </StackLayout>
         
     </ContentPage.Content>

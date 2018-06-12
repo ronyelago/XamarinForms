@@ -10,11 +10,10 @@
         <ScrollView>
             <StackLayout>
                 
-                <ListView x:Name="ExamesList">
+                <ListView x:Name="ExamesList" ItemTapped="ExamesList_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell x:Name="ExamesTextCell"
-                                      Text="{Binding Exame.Nome, StringFormat='Teste: {0}'}" 
+                            <TextCell Text="{Binding Exame.Nome, StringFormat='Teste: {0}'}" 
                                       Detail="{Binding Status, StringFormat='Status: {0}'}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -22,7 +21,6 @@
                 
             </StackLayout>
         </ScrollView>
-        
         
     </StackLayout>
 

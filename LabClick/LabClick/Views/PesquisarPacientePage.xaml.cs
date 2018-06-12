@@ -28,13 +28,14 @@ namespace LabClick.Views
 
             pacientes = JsonConvert.DeserializeObject<List<Paciente>>(content.Result);
 
+            //melhorar isso aqui!
             List<string> nomes = new List<string>();
 
             foreach (var p in pacientes)
             {
                 nomes.Add(p.Nome);
             }
-
+            
             PacientesListView.ItemsSource = nomes;
         }
 
