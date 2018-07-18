@@ -3,12 +3,12 @@ using LabClick.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views.PacientePages
+namespace LabClick.Views.Paciente
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PacienteMainPage : MasterDetailPage
 	{
-		public PacienteMainPage (Paciente paciente)
+		public PacienteMainPage (Models.Paciente paciente)
 		{
 			InitializeComponent ();
 

@@ -1,20 +1,19 @@
-﻿using LabClick.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views.ExamePages
+namespace LabClick.Views.Teste
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ExamesPage : ContentPage
+	public partial class ListaTeste : ContentPage
 	{
-        private Paciente paciente;
-        private Teste teste;
+        private Models.Paciente paciente;
+        private Models.Teste teste;
 
-		public ExamesPage (Paciente paciente)
+		public ListaTeste(Models.Paciente paciente)
 		{
 			InitializeComponent ();
             this.paciente = paciente;
@@ -25,16 +24,16 @@ namespace LabClick.Views.ExamePages
             var result = App.Client.GetAsync($@"http://apilabclick.mflogic.com.br/teste/getAllByPacienteId={paciente.Id}");
             var content = result.Result.Content.ReadAsStringAsync();
 
-            var testes = JsonConvert.DeserializeObject<List<Teste>>(content.Result);
+            var testes = JsonConvert.DeserializeObject<List<Models.Teste>>(content.Result);
 
-            ExamesList.ItemsSource = testes;
+            ListaTestes.ItemsSource = testes;
         }
 
         private async Task ExamesList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            this.teste = (Teste)ExamesList.SelectedItem;
+            this.teste = (Models.Teste)ListaTestes.SelectedItem;
 
-            await App.NavigateMasterDetail(new ExameSelecionadoPage(teste));
+            await App.NavigateMasterDetail(new TesteSelecionado(teste));
         }
     }
 }

@@ -69,37 +69,37 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NETStandard.Library">
-      <Version>2.0.1</Version>
+      <Version>2.0.3</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Annotations">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Compat">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Core.UI">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Core.Utils">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Fragment">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Media.Compat">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.CardView">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter">
-      <Version>27.0.2</Version>
+      <Version>27.0.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.0.0.561731</Version>
+      <Version>3.1.0.583944</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

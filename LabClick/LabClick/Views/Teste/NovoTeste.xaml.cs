@@ -1,5 +1,4 @@
-﻿using LabClick.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -10,15 +9,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views.ExamePages
+namespace LabClick.Views.Teste
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NovoExamePage : ContentPage
+	public partial class NovoTeste : ContentPage
 	{
         private byte[] pictureBits;
-        private Paciente paciente;
+        private Models.Paciente paciente;
 
-		public NovoExamePage (Paciente paciente)
+		public NovoTeste(Models.Paciente paciente)
 		{
 			InitializeComponent ();
             BtnEnviarTeste.IsEnabled = false;

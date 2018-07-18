@@ -7,12 +7,12 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views
+namespace LabClick.Views.Paciente
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NovoPacientePage : ContentPage
+	public partial class NovoPaciente : ContentPage
 	{
-		public NovoPacientePage ()
+		public NovoPaciente ()
 		{
 			InitializeComponent ();
 		}
@@ -48,7 +48,7 @@ namespace LabClick.Views
             var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
 
             //Cadastro do Paciente
-            Paciente paciente = pacienteViewModel.Paciente;
+            Models.Paciente paciente = pacienteViewModel.Paciente;
             paciente.ClinicaId = 1;
             paciente.EnderecoId = enderecoId;
 

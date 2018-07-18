@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="automapper" Version="7.0.0" />
+    <PackageReference Include="automapper" Version="7.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Xam.Plugin.Media" Version="4.0.0.9" />
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.561731" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.1" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
   </ItemGroup>
 
   <ItemGroup>
@@ -16,31 +16,49 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\ExamePages\ExameSelecionadoPage.xaml">
+    <Compile Update="Views\Paciente\NovoPaciente.xaml.cs">
+      <DependentUpon>NovoPaciente.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Paciente\PesquisarPaciente.xaml.cs">
+      <DependentUpon>PesquisarPaciente.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teste\TesteSelecionado.xaml.cs">
+      <DependentUpon>TesteSelecionado.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teste\ListaTeste.xaml.cs">
+      <DependentUpon>ListaTeste.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Teste\NovoTeste.xaml.cs">
+      <DependentUpon>NovoTeste.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Teste\TesteSelecionado.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ExamePages\ExamesPage.xaml">
+    <EmbeddedResource Update="Views\Teste\ListaTeste.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ExamePages\NovoExamePage.xaml">
+    <EmbeddedResource Update="Views\Teste\NovoTeste.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Login.xaml">
+    <EmbeddedResource Update="Views\Login\Login.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NovoPacientePage.xaml">
+    <EmbeddedResource Update="Views\Paciente\NovoPaciente.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PacientePages\PacienteDetails.xaml">
+    <EmbeddedResource Update="Views\Paciente\PacienteDetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PacientePages\PacienteMainPage.xaml">
+    <EmbeddedResource Update="Views\Paciente\PacienteMainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PacientePages\PacienteMasterDetailPage.xaml">
+    <EmbeddedResource Update="Views\Paciente\PacienteMasterDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PesquisarPacientePage.xaml">
+    <EmbeddedResource Update="Views\Paciente\PesquisarPaciente.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,6 +1,4 @@
-﻿using LabClick.Models;
-using LabClick.Views.PacientePages;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -8,14 +6,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views
+namespace LabClick.Views.Paciente
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PesquisarPacientePage : ContentPage
+	public partial class PesquisarPaciente : ContentPage
 	{
-        List<Paciente> pacientes = new List<Paciente>();
+        List<Models.Paciente> pacientes = new List<Models.Paciente>();
 
-        public PesquisarPacientePage ()
+        public PesquisarPaciente ()
 		{
 			InitializeComponent ();
 		}
@@ -26,7 +24,7 @@ namespace LabClick.Views
             var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
             var content = result.Content.ReadAsStringAsync();
 
-            pacientes = JsonConvert.DeserializeObject<List<Paciente>>(content.Result);
+            pacientes = JsonConvert.DeserializeObject<List<Models.Paciente>>(content.Result);
 
             //melhorar isso aqui!
             List<string> nomes = new List<string>();

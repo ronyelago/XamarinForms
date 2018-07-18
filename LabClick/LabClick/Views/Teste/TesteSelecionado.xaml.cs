@@ -1,15 +1,14 @@
-﻿using LabClick.Models;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views.ExamePages
+namespace LabClick.Views.Teste
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ExameSelecionadoPage : ContentPage
+	public partial class TesteSelecionado : ContentPage
 	{
-        public ExameSelecionadoPage(Teste teste)
+        public TesteSelecionado(Models.Teste teste)
 		{
 			InitializeComponent ();
 

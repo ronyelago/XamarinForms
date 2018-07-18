@@ -1,4 +1,4 @@
-﻿using LabClick.Views;
+﻿using LabClick.Views.Paciente;
 using Xamarin.Forms;
 
 namespace LabClick
@@ -12,12 +12,12 @@ namespace LabClick
 
         private void BtnNovoPaciente_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NovoPacientePage());
+            Navigation.PushAsync(new NovoPaciente());
         }
 
         private void BtnPesquisarPaciente_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new PesquisarPacientePage());
+            Navigation.PushAsync(new PesquisarPaciente());
         }
     }
 }

@@ -1,13 +1,12 @@
-﻿using LabClick.Models;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace LabClick.Views.PacientePages
+namespace LabClick.Views.Paciente
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PacienteDetails : ContentPage
 	{
-		public PacienteDetails (Paciente paciente)
+		public PacienteDetails (Models.Paciente paciente)
 		{
 			InitializeComponent ();
 
