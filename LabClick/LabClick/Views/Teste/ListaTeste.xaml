@@ -9,31 +9,16 @@
         </StackLayout>
         <ScrollView>
             <StackLayout>
-                
-                <!--<ListView x:Name="ExamesList" ItemTapped="ExamesList_ItemTapped">
+
+                <ListView x:Name="TestesLista" ItemTapped="TestesLista_ItemTapped">
                     <ListView.ItemTemplate x:Uid="test">
                         <DataTemplate>
                             <TextCell Text="{Binding Exame.Nome, StringFormat='Teste: {0}'}" 
                                       Detail="{Binding Status, StringFormat='Status: {0}'}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>-->
-
-                <ListView x:Name="ListaTestes">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout BackgroundColor="Gray" Orientation="Vertical">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Exame.Nome, StringFormat='Teste: {0}'}"/>
-                                        <Label Text="{Binding Status, StringFormat='Status: {0}'}"/>
-                                    </StackLayout>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
                 </ListView>
-                
+
             </StackLayout>
         </ScrollView>
         

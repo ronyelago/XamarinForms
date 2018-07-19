@@ -8,7 +8,7 @@ namespace LabClick.Views.Teste
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class TesteSelecionado : ContentPage
 	{
-        public TesteSelecionado(Models.Teste teste)
+        public TesteSelecionado(Domain.Entities.Teste teste)
 		{
 			InitializeComponent ();
 
@@ -17,6 +17,16 @@ namespace LabClick.Views.Teste
             lblDataRealizado.Text = $"Data do Teste: {teste.DataCadastro.ToShortDateString()}";
             ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(teste.Imagem.ToArray()));
             ExameImg.Source = imageSource;
+
+            if (teste.LaudoOk)
+            {
+                btnVerPdf.IsEnabled = true;
+            }
 		}
-	}
+
+        private void BtnVerPdf_Clicked(object sender, System.EventArgs e)
+        {
+            DisplayAlert("bosta", "Bosta viva.", "Ok");
+        }
+    }
 }

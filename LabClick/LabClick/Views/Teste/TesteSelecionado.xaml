@@ -20,5 +20,13 @@
                    HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
 
+        <StackLayout x:Name="StackButton">
+            <Button x:Name="btnVerPdf" 
+                    Clicked="BtnVerPdf_Clicked"
+                    IsEnabled="False"
+                    WidthRequest="70"
+                    HeightRequest="50"/>
+        </StackLayout>
+
     </StackLayout>
 </ContentPage>

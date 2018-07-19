@@ -16,6 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="LabClick.Domain">
+      <HintPath>..\..\..\labclick\LabClick.Domain\bin\Debug\LabClick.Domain.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Views\Paciente\NovoPaciente.xaml.cs">
       <DependentUpon>NovoPaciente.xaml</DependentUpon>
     </Compile>

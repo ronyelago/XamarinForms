@@ -11,7 +11,7 @@ namespace LabClick.Views.Teste
 	public partial class ListaTeste : ContentPage
 	{
         private Models.Paciente paciente;
-        private Models.Teste teste;
+        private Domain.Entities.Teste teste;
 
 		public ListaTeste(Models.Paciente paciente)
 		{
@@ -24,14 +24,14 @@ namespace LabClick.Views.Teste
             var result = App.Client.GetAsync($@"http://apilabclick.mflogic.com.br/teste/getAllByPacienteId={paciente.Id}");
             var content = result.Result.Content.ReadAsStringAsync();
 
-            var testes = JsonConvert.DeserializeObject<List<Models.Teste>>(content.Result);
+            var testes = JsonConvert.DeserializeObject<List<Domain.Entities.Teste>>(content.Result);
 
-            ListaTestes.ItemsSource = testes;
+            TestesLista.ItemsSource = testes;
         }
 
-        private async Task ExamesList_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async Task TestesLista_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            this.teste = (Models.Teste)ListaTestes.SelectedItem;
+            this.teste = (Domain.Entities.Teste)TestesLista.SelectedItem;
 
             await App.NavigateMasterDetail(new TesteSelecionado(teste));
         }
