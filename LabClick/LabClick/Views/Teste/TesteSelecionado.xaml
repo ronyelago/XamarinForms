@@ -25,7 +25,9 @@
                     Clicked="BtnVerPdf_Clicked"
                     IsEnabled="False"
                     WidthRequest="70"
-                    HeightRequest="50"/>
+                    HeightRequest="50"
+                    Text="Ver Laudo"/>
+            
         </StackLayout>
 
     </StackLayout>
