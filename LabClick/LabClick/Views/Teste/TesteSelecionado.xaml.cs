@@ -26,30 +26,7 @@ namespace LabClick.Views.Teste
 
         private void BtnVerPdf_Clicked(object sender, System.EventArgs e)
         {
-            var browser = new WebView
-            {
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                HorizontalOptions = LayoutOptions.FillAndExpand
-            };
-
-
-            var htmlSource = new HtmlWebViewSource();
-            htmlSource.Html = @"<html><body>
-                              <h1>Xamarin.Forms</h1>
-                              <p>Welcome to WebView.</p>
-                              </body></html>";
-            browser.Source = htmlSource;
-
-            ToolbarItems.Add(new ToolbarItem("Back", null, () =>
-            {
-                browser.GoBack();
-            }));
-
-            StackButton.Children.Add(browser);
-
-            browser.IsVisible = true;
-            browser.WidthRequest = 1000;
-            browser.HeightRequest = 1000;
+            
         }
     }
 }
