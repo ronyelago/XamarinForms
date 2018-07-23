@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,9 +25,9 @@ namespace LabClick.Views.Teste
             }
 		}
 
-        private void BtnVerPdf_Clicked(object sender, System.EventArgs e)
+        private async Task BtnVerPdf_ClickedAsync(object sender, System.EventArgs e)
         {
-            
+            await App.NavigateMasterDetail(new PdfView());
         }
     }
 }
