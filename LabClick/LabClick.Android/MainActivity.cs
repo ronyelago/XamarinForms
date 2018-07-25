@@ -10,6 +10,9 @@ namespace LabClick.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            //Funcionamento do ZXing (QR Code Scanner)
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

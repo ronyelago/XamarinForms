@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZXing.Mobile;
 
 namespace LabClick.Views.Teste
 {
@@ -16,12 +17,14 @@ namespace LabClick.Views.Teste
 	{
         private byte[] pictureBits;
         private Models.Paciente paciente;
+        private Domain.Entities.Teste teste;
 
 		public NovoTeste(Models.Paciente paciente)
 		{
 			InitializeComponent ();
             BtnEnviarTeste.IsEnabled = false;
             this.paciente = paciente;
+            this.teste = new Domain.Entities.Teste();
 		}
 
         private async Task BtnTeste_ClickedAsync(object sender, EventArgs e)
@@ -65,17 +68,14 @@ namespace LabClick.Views.Teste
 
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)
         {
-            var Teste = new
-            {
-                ExameId = 1,
-                ClinicaId = 1,
-                PacienteId = paciente.Id,
-                Imagem = pictureBits,
-                Status = "Em análise",
-                DataCadastro = DateTime.Now
-            };
-
-            var serialized = JsonConvert.SerializeObject(Teste);
+            teste.ExameId = 1;
+            teste.ClinicaId = 1;
+            teste.PacienteId = paciente.Id;
+            teste.Imagem = pictureBits;
+            teste.Status = "Em análise";
+            teste.DataCadastro = DateTime.Now;
+            
+            var serialized = JsonConvert.SerializeObject(teste);
 
             HttpClient client = new HttpClient();
             Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
@@ -96,7 +96,13 @@ namespace LabClick.Views.Teste
 
         private async Task BtnQrCode_ClickedAsync(object sender, EventArgs e)
         {
+            var scanner = new MobileBarcodeScanner();
+            var result = await scanner.Scan();
 
+            if (result != null)
+            {
+                teste.Code = result.Text;
+            }
         }
     }
 }
