@@ -1,4 +1,4 @@
-﻿namespace LabClick.Serivices
+﻿namespace LabClick.Services
 {
     public class LoadList<T> 
     {

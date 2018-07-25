@@ -27,7 +27,7 @@ namespace LabClick.Views.Teste
 
         private async Task BtnVerPdf_ClickedAsync(object sender, System.EventArgs e)
         {
-            await App.NavigateMasterDetail(new PdfView());
+            await Navigation.PushAsync
         }
     }
 }

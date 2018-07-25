@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using Xamarin.Forms;
 
-namespace LabClick.Serivices
+namespace LabClick.Services
 {
     public class ImageServices
     {
