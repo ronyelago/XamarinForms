@@ -24,6 +24,10 @@
         </StackLayout>
         <!--buttons-->
         <StackLayout>
+            <Button
+                x:Name="btnQrCode"
+                Text="Escanear QR Code"
+                Clicked="BtnQrCode_ClickedAsync"/>
             <Button 
             x:Name="btnTeste"
             Text="Fotografar Teste"

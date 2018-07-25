@@ -93,5 +93,10 @@ namespace LabClick.Views.Teste
                 await DisplayAlert("Falha", "Algo errado não deu certo.", "Ok");
             }
         }
+
+        private async Task BtnQrCode_ClickedAsync(object sender, EventArgs e)
+        {
+
+        }
     }
 }
