@@ -33,7 +33,7 @@ namespace LabClick.Views.Teste
         {
             this.teste = (Domain.Entities.Teste)TestesLista.SelectedItem;
 
-            await App.NavigateMasterDetail(new TesteSelecionado(teste));
+            await App.NavigateMasterDetail(new LaudoTeste(teste.PacienteId));
         }
     }
 }

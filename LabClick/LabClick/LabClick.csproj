@@ -28,8 +28,8 @@
     <Compile Update="Views\Paciente\PesquisarPaciente.xaml.cs">
       <DependentUpon>PesquisarPaciente.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\Teste\TesteSelecionado.xaml.cs">
-      <DependentUpon>TesteSelecionado.xaml</DependentUpon>
+    <Compile Update="Views\Teste\LaudoTeste.xaml.cs">
+      <DependentUpon>LaudoTeste.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\Teste\ListaTeste.xaml.cs">
       <DependentUpon>ListaTeste.xaml</DependentUpon>
@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\Teste\TesteSelecionado.xaml">
+    <EmbeddedResource Update="Views\Teste\LaudoTeste.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Teste\ListaTeste.xaml">
