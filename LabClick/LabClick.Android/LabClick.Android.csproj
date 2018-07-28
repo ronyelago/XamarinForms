@@ -139,9 +139,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
-    <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LabClick\LabClick.csproj">
@@ -165,16 +165,16 @@
     <AndroidResource Include="Resources\drawable\bglogin.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\btn3.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\btn1.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn1.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\btn4.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn4.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\btn2.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\btn2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
