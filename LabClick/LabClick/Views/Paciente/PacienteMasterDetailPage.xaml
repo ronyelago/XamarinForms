@@ -11,9 +11,12 @@
                     BackgroundColor="SkyBlue"
                     Clicked="BtnExames_Clicked"/>
             <Button x:Name="BtnNovoExame"
-                    Text="Novo Exame"
                     BackgroundColor="SkyBlue"
+                    Image="menunovoexame.png"
                     Clicked="BtnNovoExame_Clicked"/>
-        </StackLayout>
+            <Image Source="menunovoexame.png"
+                   
+                   HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
 
 </ContentPage>
