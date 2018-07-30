@@ -19,10 +19,5 @@ namespace LabClick
         {
             Navigation.PushAsync(new PesquisarPaciente());
         }
-
-        private void ContentPage_Focused(object sender, FocusEventArgs e)
-        {
-            DisplayAlert("hello", "", "");
-        }
     }
 }
