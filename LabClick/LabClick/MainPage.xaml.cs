@@ -1,10 +1,9 @@
-﻿using BottomBar.XamarinForms;
-using LabClick.Views.Paciente;
+﻿using LabClick.Views.Paciente;
 using Xamarin.Forms;
 
 namespace LabClick
 {
-    public partial class MainPage : BottomBarPage
+    public partial class MainPage : TabbedPage
 	{
 		public MainPage()
 		{

@@ -1,14 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<xamarinforms:BottomBarPage
-    xmlns:xamarinforms="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms" xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:LabClick"
-             x:Class="LabClick.MainPage">
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local="clr-namespace:LabClick.Views.Paciente"
+            x:Class="LabClick.MainPage">
 
+    <local:PesquisarPaciente Icon="search.png" Title="Pacientes"/>
+    <local:NovoPaciente Icon="add.png" Title="Novo Paciente"/>
 
-    <ContentPage Title="Pacientes" Icon="btn3.png" HeightRequest="50" WidthRequest="300"/>
-    <ContentPage Title="Novo Paciente" Icon="btn1.png"/>
-    <ContentPage Title="Testes" Icon="btn4.png"/>
-    <ContentPage Title="Gráficos" Icon="btn2.png"/>
-
-</xamarinforms:BottomBarPage>
+</TabbedPage>
