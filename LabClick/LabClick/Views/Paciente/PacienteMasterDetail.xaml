@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LabClick.Views.Paciente.PacienteMasterDetail">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu - Paciente">
+            
+        </ContentPage>    
+    </MasterDetailPage.Master>
+    
+    <MasterDetailPage.Detail>
+        <ContentPage>
+            
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

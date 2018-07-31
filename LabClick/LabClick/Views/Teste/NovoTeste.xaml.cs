@@ -16,10 +16,10 @@ namespace LabClick.Views.Teste
 	public partial class NovoTeste : ContentPage
 	{
         private byte[] pictureBits;
-        private Models.Paciente paciente;
+        private Domain.Entities.Paciente paciente;
         private Domain.Entities.Teste teste;
 
-		public NovoTeste(Models.Paciente paciente)
+		public NovoTeste(Domain.Entities.Paciente paciente)
 		{
 			InitializeComponent ();
             BtnEnviarTeste.IsEnabled = false;

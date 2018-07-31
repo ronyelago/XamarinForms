@@ -10,10 +10,10 @@ namespace LabClick.Views.Teste
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListaTeste : ContentPage
 	{
-        private Models.Paciente paciente;
+        private Domain.Entities.Paciente paciente;
         private Domain.Entities.Teste teste;
 
-		public ListaTeste(Models.Paciente paciente)
+		public ListaTeste(Domain.Entities.Paciente paciente)
 		{
 			InitializeComponent ();
             this.paciente = paciente;

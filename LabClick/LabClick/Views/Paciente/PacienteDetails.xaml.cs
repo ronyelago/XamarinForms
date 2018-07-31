@@ -6,7 +6,7 @@ namespace LabClick.Views.Paciente
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PacienteDetails : ContentPage
 	{
-		public PacienteDetails (Models.Paciente paciente)
+		public PacienteDetails (Domain.Entities.Paciente paciente)
 		{
 			InitializeComponent ();
 

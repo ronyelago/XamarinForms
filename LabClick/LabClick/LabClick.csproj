@@ -27,6 +27,9 @@
     <Compile Update="Views\Paciente\NovoPaciente.xaml.cs">
       <DependentUpon>NovoPaciente.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\Paciente\PacienteMasterDetail.xaml.cs">
+      <DependentUpon>PacienteMasterDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Paciente\PesquisarPaciente.xaml.cs">
       <DependentUpon>PesquisarPaciente.xaml</DependentUpon>
     </Compile>
@@ -45,6 +48,9 @@
     <EmbeddedResource Update="Views\Graficos\GraficosTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Paciente\PacienteMasterDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Teste\LaudoTeste.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -61,12 +67,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Paciente\PacienteDetails.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Paciente\PacienteMainPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Paciente\PacienteMasterDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Paciente\PesquisarPaciente.xaml">

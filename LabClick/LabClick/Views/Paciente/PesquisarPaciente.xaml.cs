@@ -11,7 +11,7 @@ namespace LabClick.Views.Paciente
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class PesquisarPaciente : ContentPage
 	{
-        List<Models.Paciente> pacientes = new List<Models.Paciente>();
+        List<Domain.Entities.Paciente> pacientes = new List<Domain.Entities.Paciente>();
 
         public PesquisarPaciente ()
 		{
@@ -24,7 +24,7 @@ namespace LabClick.Views.Paciente
             var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
             var content = result.Content.ReadAsStringAsync();
 
-            pacientes = JsonConvert.DeserializeObject<List<Models.Paciente>>(content.Result);
+            pacientes = JsonConvert.DeserializeObject<List<Domain.Entities.Paciente>>(content.Result);
 
             //melhorar isso aqui!
             List<string> nomes = new List<string>();
@@ -40,9 +40,10 @@ namespace LabClick.Views.Paciente
         private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var paciente = pacientes.FirstOrDefault(p => p.Nome == PacientesListView.SelectedItem.ToString());
-            var pacientePage = new PacienteMainPage(paciente);
-            
-            Navigation.PushAsync(pacientePage);
+            var pacienteDetails = new PacienteDetails(paciente);
+
+            Navigation.PushAsync(pacienteDetails);
+            PacientesListView.SelectedItem = null;
         }
     }
 }
