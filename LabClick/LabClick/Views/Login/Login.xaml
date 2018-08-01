@@ -7,27 +7,43 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Spacing="20" HorizontalOptions="Center" WidthRequest="300">
-                <Label Text="LabClick" 
-                   Font="30"
-                   Margin="50"
-                   VerticalTextAlignment="Center" 
-                   HorizontalOptions="Center" 
-                   FontAttributes="Bold"/>
-                <Entry x:Name="txtUsuario" 
-                   Placeholder="Usuário"/>
-                <Entry x:Name="txtSenha" 
-                   Placeholder="Senha" 
-                   IsPassword="True"/>
-                <Button x:Name="btnEntrar" 
-                    Clicked="btnEntrar_Clicked"
-                    Text="Entrar"
-                    TextColor="White"
-                    BackgroundColor="Gray"
-                    HorizontalOptions="Center"
-                    WidthRequest="100"/>
+            <StackLayout Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Image Source="logolabclick.png" 
+                       HeightRequest="400"
+                       WidthRequest="400"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical"
+                         Padding="20,20,20,20"
+                         Spacing="20"
+                         HorizontalOptions="Center"
+                         WidthRequest="300">
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <Image Source="mail.png"/>
+                    <Entry Placeholder="Usuário"
+                           WidthRequest="270"
+                           HeightRequest="30"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="Center">
+                    <Image Source="hold.png"/>
+                    <Entry Placeholder="Senha"
+                           WidthRequest="270"
+                           HeightRequest="30"
+                       IsPassword="True"/>
+                </StackLayout>
+                <StackLayout Padding="0,40,0,0">
+                    <Button Text="Entrar"
+                            x:Name="btnEntrar"
+                            Clicked="btnEntrar_Clicked"
+                            BackgroundColor="#2B7350"
+                            WidthRequest="200" 
+                            HeightRequest="40"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            Margin="10,10,10,10"/>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

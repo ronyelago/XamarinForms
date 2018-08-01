@@ -61,14 +61,14 @@ namespace LabClick.Views.Paciente
 
             if (result.Result.IsSuccessStatusCode)
             {
-                DisplayAlert("Sucesso", "Paciente cadastrado com sucesso!", "Ok");
+                DisplayAlert("Sucesso", "Paciente cadastrado com sucesso.", "Ok");
                 Navigation.PushAsync(new MainPage());
 
             }
 
             else
             {
-                DisplayAlert("Deu ruim", "Nãu rolou mano...", "Ok");
+                DisplayAlert("Erro", "Nãu foi possível realizar o cadastro.", "Ok");
             }
         }
     }
