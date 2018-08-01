@@ -22,13 +22,17 @@
                     <Image Source="name.png"/>
                     <Entry x:Name="txtNome" 
                                WidthRequest="600"
-                               Placeholder="Nome do Paciente"/>
+                               Placeholder="Nome"/>
                 </StackLayout>
 
                 <!--Data de Nascimento-->
+
                 <StackLayout Orientation="Horizontal"
                              Margin="50,10,50,10">
                     <Image Source="date.png"/>
+                    <Label Text="Data de Nascimento"
+                           TextColor="LightSlateGray"
+                           Font="18"/>
                     <DatePicker HorizontalOptions="Start"
                                 x:Name="dataNascimento"></DatePicker>
                 </StackLayout>
@@ -37,25 +41,32 @@
                 <StackLayout Orientation="Horizontal"
                              Margin="50,10,50,10">
                     <Image Source="cpf.png"/>
-                    <Entry x:Name="txtCpf" WidthRequest="200"/>
+                    <Entry x:Name="txtCpf" 
+                           WidthRequest="300"
+                           Placeholder="CPF"/>
                 </StackLayout>
 
                 <!--Gênero-->
-                    <StackLayout>
-                        <Picker x:Name="pickerGenero" Title="Gênero" VerticalOptions="CenterAndExpand">
-                            <Picker.Items>
-                                <x:String>Masculino</x:String>
-                                <x:String>Feminino</x:String>
-                            </Picker.Items>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="genero.png"/>
+                        <Picker x:Name="pickerGenero" 
+                                Title="Gênero" 
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="300">
+                                <Picker.Items>
+                                    <x:String>Masculino</x:String>
+                                    <x:String>Feminino</x:String>
+                                </Picker.Items>
                         </Picker>
                     </StackLayout>
 
                     <!--Endereço-->
                     <StackLayout>
                         <Label Text="Endereço" 
-                           Font="15" VerticalTextAlignment="Center" 
+                           Font="18" VerticalTextAlignment="Center" 
                            HorizontalOptions="Center" 
-                           FontAttributes="Bold">
+                           TextColor="#2B7350">
                         </Label>
                         <!--CEP-->
                         <StackLayout>
