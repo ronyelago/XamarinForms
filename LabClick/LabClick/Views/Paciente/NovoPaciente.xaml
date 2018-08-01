@@ -1,49 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Paciente.NovoPaciente">
+             x:Class="LabClick.Views.Paciente.NovoPaciente"
+             BackgroundImage="bgcadastro.png">
 
-        <StackLayout>
+        <StackLayout Spacing="30">
 
             <ScrollView>
-                <StackLayout Spacing="20">
-
-                    <Label Text="Cadastro de Paciente" 
-                       Font="20" VerticalTextAlignment="Center" 
-                       HorizontalOptions="Center" 
-                       FontAttributes="Bold">
-                    </Label>
-
-                    <!--Nome do paciente-->
-                    <StackLayout>
-                    <Label Text="Nome" 
-                                   VerticalOptions="FillAndExpand" 
-                                   HorizontalOptions="FillAndExpand"></Label>
-                        <Entry x:Name="txtNome" WidthRequest="200"/>
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Margin="0,20,0,20">
+                        <Label Text="Cadastro de Paciente" 
+                           Font="30" VerticalTextAlignment="Center" 
+                           HorizontalOptions="Center" 
+                           TextColor="#2B7350">
+                        </Label>
                     </StackLayout>
 
-                    <!--Sobrenome do paciente-->
-                    <StackLayout>
-                    <Label Text="Sobrenome"
-                           VerticalOptions="FillAndExpand"
-                           HorizontalOptions="FillAndExpand"></Label>
-                        <Entry x:Name="txtSobrenome" WidthRequest="200"/>
-                    </StackLayout>
+                <!--Nome do paciente-->
+                <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                    <Image Source="name.png"/>
+                    <Entry x:Name="txtNome" 
+                               WidthRequest="600"
+                               Placeholder="Nome do Paciente"/>
+                </StackLayout>
 
-                    <!--Data de Nascimento-->
-                    <StackLayout>
-                        <Label Text="Data de Nascimento" 
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"></Label>
-                        <DatePicker HorizontalOptions="Start"
-                                    x:Name="dataNascimento"></DatePicker>
-                    </StackLayout>
+                <!--Data de Nascimento-->
+                <StackLayout Orientation="Horizontal"
+                             Margin="50,10,50,10">
+                    <Image Source="date.png"/>
+                    <DatePicker HorizontalOptions="Start"
+                                x:Name="dataNascimento"></DatePicker>
+                </StackLayout>
 
                 <!--CPF-->
-                <StackLayout>
-                    <Label Text="CPF"
-                           VerticalOptions="FillAndExpand"
-                           HorizontalOptions="FillAndExpand"></Label>
+                <StackLayout Orientation="Horizontal"
+                             Margin="50,10,50,10">
+                    <Image Source="cpf.png"/>
                     <Entry x:Name="txtCpf" WidthRequest="200"/>
                 </StackLayout>
 

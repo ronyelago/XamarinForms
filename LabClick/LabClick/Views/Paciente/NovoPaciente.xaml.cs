@@ -25,7 +25,7 @@ namespace LabClick.Views.Paciente
         private void BtnSalvar_Clicked(object sender, EventArgs e)
         {
             PacienteViewModel pacienteViewModel = new PacienteViewModel();
-            pacienteViewModel.Paciente.Nome = $"{txtNome.Text} {txtSobrenome.Text}";
+            pacienteViewModel.Paciente.Nome = txtNome.Text;
             pacienteViewModel.Paciente.DataNascimento = dataNascimento.Date;
             pacienteViewModel.Paciente.Sexo = pickerGenero.SelectedItem.ToString();
             pacienteViewModel.Paciente.Cpf = txtCpf.Text;
