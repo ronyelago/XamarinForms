@@ -40,10 +40,10 @@ namespace LabClick.Views.Paciente
         private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var paciente = pacientes.FirstOrDefault(p => p.Nome == PacientesListView.SelectedItem.ToString());
-            var pacienteDetails = new PacienteDetails(paciente);
+            var pacienteMainPage = new PacienteMainPage(paciente);
 
-            Navigation.PushAsync(pacienteDetails);
             PacientesListView.SelectedItem = null;
+            Navigation.PushAsync(pacienteMainPage);
         }
     }
 }

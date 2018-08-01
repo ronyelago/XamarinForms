@@ -25,5 +25,10 @@ namespace LabClick.Views.Paciente
             }
 
         }
+
+        private void ContentPage_Appearing(object sender, System.EventArgs e)
+        {
+            
+        }
     }
 }
