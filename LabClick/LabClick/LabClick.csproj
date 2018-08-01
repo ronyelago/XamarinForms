@@ -45,7 +45,7 @@
     <EmbeddedResource Update="Views\Graficos\GraficosTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Paciente\PacienteMainPage.xaml">
+    <EmbeddedResource Update="Views\Home.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Paciente\PacienteMasterPage.xaml">

@@ -7,14 +7,18 @@ using Xamarin.Forms.Xaml;
 namespace LabClick.Views.Paciente
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PacienteMasterPage : ContentPage
+	public partial class PacienteMasterPage : MasterDetailPage
 	{
 
         public List<MasterPageItem> MenuList { get; set; }
+        public Domain.Entities.Paciente Paciente { get; set; }
 
-        public PacienteMasterPage ()
+        public PacienteMasterPage(Domain.Entities.Paciente paciente)
 		{
 			InitializeComponent ();
+
+            this.Paciente = paciente;
+            this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(PacienteDetails), Paciente));
 
             MenuList = new List<MasterPageItem>
             {
@@ -30,8 +34,16 @@ namespace LabClick.Views.Paciente
             var item = (MasterPageItem)e.SelectedItem;
             Type page = item.TargetType;
 
-            App.MasterPage.Detail = new NavigationPage((Page)Activator.CreateInstance(page));
-            App.MasterPage.IsPresented = false;
+            if (page.Name == "ListaTeste")
+            {
+                this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(ListaTeste), Paciente));
+            }
+            else
+            {
+                this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(NovoTeste), Paciente));
+            }
+
+            this.IsPresented = false;
         }
     }
 }

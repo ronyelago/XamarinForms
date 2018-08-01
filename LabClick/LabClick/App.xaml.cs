@@ -18,12 +18,12 @@ namespace LabClick
 		{
             InitializeComponent();
 
+            Client = new HttpClient();
+
             MainPage = new NavigationPage(new Login())
             {
                 BarBackgroundColor = Color.LightSeaGreen
             };
-
-            Client = new HttpClient();
 		}
 
         //Invocar esta task ao clicar em um ítem da master detail

@@ -2,11 +2,13 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:LabClick.Views.Paciente"
-            xmlns:control1="clr-namespace:LabClick.Views.Graficos"
+            xmlns:graficos="clr-namespace:LabClick.Views.Graficos"
+            xmlns:home="clr-namespace:LabClick.Views"
             x:Class="LabClick.MainPage">
 
+    <home:Home Icon="home.png" Title="Home"/>
     <local:PesquisarPaciente Icon="search.png" Title="Pacientes"/>
     <local:NovoPaciente Icon="add.png" Title="Novo Paciente"/>
-    <control1:GraficosTabbedPage Icon="chartbar.png" Title="Gráficos" x:Name="Graficos"/>
+    <graficos:GraficosTabbedPage Icon="chartbar.png" Title="Gráficos" x:Name="Graficos"/>
 
 </TabbedPage>
