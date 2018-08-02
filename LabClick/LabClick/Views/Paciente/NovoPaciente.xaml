@@ -34,7 +34,8 @@
                                TextColor="LightSlateGray"
                                Font="18"/>
                         <DatePicker HorizontalOptions="Start"
-                                    x:Name="dataNascimento"/>
+                                    x:Name="dataNascimento" 
+                                    Date="01-01-2000"/>
                 </StackLayout>
 
                     <!--CPF-->
