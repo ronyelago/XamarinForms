@@ -64,7 +64,6 @@ namespace LabClick.Views.Paciente
             {
                 DisplayAlert("Sucesso", "Paciente cadastrado com sucesso.", "Ok");
                 Navigation.PushAsync(new MainPage());
-
             }
             else
             {
@@ -74,29 +73,34 @@ namespace LabClick.Views.Paciente
 
         private void txtCep_Unfocused(object sender, FocusEventArgs e)
         {
-            Uri urinho = new Uri($@"http://viacep.com.br/ws/{txtCep.Text}/json/");
-            HttpClient client = new HttpClient();
-
-            var result = client.GetAsync(urinho);
-
-            if (result.Result.IsSuccessStatusCode)
+            if (txtCep.Text != null && txtCep.Text != string.Empty)
             {
-                var content = result.Result.Content.ReadAsStringAsync();
-                var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
+                Uri urinho = new Uri($@"http://viacep.com.br/ws/{txtCep.Text}/json/");
+                HttpClient client = new HttpClient();
 
-                txtUf.Text = endereco.Uf;
-                txtCidade.Text = endereco.Localidade;
-                txtBairro.Text = endereco.Bairro;
-                txtRua.Text = endereco.Logradouro;
+                var result = client.GetAsync(urinho);
 
-                txtUf.IsEnabled = false;
-                txtCidade.IsEnabled = false;
-                txtBairro.IsEnabled = false;
-                txtRua.IsEnabled = false;
-            }
-            else
-            {
-                DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Ok");
+                if (result.Result.IsSuccessStatusCode)
+                {
+                    var content = result.Result.Content.ReadAsStringAsync();
+                    var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
+
+                    if (endereco.IsValid())
+                    {
+                        txtUf.Text = endereco.Uf;
+                        txtCidade.Text = endereco.Localidade;
+                        txtBairro.Text = endereco.Bairro;
+                        txtRua.Text = endereco.Logradouro;
+                    }
+                    else
+                    {
+                        DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Ok");
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Ok");
+                }
             }
         }
     }

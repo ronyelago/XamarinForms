@@ -7,5 +7,14 @@
         public string Localidade { get; set; }
         public string Uf { get; set; }
 
+        public bool IsValid()
+        {
+            if (Logradouro != null && Bairro != null && Localidade != null && Uf != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
