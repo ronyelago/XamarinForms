@@ -66,10 +66,37 @@ namespace LabClick.Views.Paciente
                 Navigation.PushAsync(new MainPage());
 
             }
-
             else
             {
                 DisplayAlert("Erro", "Nãu foi possível realizar o cadastro.", "Ok");
+            }
+        }
+
+        private void txtCep_Unfocused(object sender, FocusEventArgs e)
+        {
+            Uri urinho = new Uri($@"http://viacep.com.br/ws/{txtCep.Text}/json/");
+            HttpClient client = new HttpClient();
+
+            var result = client.GetAsync(urinho);
+
+            if (result.Result.IsSuccessStatusCode)
+            {
+                var content = result.Result.Content.ReadAsStringAsync();
+                var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
+
+                txtUf.Text = endereco.Uf;
+                txtCidade.Text = endereco.Localidade;
+                txtBairro.Text = endereco.Bairro;
+                txtRua.Text = endereco.Logradouro;
+
+                txtUf.IsEnabled = false;
+                txtCidade.IsEnabled = false;
+                txtBairro.IsEnabled = false;
+                txtRua.IsEnabled = false;
+            }
+            else
+            {
+                DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Ok");
             }
         }
     }
