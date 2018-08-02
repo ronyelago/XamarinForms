@@ -21,8 +21,8 @@
                                      Margin="50,10,50,10">
                         <Image Source="name.png"/>
                         <Entry x:Name="txtNome" 
-                                   WidthRequest="600"
-                                   Placeholder="Nome"/>
+                                   WidthRequest="400"
+                                   Placeholder="nome"/>
                     </StackLayout>
 
                     <!--Data de Nascimento-->
@@ -30,20 +30,20 @@
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="date.png"/>
-                        <Label Text="Data de Nascimento"
+                        <Label Text="  data de nascimento  "
                                TextColor="LightSlateGray"
                                Font="18"/>
                         <DatePicker HorizontalOptions="Start"
-                                    x:Name="dataNascimento"></DatePicker>
-                    </StackLayout>
+                                    x:Name="dataNascimento"/>
+                </StackLayout>
 
                     <!--CPF-->
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="cpf.png"/>
                         <Entry x:Name="txtCpf" 
-                               WidthRequest="300"
-                               Placeholder="CPF"/>
+                               WidthRequest="400"
+                               Placeholder="cpf"/>
                     </StackLayout>
 
                     <!--Gênero-->
@@ -51,9 +51,9 @@
                                     Margin="50,10,50,10">
                         <Image Source="genero.png"/>
                         <Picker x:Name="pickerGenero" 
-                                Title="Gênero" 
+                                Title="gênero" 
                                 VerticalOptions="CenterAndExpand"
-                                WidthRequest="300">
+                                WidthRequest="400">
                                 <Picker.Items>
                                     <x:String>Masculino</x:String>
                                     <x:String>Feminino</x:String>
@@ -61,16 +61,25 @@
                         </Picker>
                     </StackLayout>
                     
-                    <!--E-mail-->
+                    <!--email-->
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="mail.png"/>
                         <Entry x:Name="txtEmail"
-                               WidthRequest="300"
+                               WidthRequest="400"
                                Placeholder="e-mail"/>
                     </StackLayout>
 
-                    <!--Endereço-->
+                    <!--telefone-->
+                    <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                        <Image Source="phone.png"/>
+                        <Entry x:Name="txtPhone"
+                                   WidthRequest="400"
+                                   Placeholder="telefone"/>
+                    </StackLayout>
+
+                <!--Endereço-->
                     <StackLayout>
                         <Label Text="Endereço" 
                            Font="18" VerticalTextAlignment="Center" 

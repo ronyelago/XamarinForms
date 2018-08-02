@@ -28,6 +28,7 @@ namespace LabClick.Views.Paciente
             pacienteViewModel.Paciente.DataNascimento = dataNascimento.Date;
             pacienteViewModel.Paciente.Sexo = pickerGenero.SelectedItem.ToString();
             pacienteViewModel.Paciente.Email = txtEmail.Text;
+            pacienteViewModel.Paciente.Telefone = txtPhone.Text;
             pacienteViewModel.Paciente.Cpf = txtCpf.Text;
             pacienteViewModel.Endereco.Cep = txtCep.Text;
             pacienteViewModel.Endereco.UF = txtUf.Text;
