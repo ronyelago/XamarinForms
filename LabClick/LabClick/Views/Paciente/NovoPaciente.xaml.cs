@@ -1,5 +1,4 @@
-﻿using LabClick.Models;
-using LabClick.ViewModels;
+﻿using LabClick.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
@@ -28,6 +27,7 @@ namespace LabClick.Views.Paciente
             pacienteViewModel.Paciente.Nome = txtNome.Text;
             pacienteViewModel.Paciente.DataNascimento = dataNascimento.Date;
             pacienteViewModel.Paciente.Sexo = pickerGenero.SelectedItem.ToString();
+            pacienteViewModel.Paciente.Email = txtEmail.Text;
             pacienteViewModel.Paciente.Cpf = txtCpf.Text;
             pacienteViewModel.Endereco.Cep = txtCep.Text;
             pacienteViewModel.Endereco.UF = txtUf.Text;
@@ -39,7 +39,7 @@ namespace LabClick.Views.Paciente
             HttpClient client = new HttpClient();
 
             //Cadastro do Endereço
-            Endereco endereco = pacienteViewModel.Endereco;
+            Domain.Entities.Endereco endereco = pacienteViewModel.Endereco;
             var enderecoSerialized = JsonConvert.SerializeObject(endereco);
             var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
             Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/enderecos");
@@ -48,7 +48,7 @@ namespace LabClick.Views.Paciente
             var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
 
             //Cadastro do Paciente
-            Models.Paciente paciente = pacienteViewModel.Paciente;
+            Domain.Entities.Paciente paciente = pacienteViewModel.Paciente;
             paciente.ClinicaId = 1;
             paciente.EnderecoId = enderecoId;
 

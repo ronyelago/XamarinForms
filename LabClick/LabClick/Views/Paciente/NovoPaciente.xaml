@@ -16,39 +16,39 @@
                         </Label>
                     </StackLayout>
 
-                <!--Nome do paciente-->
-                <StackLayout Orientation="Horizontal"
-                                 Margin="50,10,50,10">
-                    <Image Source="name.png"/>
-                    <Entry x:Name="txtNome" 
-                               WidthRequest="600"
-                               Placeholder="Nome"/>
-                </StackLayout>
+                    <!--Nome do paciente-->
+                    <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                        <Image Source="name.png"/>
+                        <Entry x:Name="txtNome" 
+                                   WidthRequest="600"
+                                   Placeholder="Nome"/>
+                    </StackLayout>
 
-                <!--Data de Nascimento-->
+                    <!--Data de Nascimento-->
 
-                <StackLayout Orientation="Horizontal"
-                             Margin="50,10,50,10">
-                    <Image Source="date.png"/>
-                    <Label Text="Data de Nascimento"
-                           TextColor="LightSlateGray"
-                           Font="18"/>
-                    <DatePicker HorizontalOptions="Start"
-                                x:Name="dataNascimento"></DatePicker>
-                </StackLayout>
-
-                <!--CPF-->
-                <StackLayout Orientation="Horizontal"
-                             Margin="50,10,50,10">
-                    <Image Source="cpf.png"/>
-                    <Entry x:Name="txtCpf" 
-                           WidthRequest="300"
-                           Placeholder="CPF"/>
-                </StackLayout>
-
-                <!--Gênero-->
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
+                        <Image Source="date.png"/>
+                        <Label Text="Data de Nascimento"
+                               TextColor="LightSlateGray"
+                               Font="18"/>
+                        <DatePicker HorizontalOptions="Start"
+                                    x:Name="dataNascimento"></DatePicker>
+                    </StackLayout>
+
+                    <!--CPF-->
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="cpf.png"/>
+                        <Entry x:Name="txtCpf" 
+                               WidthRequest="300"
+                               Placeholder="CPF"/>
+                    </StackLayout>
+
+                    <!--Gênero-->
+                    <StackLayout Orientation="Horizontal"
+                                    Margin="50,10,50,10">
                         <Image Source="genero.png"/>
                         <Picker x:Name="pickerGenero" 
                                 Title="Gênero" 
@@ -59,6 +59,15 @@
                                     <x:String>Feminino</x:String>
                                 </Picker.Items>
                         </Picker>
+                    </StackLayout>
+                    
+                    <!--E-mail-->
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="mail.png"/>
+                        <Entry x:Name="txtEmail"
+                               WidthRequest="300"
+                               Placeholder="e-mail"/>
                     </StackLayout>
 
                     <!--Endereço-->
@@ -131,7 +140,7 @@
                 </StackLayout>
 
             </StackLayout>
-            </ScrollView>
+        </ScrollView>
             
             
             

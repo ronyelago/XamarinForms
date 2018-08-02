@@ -1,16 +1,15 @@
-﻿using LabClick.Models;
-
+﻿
 namespace LabClick.ViewModels
 {
     public class PacienteViewModel
     {
         public PacienteViewModel()
         {
-            Paciente = new Paciente();
-            Endereco = new Endereco();
+            Paciente = new Domain.Entities.Paciente();
+            Endereco = new Domain.Entities.Endereco();
         }
 
-        public Paciente Paciente { get; set; }
-        public Endereco Endereco { get; set; }
+        public Domain.Entities.Paciente Paciente { get; set; }
+        public Domain.Entities.Endereco Endereco { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using LabClick.Models;
 using LabClick.ViewModels;
 
 namespace LabClick.Mappers
@@ -8,7 +7,7 @@ namespace LabClick.Mappers
     {
         public ViewModelToDomainMappingProfile()
         {
-            CreateMap<PacienteViewModel, Paciente>();
+            CreateMap<PacienteViewModel, Domain.Entities.Paciente>();
         }
     }
 }
