@@ -4,7 +4,8 @@
             xmlns:local="clr-namespace:LabClick.Views.Paciente"
             xmlns:graficos="clr-namespace:LabClick.Views.Graficos"
             xmlns:home="clr-namespace:LabClick.Views"
-            x:Class="LabClick.MainPage">
+            x:Class="LabClick.MainPage"
+            NavigationPage.HasNavigationBar="False">
 
     <home:Home Icon="home.png" Title="Home"/>
     <local:PesquisarPaciente Icon="search.png" Title="Pacientes"/>

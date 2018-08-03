@@ -22,6 +22,7 @@
                                      Margin="50,10,50,10">
                         <Image Source="name.png"/>
                         <Entry x:Name="txtNome" 
+                               
                                WidthRequest="400"
                                Keyboard="Text"
                                Placeholder="nome"/>
