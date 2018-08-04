@@ -2,15 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Paciente.PesquisarPaciente"
-             Title="Pesquisa de Pacientes">
+             Title="Pesquisa de Pacientes"
+             BackgroundImage="bgcadastro.jpg">
     <StackLayout>
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical"
+                     Margin="100,100,100,100">
             <SearchBar x:Name="PacienteSearchBar" 
-                   SearchButtonPressed="PacienteSearchBar_SearchButtonPressed" />
-            <ListView x:Name="PacientesListView" ItemTapped="PacientesListView_ItemTapped"/>
-        </StackLayout>
-        <StackLayout>
-            
+                       SearchButtonPressed="PacienteSearchBar_SearchButtonPressed"
+                       WidthRequest="400"/>
+            <Grid>
+                <StackLayout Grid.Row="1"
+                             Spacing="15">
+                    <ListView x:Name="PacientesListView"
+                              SeparatorVisibility="None"
+                              RowHeight="60"
+                              ItemTapped="PacientesListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout VerticalOptions="FillAndExpand"
+                                                 x:Name="ListItemStack"
+                                                 Orientation="Horizontal" 
+                                                 Padding="20,10,0,10" 
+                                                 Spacing="20"
+                                                 BackgroundColor="{Binding Color}">
+                                        <Label Text="{Binding Name}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
         </StackLayout>
     </StackLayout>
 </ContentPage>
