@@ -11,7 +11,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid>
-                    <Image Source="logo.png" Aspect="AspectFit"/>
+                    <Image Source="logolabclick.png" Aspect="AspectFit"/>
                     <StackLayout>
                         <StackLayout Padding="0,20,0,0" 
                                      HorizontalOptions="CenterAndExpand" 
