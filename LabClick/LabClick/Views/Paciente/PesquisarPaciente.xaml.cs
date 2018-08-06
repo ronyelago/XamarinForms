@@ -32,12 +32,13 @@ namespace LabClick.Views.Paciente
             // lista de itens que possuem nome e cor
             ListSearchItem = new List<SearchListViewItem>();
 
-            // inserindo os nomes e números 
+            // inserindo os nomes e números que definirão o background
             for (int i = 0; i < pacientes.Count; i++)
             {
                 ListSearchItem.Add(new SearchListViewItem { Name = pacientes[i].Nome, SetColor = i });
             }
 
+            // define o background
             foreach (var item in ListSearchItem)
             {
                 if (item.SetColor % 2 == 0)
