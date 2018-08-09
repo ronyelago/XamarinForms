@@ -31,9 +31,9 @@ namespace LabClick.Views.Teste
 
         private async Task TestesLista_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            this.teste = (Domain.Entities.Teste)TestesLista.SelectedItem;
+            this.teste = (Domain.Entities.Teste)e.Item;
 
-            await App.NavigateMasterDetail(new LaudoTeste(teste.PacienteId));
+            await App.NavigateMasterDetail(new LaudoTeste(teste));
         }
     }
 }

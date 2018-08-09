@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Teste.LaudoTeste">
+             x:Class="LabClick.Views.Teste.LaudoTeste"
+             BackgroundImage="bgcadastro.jpg">
     <StackLayout>
         <StackLayout Orientation="Vertical">
             <Label x:Name="lblExame"/>
@@ -14,11 +15,11 @@
         <StackLayout Orientation="Horizontal" 
                      HeightRequest="300" 
                      WidthRequest="150" 
-                     BackgroundColor="LightGray"
+                     BackgroundColor="Transparent"
                      Padding="20">
             <Image x:Name="ExameImg" 
-                   Aspect="AspectFill" 
-                   HorizontalOptions="CenterAndExpand"/>
+                   WidthRequest="500"
+                   HeightRequest="250"/>
         </StackLayout>
 
     </StackLayout>

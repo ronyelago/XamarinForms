@@ -4,14 +4,19 @@
              x:Class="LabClick.Views.Home"
              BackgroundImage="bghome.jpg">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Digitalizar Exame"
+        <StackLayout Margin="10,10,10,10"
+                     VerticalOptions="CenterAndExpand">
+            <Button Image="home1.png"
+                    BackgroundColor="Transparent"
                     x:Name="NovoTeste"
                     Clicked="NovoTeste_Clicked"/>
-            <Button Text="Novo Paciente"
+            <Button Image="home2.png"
+                    BackgroundColor="Transparent"
                     x:Name="NovoPaciente"
                     Clicked="NovoPaciente_Clicked"/>
-            <Button Text="Laudos"/>
+            <Button Image="home3.png"
+                    BackgroundColor="Transparent"/>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
