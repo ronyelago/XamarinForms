@@ -18,7 +18,7 @@ namespace LabClick.Views.Paciente
 
         private async void BtnCancelar_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MainPage());
+            await Navigation.PushAsync(new Home());
         }
 
         private void BtnSalvar_Clicked(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace LabClick.Views.Paciente
             if (result.Result.IsSuccessStatusCode)
             {
                 DisplayAlert("Sucesso", "Paciente cadastrado com sucesso.", "Ok");
-                Navigation.PushAsync(new MainPage());
+                Navigation.PushAsync(new Home());
             }
             else
             {

@@ -21,5 +21,15 @@ namespace LabClick.Views
         {
             Navigation.PushAsync(new NovoPaciente());
         }
+
+        private void PesquisarPaciente_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new PesquisarPaciente());
+        }
+
+        private void PesquisarLaudo_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
