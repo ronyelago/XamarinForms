@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LabClick.Views.Teste;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -13,11 +14,20 @@ namespace LabClick.Views.Paciente
 	{
         List<Domain.Entities.Paciente> pacientes = new List<Domain.Entities.Paciente>();
         public List<SearchListViewItem> ListSearchItem { get; set; }
+        public bool Scanning { get; set; }
+
+        public PesquisarPaciente(bool scanning)
+        {
+            InitializeComponent();
+
+            this.Scanning = true;
+            this.Icon = "digitalizar.png";
+            this.Title = "Selecione o Paciente";
+        }
 
         public PesquisarPaciente ()
 		{
 			InitializeComponent ();
-
         }
 
         private async Task PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
@@ -64,7 +74,15 @@ namespace LabClick.Views.Paciente
             App.MasterPage = pacienteMasterPage;
 
             PacientesListView.SelectedItem = null;
-            Navigation.PushAsync(pacienteMasterPage);
+
+            if (Scanning)
+            {
+                Navigation.PushAsync(new NovoTeste(paciente));
+            }
+            else
+            {
+                Navigation.PushAsync(pacienteMasterPage);
+            }
         }
     }
 }
