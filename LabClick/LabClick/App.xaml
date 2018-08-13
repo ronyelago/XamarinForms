@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.App">
 	<Application.Resources>
-    
+        <ResourceDictionary>
+            
+            <Style x:Key="CustomTabbed"
+                   TargetType="TabbedPage">
+                <Setter Property="Icon" 
+                        Value=""/>
+            </Style>
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>
