@@ -21,8 +21,7 @@ namespace LabClick.Views.Paciente
             InitializeComponent();
 
             this.Scanning = true;
-            this.Icon = "digitalizar.png";
-            this.Title = "Selecione o Paciente";
+            this.Icon = "digitalizarexame.png";
         }
 
         public PesquisarPaciente ()
@@ -77,7 +76,7 @@ namespace LabClick.Views.Paciente
 
             if (Scanning)
             {
-                Navigation.PushAsync(new NovoTeste(paciente));
+                Navigation.PushAsync(new DigitalizarTeste(paciente));
             }
             else
             {

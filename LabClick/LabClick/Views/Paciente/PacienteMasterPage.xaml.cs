@@ -23,7 +23,7 @@ namespace LabClick.Views.Paciente
             MenuList = new List<MasterPageItem>
             {
                 new MasterPageItem() { Title = "Exames", Icon = "menuexames.png", TargetType = typeof(ListaTeste) },
-                new MasterPageItem() { Title = "Novo Exame", Icon = "menunovoexame.png", TargetType = typeof(NovoTeste) }
+                new MasterPageItem() { Title = "Novo Exame", Icon = "menunovoexame.png", TargetType = typeof(DigitalizarTeste) }
             };
 
             masterPageList.ItemsSource = MenuList;
@@ -40,7 +40,7 @@ namespace LabClick.Views.Paciente
             }
             else
             {
-                this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(NovoTeste), Paciente));
+                this.Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(DigitalizarTeste), Paciente));
             }
 
             this.IsPresented = false;
