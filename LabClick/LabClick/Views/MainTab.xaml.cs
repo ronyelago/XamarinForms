@@ -22,6 +22,8 @@ namespace LabClick.Views
             this.Children.Add(new NovoPaciente() { Icon = "novo.png", Title = "Novo Paciente" });
 
             this.CurrentPage = this.Children[page];
+
+            
         }
     }
 }
