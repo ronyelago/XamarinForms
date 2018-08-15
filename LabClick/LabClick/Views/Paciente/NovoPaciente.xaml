@@ -10,7 +10,7 @@
                 <StackLayout Orientation="Vertical"
                              HorizontalOptions="Center">
                 <Grid HorizontalOptions="FillAndExpand"
-              VerticalOptions="Center">
+                      VerticalOptions="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
