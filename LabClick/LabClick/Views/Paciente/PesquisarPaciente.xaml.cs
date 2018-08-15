@@ -20,13 +20,16 @@ namespace LabClick.Views.Paciente
         {
             InitializeComponent();
 
-            this.Scanning = true;
+            this.Scanning = scanning;
             this.Icon = "digitalizarexame.png";
+            this.MainLabel.Text = "Selecione o Paciente";
         }
 
         public PesquisarPaciente ()
 		{
 			InitializeComponent ();
+
+            this.MainLabel.Text = "Busca de Paciente";
         }
 
         private async Task PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
@@ -52,11 +55,11 @@ namespace LabClick.Views.Paciente
             {
                 if (item.SetColor % 2 == 0)
                 {
-                    item.Color = Color.FromHex("#EAF4F5");
+                    item.Color = Color.FromHex("#80EAF4F5");
                 }
                 else
                 {
-                    item.Color = Color.White;
+                    item.Color = Color.FromHex("#80FFFFFF");
                 }
             }
 

@@ -26,7 +26,9 @@ namespace LabClick.Views
 
             this.CurrentPage = this.Children[page];
 
+            this.BackgroundImage = "footer.png";
 
+            this.BarBackgroundColor = Color.FromHex("#126683");
         }
     }
 }
