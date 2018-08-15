@@ -50,15 +50,17 @@ namespace LabClick.Views.Paciente
                 ListSearchItem.Add(new SearchListViewItem { Name = pacientes[i].Nome, SetColor = i });
             }
 
-            // define o background
+            // define o background de cada ítem da lista
             foreach (var item in ListSearchItem)
             {
                 if (item.SetColor % 2 == 0)
                 {
+                    //verde com 90% de transparência
                     item.Color = Color.FromHex("#1A126683");
                 }
                 else
                 {
+                    //branco com 50% de transparência
                     item.Color = Color.FromHex("#80FFFFFF");
                 }
             }
