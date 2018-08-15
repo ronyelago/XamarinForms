@@ -18,14 +18,14 @@ namespace LabClick.Views
             Navigation.PushAsync(new MainTab(0));
         }
 
-        private void NovoPaciente_Clicked(object sender, System.EventArgs e)
+        private void PesquisarPaciente_Clicked(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new MainTab(1));
         }
 
-        private void PesquisarPaciente_Clicked(object sender, System.EventArgs e)
+        private void NovoPaciente_Clicked(object sender, System.EventArgs e)
         {
-            
+            Navigation.PushAsync(new MainTab(2));
         }
 
         private void PesquisarLaudo_Clicked(object sender, System.EventArgs e)

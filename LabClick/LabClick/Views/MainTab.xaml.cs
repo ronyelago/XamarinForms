@@ -13,13 +13,13 @@ namespace LabClick.Views
 
             // Pesquisa o paciente e exibe view de digitalizar exame
             // Flag no construtor para redirecionar para view de digitalizar exame
-            this.Children.Add(new PesquisarPaciente(true) { Icon = "searchtest.png" });
+            this.Children.Add(new PesquisarPaciente(true) { Icon = "smallscan.png", Title = "Digitalizar Teste" });
 
             // Pesquisa o paciente e exibe o mesmo
-            this.Children.Add(new PesquisarPaciente());
+            this.Children.Add(new PesquisarPaciente() { Icon = "smallsearch.png", Title = "Pesquisar Paciente" });
 
             //// Exibe view de novo paciente
-            //this.Children.Add(new NovoPaciente() { Icon = "novopaciente.png", Title = "Novo Paciente" });
+            this.Children.Add(new NovoPaciente() { Icon = "smalladd.png", Title = "Novo Paciente" });
 
             this.CurrentPage = this.Children[page];
 
