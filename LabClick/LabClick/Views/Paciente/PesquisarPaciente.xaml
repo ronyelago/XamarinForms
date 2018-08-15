@@ -31,7 +31,7 @@
         </Grid>
         
         <StackLayout Orientation="Vertical"
-                     Margin="100,100,100,100">
+                     Margin="70,50,70,50">
             <StackLayout>
                 <SearchBar x:Name="PacienteSearchBar" 
                        SearchButtonPressed="PacienteSearchBar_SearchButtonPressed"

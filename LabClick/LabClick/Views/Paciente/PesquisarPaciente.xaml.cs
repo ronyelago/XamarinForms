@@ -55,7 +55,7 @@ namespace LabClick.Views.Paciente
             {
                 if (item.SetColor % 2 == 0)
                 {
-                    item.Color = Color.FromHex("#80EAF4F5");
+                    item.Color = Color.FromHex("#1A126683");
                 }
                 else
                 {
