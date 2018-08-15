@@ -30,7 +30,7 @@ namespace LabClick.Views
 
         private void PesquisarLaudo_Clicked(object sender, System.EventArgs e)
         {
-
+            Navigation.PushAsync(new MainTab(3));
         }
     }
 }
