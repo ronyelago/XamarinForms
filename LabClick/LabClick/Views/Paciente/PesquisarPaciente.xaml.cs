@@ -16,15 +16,18 @@ namespace LabClick.Views.Paciente
         public List<SearchListViewItem> ListSearchItem { get; set; }
         public bool Scanning { get; set; }
 
+        // construtor com parâmetro que indica que
+        // a navegação será direto para page de digitalização 
         public PesquisarPaciente(bool scanning)
         {
             InitializeComponent();
 
             this.Scanning = scanning;
-            this.Icon = "digitalizarexame.png";
             this.MainLabel.Text = "Selecione o Paciente";
         }
 
+        // construtor sem parâmetros que indica que
+        // a navegação será para a page de paciente
         public PesquisarPaciente ()
 		{
 			InitializeComponent ();
@@ -81,7 +84,9 @@ namespace LabClick.Views.Paciente
 
             // Se a navegação for para digitalizar exame
             // o usuário é direcionado direto para a page DigitalizarTeste
-            // com o paciente selecionado na lista
+            // com o paciente selecionado na lista.
+            // Do contrário, o usuário é direcionado para a page com
+            // os dados do paciente selecionado
             if (Scanning)
             {
                 Navigation.PushAsync(new DigitalizarTeste(paciente));
