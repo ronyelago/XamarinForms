@@ -34,15 +34,15 @@
                            Grid.Column="0"/>
                 </Grid>
 
-                <!--Nome do paciente-->
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <!--Nome do paciente-->
                     <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                                 Margin="50,10,50,10">
                         <Image Source="name.png"/>
                         <Entry x:Name="txtNome" 
-                               
-                               WidthRequest="400"
+                               WidthRequest="500"
                                Keyboard="Text"
-                               Placeholder="nome"/>
+                               Placeholder="nome completo"/>
                     </StackLayout>
 
                     <!--Data de Nascimento-->
@@ -64,7 +64,7 @@
                         <Image Source="cpf.png"/>
                         <Entry x:Name="txtCpf"
                                Keyboard="Numeric"
-                               WidthRequest="400"
+                               WidthRequest="500"
                                Placeholder="cpf"/>
                     </StackLayout>
 
@@ -75,21 +75,21 @@
                         <Picker x:Name="pickerGenero" 
                                 Title="gênero" 
                                 VerticalOptions="CenterAndExpand"
-                                WidthRequest="400">
-                                <Picker.Items>
-                                    <x:String>Masculino</x:String>
-                                    <x:String>Feminino</x:String>
-                                </Picker.Items>
+                                WidthRequest="500">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Feminino</x:String>
+                            </Picker.Items>
                         </Picker>
                     </StackLayout>
-                    
+
                     <!--email-->
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="mail.png"/>
                         <Entry x:Name="txtEmail"
                                Keyboard="Email"
-                               WidthRequest="400"
+                               WidthRequest="500"
                                Placeholder="e-mail"/>
                     </StackLayout>
 
@@ -99,26 +99,26 @@
                         <Image Source="phone.png"/>
                         <Entry x:Name="txtPhone"
                                Keyboard="Telephone"
-                               WidthRequest="400"
+                               WidthRequest="500"
                                Placeholder="telefone"/>
                     </StackLayout>
 
-                <!--Endereço-->
+                    <!--Endereço-->
                     <StackLayout>
                         <StackLayout>
-                        <Label Text="Endereço" 
+                            <Label Text="Endereço" 
                            Font="18" VerticalTextAlignment="Center" 
                            HorizontalOptions="Center" 
                            TextColor="#2B7350">
-                        </Label>
+                            </Label>
 
-                    </StackLayout>
+                        </StackLayout>
                         <!--CEP-->
                         <StackLayout Orientation="Horizontal"
                                      Margin="50,10,50,10">
                             <Label Text="cep:"/>
                             <Entry x:Name="txtCep" 
-                                   WidthRequest="400"
+                                   WidthRequest="500"
                                    Keyboard="Numeric"
                                    Unfocused="txtCep_Unfocused"/>
                         </StackLayout>
@@ -128,7 +128,7 @@
                                      Margin="50,10,50,10">
                             <Label Text="UF:"/>
                             <Entry x:Name="txtUf" 
-                                   WidthRequest="400"
+                                   WidthRequest="500"
                                    Keyboard="Text"/>
                         </StackLayout>
 
@@ -138,7 +138,7 @@
                             <Label Text="Cidade:"/>
                             <Entry x:Name="txtCidade" 
                                    Keyboard="Text"
-                                   WidthRequest="400"/>
+                                   WidthRequest="500"/>
                         </StackLayout>
 
                         <!--Bairro-->
@@ -147,7 +147,7 @@
                             <Label Text="Bairro:"/>
                             <Entry x:Name="txtBairro" 
                                    Keyboard="Text"
-                                   WidthRequest="400"/>
+                                   WidthRequest="500"/>
                         </StackLayout>
 
                         <!--Rua-->
@@ -156,7 +156,7 @@
                             <Label Text="Rua:"/>
                             <Entry x:Name="txtRua"
                                    Keyboard="Text"
-                                   WidthRequest="400"/>
+                                   WidthRequest="500"/>
                         </StackLayout>
 
                         <!--Número-->
@@ -165,11 +165,11 @@
                             <Label Text="Número:"/>
                             <Entry x:Name="txtNumero"
                                    Keyboard="Numeric"
-                                   WidthRequest="400"/>
+                                   WidthRequest="500"/>
                         </StackLayout>
                     </StackLayout>
-                    
-                    <!--Botões Cancelar e Salvar-->
+                </StackLayout>
+                <!--Botões Cancelar e Salvar-->
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="20">
                         <StackLayout Orientation="Horizontal">
                             <Button x:Name="BtnCancelar"
