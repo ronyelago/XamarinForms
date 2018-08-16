@@ -13,6 +13,9 @@ namespace LabClick.Views
 			InitializeComponent ();
         }
 
+        // Cada um dos eventos abaixo passa um número como parâmetro
+        // quando estancia a MainTab que indica qual página deve ser
+        // selecionada para exibição
         private void NovoTeste_Clicked(object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new MainTab(0));

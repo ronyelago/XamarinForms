@@ -37,6 +37,7 @@ namespace LabClick.Views.Paciente
 
         private async Task PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
+            // Busca os pacientes pelo nome
             var client = new HttpClient();
             var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
             var content = result.Content.ReadAsStringAsync();
@@ -68,6 +69,7 @@ namespace LabClick.Views.Paciente
                 }
             }
 
+            // Adiciona os ítens à lista resultante da busca
             PacientesListView.ItemsSource = ListSearchItem;
         }
 
