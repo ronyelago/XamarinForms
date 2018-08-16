@@ -91,6 +91,8 @@ namespace LabClick.Views.Paciente
                         txtCidade.Text = endereco.Localidade;
                         txtBairro.Text = endereco.Bairro;
                         txtRua.Text = endereco.Logradouro;
+
+                        txtNumero.Focus();
                     }
                     else
                     {
