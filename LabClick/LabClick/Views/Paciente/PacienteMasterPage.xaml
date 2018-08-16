@@ -5,11 +5,13 @@
              Title="Menu - Paciente">
     <MasterDetailPage.Master>
         <ContentPage Title="PacienteMasterPage">
+            <!--Barra Lateral (sandwich menu)-->
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <!--Imagem do header-->
                 <Grid>
                     <Image Source="logolabclick.png" Aspect="AspectFit"/>
                     <StackLayout>
@@ -19,6 +21,7 @@
                         </StackLayout>
                     </StackLayout>
                 </Grid>
+                <!--Ítens da lista-->
                 <StackLayout Grid.Row="1"
                              Spacing="15">
                     <ListView x:Name="masterPageList"
@@ -35,9 +38,6 @@
                                                      Spacing="20">
                                             <Image Source="{Binding Icon}"
                                                    Aspect="AspectFit"/>
-                                            <!--<Label Text="{Binding Title}"
-                                                   VerticalOptions="Center"
-                                                   TextColor="Black"/>-->
                                         </StackLayout>
                                         <BoxView HeightRequest="1"
                                                  BackgroundColor="Gray"/>
