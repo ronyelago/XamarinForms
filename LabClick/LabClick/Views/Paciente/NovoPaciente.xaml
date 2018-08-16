@@ -4,13 +4,13 @@
              x:Class="LabClick.Views.Paciente.NovoPaciente"
              BackgroundImage="bgcadastro.png">
 
-        <StackLayout Spacing="30">
-
-            <ScrollView>
-                <StackLayout Orientation="Vertical"
-                             HorizontalOptions="Center">
+    <StackLayout Spacing="30">
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="Center">
                 <Grid HorizontalOptions="FillAndExpand"
-                      VerticalOptions="Center">
+                      VerticalOptions="Center"
+                      Margin="0,0,0,20">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -109,7 +109,7 @@
                             <Label Text="Endereço" 
                            Font="18" VerticalTextAlignment="Center" 
                            HorizontalOptions="Center" 
-                           TextColor="#2B7350">
+                           TextColor="#197A80">
                             </Label>
 
                         </StackLayout>
@@ -170,30 +170,28 @@
                     </StackLayout>
                 </StackLayout>
                 <!--Botões Cancelar e Salvar-->
-                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="20">
-                        <StackLayout Orientation="Horizontal">
-                            <Button x:Name="BtnCancelar"
+                <StackLayout HorizontalOptions="CenterAndExpand" 
+                             Spacing="20"
+                             Orientation="Horizontal"
+                             Margin="0,20,0,0">
+                    <Button x:Name="BtnCancelar"
                                     Text="Cancelar"
                                     TextColor="White"
-                                    BackgroundColor="#2B7350"
                                     Margin="10,10,10,10"
                                     Clicked="BtnCancelar_Clicked"
-                                    WidthRequest="200"/>
-                            <Button x:Name="BtnSalvar"
+                                    WidthRequest="200" 
+                                    BorderRadius="10"
+                                    BackgroundColor="#197A80"/>
+                    <Button x:Name="BtnSalvar"
                                     Text="Salvar"
                                     TextColor="White"
-                                    BackgroundColor="#2B7350"
+                                    BackgroundColor="#197A80"
                                     Margin="10,10,10,10"
                                     Clicked="BtnSalvar_Clicked"
-                                    WidthRequest="200"/>
-                    </StackLayout>
+                                    WidthRequest="200"
+                                    BorderRadius="10"/>
                 </StackLayout>
-
             </StackLayout>
         </ScrollView>
-            
-            
-            
     </StackLayout>
-
 </ContentPage>

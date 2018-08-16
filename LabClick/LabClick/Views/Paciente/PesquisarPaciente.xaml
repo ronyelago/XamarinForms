@@ -53,6 +53,7 @@
                                                  BackgroundColor="{Binding Color}">
                                         <Label Text="{Binding Name}"
                                                Font="20"
+                                               TextColor="#197A80"
                                                Margin="5,5,0,5"/>
                                     </StackLayout>
                                 </ViewCell>

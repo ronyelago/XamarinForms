@@ -39,12 +39,13 @@
                     <Button Text="Entrar"
                             x:Name="btnEntrar"
                             Clicked="btnEntrar_Clicked"
-                            BackgroundColor="#2B7350"
+                            BackgroundColor="#197A80"
                             WidthRequest="200" 
                             HeightRequest="40"
                             TextColor="White"
                             FontAttributes="Bold"
-                            Margin="10,10,10,10"/>
+                            Margin="10,10,10,10"
+                            BorderRadius="10"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
