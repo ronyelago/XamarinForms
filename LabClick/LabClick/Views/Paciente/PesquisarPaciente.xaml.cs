@@ -82,13 +82,12 @@ namespace LabClick.Views.Paciente
 
             PacientesListView.SelectedItem = null;
 
-            /*
+            
             // Se a navegação for para digitalizar exame
             // o usuário é direcionado direto para a page DigitalizarTeste
             // com o paciente selecionado na lista.
             // Do contrário, o usuário é direcionado para a page com
             // os dados do paciente selecionado 
-            */
             if (Scanning)
             {
                 Navigation.PushAsync(new DigitalizarTeste(paciente));
