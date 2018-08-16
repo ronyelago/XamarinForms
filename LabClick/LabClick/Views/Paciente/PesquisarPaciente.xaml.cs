@@ -73,26 +73,31 @@ namespace LabClick.Views.Paciente
 
         private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            // captura o ítem que foi selecionado na lista
             var item = (SearchListViewItem)e.Item;
-            item.Color = Color.Blue;
 
+            // busca na lista de pacientes o paciente com o nome 
+            // selecionado na lista
             var paciente = pacientes.FirstOrDefault(p => p.Nome == item.Name);
-            var pacienteMasterPage = new PacienteMasterPage(paciente);
-            App.MasterPage = pacienteMasterPage;
 
             PacientesListView.SelectedItem = null;
 
+            /*
             // Se a navegação for para digitalizar exame
             // o usuário é direcionado direto para a page DigitalizarTeste
             // com o paciente selecionado na lista.
             // Do contrário, o usuário é direcionado para a page com
-            // os dados do paciente selecionado
+            // os dados do paciente selecionado 
+            */
             if (Scanning)
             {
                 Navigation.PushAsync(new DigitalizarTeste(paciente));
             }
             else
             {
+                var pacienteMasterPage = new PacienteMasterPage(paciente);
+                App.MasterPage = pacienteMasterPage;
+
                 Navigation.PushAsync(pacienteMasterPage);
             }
         }

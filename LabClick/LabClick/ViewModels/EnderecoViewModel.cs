@@ -7,6 +7,11 @@
         public string Localidade { get; set; }
         public string Uf { get; set; }
 
+        /// <summary>
+        /// Verifica se o objeto possui os campos Logradouro,
+        /// Bairro, Localidade e UF diferentes de null.
+        /// </summary>
+        /// <returns></returns>
         public bool IsValid()
         {
             if (Logradouro != null && Bairro != null && Localidade != null && Uf != null)
