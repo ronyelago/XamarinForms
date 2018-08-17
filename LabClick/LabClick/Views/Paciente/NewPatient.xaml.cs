@@ -25,7 +25,6 @@ namespace LabClick.Views.Paciente
         {
             //BackgroundColor = #80126683
 
-            HttpClient client = new HttpClient();
             Domain.Entities.Paciente paciente;
             Domain.Entities.Endereco endereco;
             var newPatientViewModel = this.BindingContext as NewPatientViewModel;
@@ -33,6 +32,8 @@ namespace LabClick.Views.Paciente
             //
             if (newPatientViewModel.IsValid())
             {
+                HttpClient client = new HttpClient();
+
                 paciente = Mapper.Map<Domain.Entities.Paciente>(newPatientViewModel);
                 endereco = Mapper.Map<Domain.Entities.Endereco>(newPatientViewModel);
 
