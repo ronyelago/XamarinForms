@@ -63,6 +63,7 @@
                                  Margin="50,10,50,10">
                         <Image Source="cpf.png"/>
                         <Entry x:Name="txtCpf"
+                               Text="{Binding Cpf}"
                                Keyboard="Numeric"
                                WidthRequest="500"
                                Placeholder="cpf"/>
@@ -73,7 +74,8 @@
                                     Margin="50,10,50,10">
                         <Image Source="genero.png"/>
                         <Picker x:Name="pickerGenero" 
-                                Title="gênero" 
+                                Title="gênero"
+                                SelectedItem="{Binding Sexo}"
                                 VerticalOptions="CenterAndExpand"
                                 WidthRequest="500">
                             <Picker.Items>
@@ -88,6 +90,7 @@
                                  Margin="50,10,50,10">
                         <Image Source="mail.png"/>
                         <Entry x:Name="txtEmail"
+                               Text="{Binding Email}"
                                Keyboard="Email"
                                WidthRequest="500"
                                Placeholder="e-mail"/>
@@ -98,6 +101,7 @@
                                      Margin="50,10,50,10">
                         <Image Source="phone.png"/>
                         <Entry x:Name="txtPhone"
+                               Text="{Binding Telefone}"
                                Keyboard="Telephone"
                                WidthRequest="500"
                                Placeholder="telefone"/>
@@ -117,11 +121,11 @@
                         <StackLayout Orientation="Horizontal"
                                      Margin="50,10,50,10">
                             <Label Text="cep:"/>
-                            <Entry x:Name="txtCep"
+                            <Entry x:Name="TxtCep"
                                    Text="{Binding Cep}"
                                    WidthRequest="500"
                                    Keyboard="Numeric"
-                                   Unfocused="txtCep_Unfocused"/>
+                                   Unfocused="TxtCep_Unfocused"/>
                         </StackLayout>
 
                         <!--UF-->

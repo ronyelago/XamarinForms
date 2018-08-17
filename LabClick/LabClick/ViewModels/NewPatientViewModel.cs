@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace LabClick.ViewModels
 {
@@ -19,5 +22,37 @@ namespace LabClick.ViewModels
         public string Bairro { get; set; }
         public string Logradouro { get; set; }
         public int Numero { get; set; }
+
+        public bool IsValid()
+        {
+            var properties = GetPropertyValues(this);
+
+            foreach (var prop in properties)
+            {
+                if (prop == null)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private static List<object> GetPropertyValues(object obj)
+        {
+            Type t = obj.GetType();
+            var props = t.GetProperties();
+            var objList = new List<object>();
+
+            foreach (var prop in props)
+            {
+                if (prop.GetIndexParameters().Length == 0)
+                {
+                    objList.Add(prop.GetValue(obj));
+                }
+            }
+
+            return objList;
+        }
     }
 }
