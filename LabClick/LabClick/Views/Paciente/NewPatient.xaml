@@ -42,7 +42,8 @@
                                WidthRequest="500"
                                Keyboard="Text"
                                Placeholder="nome completo"
-                               Text="{Binding Nome}"/>
+                               Text="{Binding Nome}"
+                               MaxLength="100"/>
                     </StackLayout>
 
                     <!--Data de Nascimento-->
@@ -55,7 +56,8 @@
                                Font="18"/>
                         <DatePicker HorizontalOptions="Start"
                                     x:Name="dataNascimento" 
-                                    Date="{Binding DataNascimento}"/>
+                                    Date="{Binding DataNascimento}"
+                                    MinimumDate="01-01-1900"/>
                     </StackLayout>
 
                     <!--CPF-->
@@ -66,7 +68,8 @@
                                Text="{Binding Cpf}"
                                Keyboard="Numeric"
                                WidthRequest="500"
-                               Placeholder="cpf"/>
+                               Placeholder="cpf (somente números)"
+                               MaxLength="15"/>
                     </StackLayout>
 
                     <!--Gênero-->
@@ -93,7 +96,8 @@
                                Text="{Binding Email}"
                                Keyboard="Email"
                                WidthRequest="500"
-                               Placeholder="e-mail"/>
+                               Placeholder="e-mail"
+                               MaxLength="30"/>
                     </StackLayout>
 
                     <!--telefone-->
@@ -104,7 +108,8 @@
                                Text="{Binding Telefone}"
                                Keyboard="Telephone"
                                WidthRequest="500"
-                               Placeholder="telefone"/>
+                               Placeholder="telefone"
+                               MaxLength="20"/>
                     </StackLayout>
 
                     <!--Endereço-->
@@ -125,7 +130,8 @@
                                    Text="{Binding Cep}"
                                    WidthRequest="500"
                                    Keyboard="Numeric"
-                                   Unfocused="TxtCep_Unfocused"/>
+                                   Unfocused="TxtCep_Unfocused"
+                                   MaxLength="20"/>
                         </StackLayout>
 
                         <!--UF-->
@@ -135,7 +141,8 @@
                             <Entry x:Name="txtUf"
                                    Text="{Binding UF}"
                                    WidthRequest="500"
-                                   Keyboard="Text"/>
+                                   Keyboard="Text"
+                                   MaxLength="2"/>
                         </StackLayout>
 
                         <!--Cidade-->
@@ -145,7 +152,8 @@
                             <Entry x:Name="txtCidade"
                                    Text="{Binding Cidade}"
                                    Keyboard="Text"
-                                   WidthRequest="500"/>
+                                   WidthRequest="500"
+                                   MaxLength="50"/>
                         </StackLayout>
 
                         <!--Bairro-->
@@ -155,7 +163,8 @@
                             <Entry x:Name="txtBairro" 
                                    Text="{Binding Bairro}"
                                    Keyboard="Text"
-                                   WidthRequest="500"/>
+                                   WidthRequest="500"
+                                   MaxLength="50"/>
                         </StackLayout>
 
                         <!--Rua-->
@@ -165,7 +174,8 @@
                             <Entry x:Name="txtRua"
                                    Text="{Binding Logradouro}"
                                    Keyboard="Text"
-                                   WidthRequest="500"/>
+                                   WidthRequest="500"
+                                   MaxLength="100"/>
                         </StackLayout>
 
                         <!--Número-->
@@ -175,7 +185,8 @@
                             <Entry x:Name="txtNumero"
                                    Text="{Binding Numero}"
                                    Keyboard="Numeric"
-                                   WidthRequest="500"/>
+                                   WidthRequest="500"
+                                   MaxLength="10"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>

@@ -19,6 +19,7 @@ namespace LabClick.Views.Paciente
             this.BindingContext = new NewPatientViewModel();
             this.dataNascimento.Date = DateTime.Now;
             this.txtNumero.Text = string.Empty;
+            this.dataNascimento.MaximumDate = DateTime.Now;
 		}
 
         private void BtnSalvar_Clicked(object sender, EventArgs e)
