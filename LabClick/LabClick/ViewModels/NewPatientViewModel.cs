@@ -23,6 +23,11 @@ namespace LabClick.ViewModels
         public string Logradouro { get; set; }
         public int Numero { get; set; }
 
+        /// <summary>
+        /// Verifica se todos os campos estão preenchidos.
+        /// Se sim, retorna true, se não, retorna false.
+        /// </summary>
+        /// <returns></returns>
         public bool IsValid()
         {
             var properties = GetPropertyValues(this);
