@@ -117,7 +117,8 @@
                         <StackLayout Orientation="Horizontal"
                                      Margin="50,10,50,10">
                             <Label Text="cep:"/>
-                            <Entry x:Name="txtCep" 
+                            <Entry x:Name="txtCep"
+                                   Text="{Binding Cep}"
                                    WidthRequest="500"
                                    Keyboard="Numeric"
                                    Unfocused="txtCep_Unfocused"/>
@@ -127,7 +128,8 @@
                         <StackLayout Orientation="Horizontal"
                                      Margin="50,10,50,10">
                             <Label Text="UF:"/>
-                            <Entry x:Name="txtUf" 
+                            <Entry x:Name="txtUf"
+                                   Text="{Binding UF}"
                                    WidthRequest="500"
                                    Keyboard="Text"/>
                         </StackLayout>
@@ -136,7 +138,8 @@
                         <StackLayout Orientation="Horizontal"
                                      Margin="50,10,50,10">
                             <Label Text="Cidade:"/>
-                            <Entry x:Name="txtCidade" 
+                            <Entry x:Name="txtCidade"
+                                   Text="{Binding Cidade}"
                                    Keyboard="Text"
                                    WidthRequest="500"/>
                         </StackLayout>
@@ -146,6 +149,7 @@
                                      Margin="50,10,50,10">
                             <Label Text="Bairro:"/>
                             <Entry x:Name="txtBairro" 
+                                   Text="{Binding Bairro}"
                                    Keyboard="Text"
                                    WidthRequest="500"/>
                         </StackLayout>
@@ -155,6 +159,7 @@
                                       Margin="50,10,50,10">
                             <Label Text="Rua:"/>
                             <Entry x:Name="txtRua"
+                                   Text="{Binding Logradouro}"
                                    Keyboard="Text"
                                    WidthRequest="500"/>
                         </StackLayout>
@@ -164,6 +169,7 @@
                                      Margin="50,10,50,10">
                             <Label Text="Número:"/>
                             <Entry x:Name="txtNumero"
+                                   Text="{Binding Numero}"
                                    Keyboard="Numeric"
                                    WidthRequest="500"/>
                         </StackLayout>

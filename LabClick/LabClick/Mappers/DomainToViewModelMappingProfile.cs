@@ -8,6 +8,8 @@ namespace LabClick.Mappers
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Domain.Entities.Paciente, PacienteViewModel>();
+            CreateMap<Domain.Entities.Paciente, NewPatientViewModel>();
+            CreateMap<Domain.Entities.Endereco, NewPatientViewModel>();
         }
     }
 }

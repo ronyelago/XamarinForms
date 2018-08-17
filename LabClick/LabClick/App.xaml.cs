@@ -1,3 +1,4 @@
+using LabClick.Mappers;
 using LabClick.Views;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -40,6 +41,7 @@ namespace LabClick
 		protected override void OnStart ()
 		{
             // Handle when your app starts
+            AutoMapperConfig.RegisterMappings();
         }
 
 		protected override void OnSleep ()

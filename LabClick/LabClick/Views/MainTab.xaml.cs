@@ -31,7 +31,7 @@ namespace LabClick.Views
 
             // Adiciona à MainTab uma page NovoPaciente [2]
             // Exibe page de novo paciente
-            this.Children.Add(new NovoPaciente()
+            this.Children.Add(new NewPatient()
             {
                 Icon = "smalladd.png",
                 Title = "Novo Paciente"
