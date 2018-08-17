@@ -29,7 +29,7 @@ namespace LabClick.Views
                 Title = "Pesquisar Paciente"
             });
 
-            // Adiciona à MainTab uma page NovoPaciente [2]
+            // Adiciona à MainTab uma page NewPatient [2]
             // Exibe page de novo paciente
             this.Children.Add(new NewPatient()
             {
