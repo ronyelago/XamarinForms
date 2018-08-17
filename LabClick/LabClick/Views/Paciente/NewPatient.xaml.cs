@@ -97,12 +97,12 @@ namespace LabClick.Views.Paciente
                     }
                     else
                     {
-                        DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Ok");
+                        DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Fechar");
                     }
                 }
                 else
                 {
-                    DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Ok");
+                    DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Fechar");
                 }
             }
         }
