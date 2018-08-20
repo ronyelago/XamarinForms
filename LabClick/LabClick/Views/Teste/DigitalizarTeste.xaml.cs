@@ -29,12 +29,13 @@ namespace LabClick.Views.Teste
             // Inicialização dos campos do view model
             this.DigitalizarTesteViewModel = new DigitalizarTesteViewModel
             {
-                Code = "ABC",
+                IsBusy = true,
                 PacienteId = paciente.Id,
                 DataCadastro = DateTime.Now,
                 ClinicaId = 1,
                 Status = "Em Análise",
-                ExameId = 1
+                ExameId = 1,
+                ImageShow = "bgfoto.jpeg"
             };
 
             this.BindingContext = DigitalizarTesteViewModel;
@@ -85,27 +86,37 @@ namespace LabClick.Views.Teste
 
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)
         {
-            DigitalizarTesteViewModel.IsBusy = true;
-
-            var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
-            var serialized = JsonConvert.SerializeObject(teste);
-
-            HttpClient client = new HttpClient();
-            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
-            var content = new StringContent(serialized, Encoding.UTF8, "application/json");
-
-            var result = await client.PostAsync(uri, content);
-
-            if (result.IsSuccessStatusCode)
+            if (DigitalizarTesteViewModel.IsValid())
             {
-                await DisplayAlert("Sucesso", "Teste enviado para análise.", "Ok");
-                DigitalizarTesteViewModel.IsBusy = false;
+                DigitalizarTesteViewModel.IsBusy = true;
+
+                var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
+                var serialized = JsonConvert.SerializeObject(teste);
+
+                HttpClient client = new HttpClient();
+                Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
+                var content = new StringContent(serialized, Encoding.UTF8, "application/json");
+
+                var result = await client.PostAsync(uri, content);
+
+                if (result.IsSuccessStatusCode)
+                {
+                    await DisplayAlert("Sucesso", "Teste enviado para análise.", "Ok");
+                    DigitalizarTesteViewModel.IsBusy = false;
+
+                    await Navigation.PushAsync(new Home());
+                }
+
+                else
+                {
+                    await DisplayAlert("Falha", "Algo errado não deu certo.", "Ok");
+                    DigitalizarTesteViewModel.IsBusy = false;
+                }
             }
 
             else
             {
-                await DisplayAlert("Falha", "Algo errado não deu certo.", "Ok");
-                DigitalizarTesteViewModel.IsBusy = false;
+                await DisplayAlert("Erro", "A foto do teste e o QR-Code são obrigatórios para envio do teste", "Ok");
             }
         }
 

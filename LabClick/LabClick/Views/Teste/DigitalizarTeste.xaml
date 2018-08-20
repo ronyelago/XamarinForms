@@ -19,7 +19,7 @@
             <Image x:Name="imgFoto"
                    Aspect="AspectFit"
                    BackgroundColor="#80f1f1f1"
-                   Source="bgfoto.jpg"
+                   Source="{Binding Imagem}"
                    WidthRequest="800"
                    HeightRequest="400"
                    HorizontalOptions="CenterAndExpand"/>

@@ -14,7 +14,13 @@ namespace LabClick.ViewModels
         private string code;
         private DateTime dataCadastro;
         private bool isBusy;
+        private string imagemShow;
 
+        public string ImageShow
+        {
+            get { return this.ImageShow; }
+            set { this.imagemShow = value; }
+        }
         public int PacienteId
         {
             get { return this.pacienteId; }
@@ -38,7 +44,11 @@ namespace LabClick.ViewModels
         public byte[] Imagem
         {
             get { return this.imagem; }
-            set { this.imagem = value; }
+            set
+            {
+                this.imagem = value;
+                OnPropertyChanged();
+            }
         }
         public string Code
         {
@@ -65,6 +75,16 @@ namespace LabClick.ViewModels
         void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public bool IsValid()
+        {
+            if (this.imagem == null || string.IsNullOrEmpty(this.code))
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
