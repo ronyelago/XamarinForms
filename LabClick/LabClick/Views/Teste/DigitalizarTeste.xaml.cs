@@ -30,6 +30,7 @@ namespace LabClick.Views.Teste
             BtnEnviarTeste.IsEnabled = false;
             this.paciente = paciente;
             this.teste = new Domain.Entities.Teste();
+            this.lblNomePaciente.Text = $"Paciente: {paciente.Nome}";
         }
 
         private async Task BtnTeste_ClickedAsync(object sender, EventArgs e)
@@ -69,6 +70,7 @@ namespace LabClick.Views.Teste
             });
 
             BtnEnviarTeste.IsEnabled = true;
+            btnTeste.Text = "Fotografar Novamente";
         }
 
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)

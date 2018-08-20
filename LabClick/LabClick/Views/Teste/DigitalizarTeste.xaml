@@ -3,43 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Teste.DigitalizarTeste"
              BackgroundImage="bgcadastro.jpg"
-             Icon="digitalizarexame.png">
-    <ContentPage.Content>
-        <StackLayout>
-            <!--title-->
-            <StackLayout Padding="10" >
-                <Label Font="30" 
-                   Text="Teste - Zika Vírus"
-                   VerticalTextAlignment="Center"
-                   HorizontalOptions="Center"
-                   FontAttributes="Bold"/>
-            </StackLayout>
-            <!--foto-->
-            <StackLayout Orientation="Horizontal" 
-                     HeightRequest="300" 
-                     WidthRequest="150" 
-                     BackgroundColor="LightGray"
-                     Padding="20">
-                <Image x:Name="imgFoto" 
-                   Aspect="AspectFill" 
-                   HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
-            <!--buttons-->
-            <StackLayout>
-                <Button
-                x:Name="btnQrCode"
-                Text="Escanear QR Code"
-                Clicked="BtnQrCode_ClickedAsync"/>
-                <Button 
-            x:Name="btnTeste"
-            Text="Fotografar Teste"
-            Clicked="BtnTeste_ClickedAsync"/>
-                <Button 
-            x:Name="BtnEnviarTeste"
-            Text="Enviar Teste"
-            Clicked="BtnEnviarTeste_ClickedAsync"/>
-            </StackLayout>
-
+             Title="Teste: Zika Vírus"
+             BackgroundColor="#197A80">
+    <StackLayout Orientation="Vertical">
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Margin="20,20,20,20">
+            <Label x:Name="lblNomePaciente"
+                       Font="20"
+                       FontAttributes="Bold"/>
         </StackLayout>
-    </ContentPage.Content>
+        <!--foto-->
+        <StackLayout Orientation="Vertical"
+                     Margin="100,20,100,20">
+            <Image x:Name="imgFoto" 
+                   Aspect="AspectFit"
+                   BackgroundColor="#80f1f1f1"
+                   Source="bgfoto.jpg"
+                   WidthRequest="800"
+                   HeightRequest="400"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Button x:Name="btnTeste"
+                    Text="Fotografar Teste"
+                    BackgroundColor="#197A80"
+                    WidthRequest="200" 
+                    HeightRequest="40"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Margin="10,10,10,10"
+                    BorderRadius="10"
+                    Clicked="BtnTeste_ClickedAsync"
+                    HorizontalOptions="Center"/>
+        </StackLayout>
+        <!--QR Code-->
+        <StackLayout Orientation="Vertical"
+                     Margin="100,20,100,20">
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="QR Code: "
+                       Font="30"/>
+                <Entry x:Name="TxtQrCode"
+                       IsEnabled="False"
+                       Text="AXO7993"
+                       FontSize="Large"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center"
+                         Orientation="Horizontal">
+                <Button x:Name="btnQrCode"
+                    Text="Escanear QR Code"
+                    Clicked="BtnQrCode_ClickedAsync"
+                    BackgroundColor="#197A80"
+                    WidthRequest="200" 
+                    HeightRequest="40"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Margin="10,10,10,10"
+                    BorderRadius="10"/>
+            </StackLayout>
+        </StackLayout>
+        <!--buttons-->
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Button x:Name="BtnEnviarTeste"
+                    Text="Enviar Teste"
+                    Clicked="BtnEnviarTeste_ClickedAsync"
+                    BackgroundColor="#197A80"
+                    WidthRequest="200" 
+                    HeightRequest="40"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Margin="10,10,10,10"
+                    BorderRadius="10"/>
+        </StackLayout>
+
+    </StackLayout>
 </ContentPage>
