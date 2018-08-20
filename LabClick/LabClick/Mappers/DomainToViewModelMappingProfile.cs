@@ -10,6 +10,7 @@ namespace LabClick.Mappers
             CreateMap<Domain.Entities.Paciente, PacienteViewModel>();
             CreateMap<Domain.Entities.Paciente, NewPatientViewModel>();
             CreateMap<Domain.Entities.Endereco, NewPatientViewModel>();
+            CreateMap<Domain.Entities.Teste, DigitalizarTesteViewModel>();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using AutoMapper;
+using LabClick.ViewModels;
+using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -15,26 +17,33 @@ namespace LabClick.Views.Teste
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DigitalizarTeste : ContentPage
 	{
-        private byte[] pictureBits;
-        private Domain.Entities.Paciente paciente;
-        private Domain.Entities.Teste teste;
-
-        public DigitalizarTeste()
-        {
-
-        }
+        public DigitalizarTesteViewModel DigitalizarTesteViewModel { get; set; }
 
         public DigitalizarTeste (Domain.Entities.Paciente paciente)
 		{
             InitializeComponent();
+
             BtnEnviarTeste.IsEnabled = false;
-            this.paciente = paciente;
-            this.teste = new Domain.Entities.Teste();
             this.lblNomePaciente.Text = $"Paciente: {paciente.Nome}";
+
+            // Inicialização dos campos do view model
+            this.DigitalizarTesteViewModel = new DigitalizarTesteViewModel
+            {
+                Code = "ABC",
+                PacienteId = paciente.Id,
+                DataCadastro = DateTime.Now,
+                ClinicaId = 1,
+                Status = "Em Análise",
+                ExameId = 1
+            };
+
+            this.BindingContext = DigitalizarTesteViewModel;
         }
 
         private async Task BtnTeste_ClickedAsync(object sender, EventArgs e)
         {
+            DigitalizarTesteViewModel.IsBusy = true;
+
             await CrossMedia.Current.Initialize();
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
@@ -60,7 +69,7 @@ namespace LabClick.Views.Teste
             MemoryStream ms = new MemoryStream();
 
             stm.CopyTo(ms);
-            pictureBits = ms.ToArray();
+            DigitalizarTesteViewModel.Imagem = ms.ToArray();
 
             imgFoto.Source = ImageSource.FromStream(() =>
             {
@@ -69,19 +78,16 @@ namespace LabClick.Views.Teste
                 return stream;
             });
 
+            DigitalizarTesteViewModel.IsBusy = true;
             BtnEnviarTeste.IsEnabled = true;
             btnTeste.Text = "Fotografar Novamente";
         }
 
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)
         {
-            teste.ExameId = 1;
-            teste.ClinicaId = 1;
-            teste.PacienteId = paciente.Id;
-            teste.Imagem = pictureBits;
-            teste.Status = "Em análise";
-            teste.DataCadastro = DateTime.Now;
+            DigitalizarTesteViewModel.IsBusy = true;
 
+            var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
             var serialized = JsonConvert.SerializeObject(teste);
 
             HttpClient client = new HttpClient();
@@ -93,11 +99,13 @@ namespace LabClick.Views.Teste
             if (result.IsSuccessStatusCode)
             {
                 await DisplayAlert("Sucesso", "Teste enviado para análise.", "Ok");
+                DigitalizarTesteViewModel.IsBusy = false;
             }
 
             else
             {
                 await DisplayAlert("Falha", "Algo errado não deu certo.", "Ok");
+                DigitalizarTesteViewModel.IsBusy = false;
             }
         }
 
@@ -108,7 +116,7 @@ namespace LabClick.Views.Teste
 
             if (result != null)
             {
-                teste.Code = result.Text;
+                DigitalizarTesteViewModel.Code = result.Text;
             }
         }
     }
