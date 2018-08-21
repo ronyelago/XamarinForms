@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using AutoMapper;
+using LabClick.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace LabClick.Views.Paciente
@@ -10,25 +12,23 @@ namespace LabClick.Views.Paciente
 		{
 			InitializeComponent ();
 
-            txtNome.Text = paciente.Nome;
-            dataNascimento.Date = paciente.DataNascimento;
-            pickerGenero.SelectedItem = paciente.Sexo;
+            var newPatientViewModel = Mapper.Map<NewPatientViewModel>(paciente);
+            this.BindingContext = newPatientViewModel;
+        }
 
-            if (paciente.Endereco != null)
-            {
-                txtCep.Text = paciente.Endereco.Cep;
-                txtUf.Text = paciente.Endereco.UF;
-                txtCidade.Text = paciente.Endereco.Cidade;
-                txtBairro.Text = paciente.Endereco.Bairro;
-                txtRua.Text = paciente.Endereco.Logradouro;
-                txtNumero.Text = paciente.Endereco.Numero.ToString();
-            }
+        private void TxtCep_Unfocused(object sender, FocusEventArgs e)
+        {
 
         }
 
-        private void ContentPage_Appearing(object sender, System.EventArgs e)
+        private void BtnCancelar_Clicked(object sender, System.EventArgs e)
         {
-            
+
+        }
+
+        private void BtnSalvar_Clicked(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

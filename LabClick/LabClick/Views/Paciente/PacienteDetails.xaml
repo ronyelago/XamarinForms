@@ -1,118 +1,215 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Paciente.PacienteDetails"
-             Appearing="ContentPage_Appearing">
+             x:Class="LabClick.Views.Paciente.PacienteDetails">
 
     <StackLayout>
         <ScrollView>
-            <StackLayout Spacing="20">
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="Center">
+                <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Center"
+                      Margin="0,0,0,20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <!--<BoxView WidthRequest="300"
-                         HeightRequest="50"
-                         VerticalOptions="Start"
-                         HorizontalOptions="FillAndExpand"/>-->
+                    <Image Aspect="AspectFill"
+                           HeightRequest="70"
+                           Source="footer.png"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                    <Label HorizontalOptions="Center"
+                           x:Name="MainLabel"
+                           Text="Cadastro de Paciente"
+                           Font="30"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           Margin="0,10,0,0"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                </Grid>
 
-                <!--Nome do paciente-->
-                <StackLayout>
-                    <Label Text="Nome" 
-                           VerticalOptions="FillAndExpand" 
-                           HorizontalOptions="FillAndExpand"/>
-                    <Entry x:Name="txtNome" 
-                           IsEnabled="False"
-                           WidthRequest="200"/>
-                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <!--Nome do paciente-->
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="name.png"/>
+                        <Entry x:Name="txtNome" 
+                               WidthRequest="500"
+                               Keyboard="Text"
+                               Placeholder="nome completo"
+                               Text="{Binding Nome}"
+                               MaxLength="100"/>
+                    </StackLayout>
 
-                <!--Data de Nascimento-->
-                <StackLayout>
-                    <Label Text="Data de Nascimento" 
-                           VerticalOptions="FillAndExpand"
-                           HorizontalOptions="FillAndExpand"/>
-                    <DatePicker HorizontalOptions="Start"
-                                IsEnabled="False"
-                                x:Name="dataNascimento"/>
-                </StackLayout>
+                    <!--Data de Nascimento-->
 
-                <!--Gênero-->
-                <StackLayout>
-                    <Picker x:Name="pickerGenero" 
-                            Title="Gênero" 
-                            VerticalOptions="CenterAndExpand" 
-                            IsEnabled="False">
-                        <Picker.Items>
-                            <x:String>Masculino</x:String>
-                            <x:String>Feminino</x:String>
-                        </Picker.Items>
-                    </Picker>
-                </StackLayout>
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="date.png"/>
+                        <Label Text="  data de nascimento  "
+                               TextColor="LightSlateGray"
+                               Font="18"/>
+                        <DatePicker HorizontalOptions="Start"
+                                    x:Name="dataNascimento" 
+                                    Date="{Binding DataNascimento}"
+                                    MinimumDate="01-01-1900"/>
+                    </StackLayout>
 
-                <!--Endereço-->
-                <StackLayout>
-                    <Label Text="Endereço" 
-                           Font="15" 
-                           VerticalTextAlignment="Center" 
+                    <!--CPF-->
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="cpf.png"/>
+                        <Entry x:Name="txtCpf"
+                               Text="{Binding Cpf}"
+                               Keyboard="Numeric"
+                               WidthRequest="500"
+                               Placeholder="cpf (somente números)"
+                               MaxLength="15"/>
+                    </StackLayout>
+
+                    <!--Gênero-->
+                    <StackLayout Orientation="Horizontal"
+                                    Margin="50,10,50,10">
+                        <Image Source="genero.png"/>
+                        <Picker x:Name="pickerGenero" 
+                                Title="gênero"
+                                SelectedItem="{Binding Sexo}"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="500">
+                            <Picker.Items>
+                                <x:String>Masculino</x:String>
+                                <x:String>Feminino</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+
+                    <!--email-->
+                    <StackLayout Orientation="Horizontal"
+                                 Margin="50,10,50,10">
+                        <Image Source="mail.png"/>
+                        <Entry x:Name="txtEmail"
+                               Text="{Binding Email}"
+                               Keyboard="Email"
+                               WidthRequest="500"
+                               Placeholder="e-mail"
+                               MaxLength="30"/>
+                    </StackLayout>
+
+                    <!--telefone-->
+                    <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                        <Image Source="phone.png"/>
+                        <Entry x:Name="txtPhone"
+                               Text="{Binding Telefone}"
+                               Keyboard="Telephone"
+                               WidthRequest="500"
+                               Placeholder="telefone"
+                               MaxLength="20"/>
+                    </StackLayout>
+
+                    <!--Endereço-->
+                    <StackLayout>
+                        <StackLayout>
+                            <Label Text="Endereço" 
+                           Font="18" VerticalTextAlignment="Center" 
                            HorizontalOptions="Center" 
-                           FontAttributes="Bold"/>
-                    <!--CEP-->
-                    <StackLayout>
-                        <Label Text="CEP" 
-                               VerticalOptions="FillAndExpand" 
-                               HorizontalOptions="FillAndExpand"/>
-                        <Entry x:Name="txtCep"
-                               IsEnabled="False"
-                               WidthRequest="200"/>
-                    </StackLayout>
+                           TextColor="#197A80">
+                            </Label>
 
-                    <!--UF-->
-                    <StackLayout>
-                        <Label Text="UF:"
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"/>
-                        <Entry x:Name="txtUf"
-                               IsEnabled="False"
-                               WidthRequest="200"/>
-                    </StackLayout>
+                        </StackLayout>
+                        <!--CEP-->
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                            <Label Text="cep:"/>
+                            <Entry x:Name="TxtCep"
+                                   Text="{Binding Cep}"
+                                   WidthRequest="500"
+                                   Keyboard="Numeric"
+                                   MaxLength="20"/>
+                        </StackLayout>
 
-                    <!--Cidade-->
-                    <StackLayout>
-                        <Label Text="Cidade:"
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"/>
-                        <Entry x:Name="txtCidade"
-                               IsEnabled="False"
-                               WidthRequest="200"/>
-                    </StackLayout>
+                        <!--UF-->
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                            <Label Text="UF:"/>
+                            <Entry x:Name="txtUf"
+                                   Text="{Binding UF}"
+                                   WidthRequest="500"
+                                   Keyboard="Text"
+                                   MaxLength="2"/>
+                        </StackLayout>
 
-                    <!--Bairro-->
-                    <StackLayout>
-                        <Label Text="Bairro:"
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"/>
-                        <Entry x:Name="txtBairro"
-                               IsEnabled="False"
-                               WidthRequest="200"/>
-                    </StackLayout>
+                        <!--Cidade-->
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                            <Label Text="Cidade:"/>
+                            <Entry x:Name="txtCidade"
+                                   Text="{Binding Cidade}"
+                                   Keyboard="Text"
+                                   WidthRequest="500"
+                                   MaxLength="50"/>
+                        </StackLayout>
 
-                    <!--Rua-->
-                    <StackLayout>
-                        <Label Text="Rua:"
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"/>
-                        <Entry x:Name="txtRua"
-                               IsEnabled="False"
-                               WidthRequest="200"/>
-                    </StackLayout>
+                        <!--Bairro-->
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                            <Label Text="Bairro:"/>
+                            <Entry x:Name="txtBairro" 
+                                   Text="{Binding Bairro}"
+                                   Keyboard="Text"
+                                   WidthRequest="500"
+                                   MaxLength="50"/>
+                        </StackLayout>
 
-                    <!--Número-->
-                    <StackLayout>
-                        <Label Text="Número:"
-                               VerticalOptions="FillAndExpand"
-                               HorizontalOptions="FillAndExpand"/>
-                        <Entry x:Name="txtNumero"
-                               IsEnabled="False"
-                               WidthRequest="200"/>
+                        <!--Rua-->
+                        <StackLayout  Orientation="Horizontal"
+                                      Margin="50,10,50,10">
+                            <Label Text="Rua:"/>
+                            <Entry x:Name="txtRua"
+                                   Text="{Binding Logradouro}"
+                                   Keyboard="Text"
+                                   WidthRequest="500"
+                                   MaxLength="100"/>
+                        </StackLayout>
+
+                        <!--Número-->
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="50,10,50,10">
+                            <Label Text="Número:"/>
+                            <Entry x:Name="txtNumero"
+                                   Text="{Binding Numero}"
+                                   Keyboard="Numeric"
+                                   WidthRequest="500"
+                                   MaxLength="10"/>
+                        </StackLayout>
                     </StackLayout>
-                    
+                </StackLayout>
+                <!--Botões Cancelar e Salvar-->
+                <StackLayout HorizontalOptions="CenterAndExpand" 
+                             Spacing="20"
+                             Orientation="Horizontal"
+                             Margin="0,20,0,0">
+                    <Button x:Name="BtnCancelar"
+                                    Text="Cancelar"
+                                    TextColor="White"
+                                    Margin="10,10,10,10"
+                                    Clicked="BtnCancelar_Clicked"
+                                    WidthRequest="200" 
+                                    BorderRadius="10"
+                                    BackgroundColor="#197A80"/>
+                    <Button x:Name="BtnSalvar"
+                                    Text="Salvar"
+                                    TextColor="White"
+                                    BackgroundColor="#197A80"
+                                    Margin="10,10,10,10"
+                                    Clicked="BtnSalvar_Clicked"
+                                    WidthRequest="200"
+                                    BorderRadius="10"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
