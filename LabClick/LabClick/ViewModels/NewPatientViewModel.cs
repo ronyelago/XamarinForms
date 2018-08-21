@@ -1,7 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace LabClick.ViewModels
 {
@@ -22,6 +26,44 @@ namespace LabClick.ViewModels
         public string Bairro { get; set; }
         public string Logradouro { get; set; }
         public int Numero { get; set; }
+
+        public bool Add(NewPatientViewModel viewModel)
+        {
+            Domain.Entities.Paciente paciente;
+            Domain.Entities.Endereco endereco;
+            HttpClient client = new HttpClient();
+
+            paciente = Mapper.Map<Domain.Entities.Paciente>(viewModel);
+            endereco = Mapper.Map<Domain.Entities.Endereco>(viewModel);
+
+            //Cadastro do Endereço
+            var enderecoSerialized = JsonConvert.SerializeObject(endereco);
+            var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
+            Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/enderecos");
+
+            var resultado = client.PostAsync(urinho, contentinho);
+            var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
+
+            //Cadastro do Paciente
+            paciente.ClinicaId = 1;
+            paciente.EnderecoId = enderecoId;
+
+            var pacienteSerialized = JsonConvert.SerializeObject(paciente);
+
+            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/pacientes");
+            var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
+
+            var result = client.PostAsync(uri, content);
+
+            if (result.Result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

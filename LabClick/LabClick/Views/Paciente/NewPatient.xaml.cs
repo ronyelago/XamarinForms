@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using LabClick.ViewModels;
+﻿using LabClick.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
-using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,7 +14,10 @@ namespace LabClick.Views.Paciente
         public NewPatient ()
 		{
 			InitializeComponent ();
-            this.BindingContext = new NewPatientViewModel();
+
+            this.NewPatientViewModel = new NewPatientViewModel();
+            this.BindingContext = NewPatientViewModel;
+
             this.dataNascimento.Date = DateTime.Now;
             this.txtNumero.Text = string.Empty;
             this.dataNascimento.MaximumDate = DateTime.Now;
@@ -24,53 +25,24 @@ namespace LabClick.Views.Paciente
 
         private void BtnSalvar_Clicked(object sender, EventArgs e)
         {
-            //BackgroundColor = #80126683
-
-            Domain.Entities.Paciente paciente;
-            Domain.Entities.Endereco endereco;
-            var newPatientViewModel = this.BindingContext as NewPatientViewModel;
-
-            //
-            if (newPatientViewModel.IsValid())
+            if (this.NewPatientViewModel.IsValid())
             {
-                HttpClient client = new HttpClient();
+                var result = NewPatientViewModel.Add(NewPatientViewModel);
 
-                paciente = Mapper.Map<Domain.Entities.Paciente>(newPatientViewModel);
-                endereco = Mapper.Map<Domain.Entities.Endereco>(newPatientViewModel);
-
-                //Cadastro do Endereço
-                var enderecoSerialized = JsonConvert.SerializeObject(endereco);
-                var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
-                Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/enderecos");
-
-                var resultado = client.PostAsync(urinho, contentinho);
-                var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
-
-                //Cadastro do Paciente
-                paciente.ClinicaId = 1;
-                paciente.EnderecoId = enderecoId;
-
-                var pacienteSerialized = JsonConvert.SerializeObject(paciente);
-
-                Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/pacientes");
-                var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
-
-                var result = client.PostAsync(uri, content);
-
-                if (result.Result.IsSuccessStatusCode)
+                if (result)
                 {
-                    DisplayAlert("Sucesso", "Paciente cadastrado com sucesso.", "Fechar");
-                    Navigation.PushAsync(new Home());
+                    DisplayAlert("Sucesso", "Paciente adicionado com sucesso.", "Fechar");
                 }
+
                 else
                 {
-                    DisplayAlert("Erro", "Nãu foi possível realizar o cadastro.", "Fechar");
+                    DisplayAlert("Erro", "Erro ao tentar adicionar o paciente.", "Fechar");
                 }
             }
 
             else
             {
-                DisplayAlert("Erro","Favor preencher todos os campos","Fechar");
+                DisplayAlert("Erro", "Favor preencher todos os campos", "Fechar");
             }
         }
 
