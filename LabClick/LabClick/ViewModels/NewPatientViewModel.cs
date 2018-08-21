@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace LabClick.ViewModels
 {
-    public class NewPatientViewModel
+    public class NewPatientViewModel : INotifyPropertyChanged
     {
         // Propriedades do Paciente
         public string Nome { get; set; }
@@ -20,6 +22,13 @@ namespace LabClick.ViewModels
         public string Bairro { get; set; }
         public string Logradouro { get; set; }
         public int Numero { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged([CallerMemberName] string name = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
 
         /// <summary>
         /// Verifica se todos os campos estão preenchidos.
