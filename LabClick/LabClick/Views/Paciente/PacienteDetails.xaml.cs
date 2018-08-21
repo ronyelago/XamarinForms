@@ -23,7 +23,7 @@ namespace LabClick.Views.Paciente
 
         private void BtnCancelar_Clicked(object sender, System.EventArgs e)
         {
-
+            Navigation.PushAsync(new Home());
         }
 
         private void BtnSalvar_Clicked(object sender, System.EventArgs e)
