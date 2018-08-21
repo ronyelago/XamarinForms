@@ -23,13 +23,12 @@ namespace LabClick.Views.Teste
 		{
             InitializeComponent();
 
-            BtnEnviarTeste.IsEnabled = false;
             this.lblNomePaciente.Text = $"Paciente: {paciente.Nome}";
 
             // Inicialização dos campos do view model
             this.DigitalizarTesteViewModel = new DigitalizarTesteViewModel
             {
-                IsBusy = true,
+                IsBusy = false,
                 PacienteId = paciente.Id,
                 DataCadastro = DateTime.Now,
                 ClinicaId = 1,
@@ -43,8 +42,6 @@ namespace LabClick.Views.Teste
 
         private async Task BtnTeste_ClickedAsync(object sender, EventArgs e)
         {
-            DigitalizarTesteViewModel.IsBusy = true;
-
             await CrossMedia.Current.Initialize();
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
@@ -101,7 +98,7 @@ namespace LabClick.Views.Teste
 
                 if (result.IsSuccessStatusCode)
                 {
-                    await DisplayAlert("Sucesso", "Teste enviado para análise.", "Ok");
+                    await DisplayAlert("Sucesso", "Teste enviado para análise com sucesso.", "Ok");
                     DigitalizarTesteViewModel.IsBusy = false;
 
                     await Navigation.PushAsync(new Home());
@@ -116,7 +113,8 @@ namespace LabClick.Views.Teste
 
             else
             {
-                await DisplayAlert("Erro", "A foto do teste e o QR-Code são obrigatórios para envio do teste", "Ok");
+                await DisplayAlert("Erro", "Antes de enviar o Exame, o Teste Rápido deve ser fotografado" +
+                    "e o QR-Code escaneado.", "Ok");
             }
         }
 
