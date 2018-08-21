@@ -11,6 +11,13 @@ namespace LabClick.ViewModels
 {
     public class NewPatientViewModel : INotifyPropertyChanged
     {
+        private string cep;
+        private string uf;
+        private string cidade;
+        private string bairro;
+        private string logradouro;
+        private int numero;
+
         // Propriedades do Paciente
         public string Nome { get; set; }
         public DateTime DataNascimento { get; set; }
@@ -18,14 +25,97 @@ namespace LabClick.ViewModels
         public string Sexo { get; set; }
         public string Email { get; set; }
         public string Telefone { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         // Propriedades do Endereço do Paciente
-        public string Cep { get; set; }
-        public string UF { get; set; }
-        public string Cidade { get; set; }
-        public string Bairro { get; set; }
-        public string Logradouro { get; set; }
-        public int Numero { get; set; }
+        public int EnderecoId { get; set; }
+        public string Cep
+        {
+            get { return this.cep; }
+            set
+            {
+                this.cep = value;
+                OnPropertyChanged();
+            }
+        }
+        public string UF
+        {
+            get { return this.uf; }
+            set
+            {
+                this.uf = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Cidade
+        {
+            get { return this.cidade; }
+            set
+            {
+                this.cidade = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Bairro
+        {
+            get { return this.bairro; }
+            set
+            {
+                this.bairro = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Logradouro
+        {
+            get { return this.logradouro; }
+            set
+            {
+                this.logradouro = value;
+                OnPropertyChanged();
+            }
+        }
+        public int Numero
+        {
+            get { return this.numero; }
+            set
+            {
+                this.numero = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Domain.Entities.Endereco GetAddress(string cep)
+        {
+            if (cep != null && !string.IsNullOrEmpty(cep))
+            {
+                Uri urinho = new Uri($@"http://viacep.com.br/ws/{cep}/json/");
+                HttpClient client = new HttpClient();
+
+                var result = client.GetAsync(urinho);
+
+                if (result.Result.IsSuccessStatusCode)
+                {
+                    var content = result.Result.Content.ReadAsStringAsync();
+                    var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
+
+                    if (endereco.IsValid())
+                    {
+                        var address = Mapper.Map<Domain.Entities.Endereco>(endereco);
+                        return address;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            return null;
+        }
 
         public bool Add(NewPatientViewModel viewModel)
         {
@@ -65,7 +155,43 @@ namespace LabClick.ViewModels
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public bool Update(NewPatientViewModel viewModel)
+        {
+            Domain.Entities.Paciente paciente;
+            Domain.Entities.Endereco endereco;
+            HttpClient client = new HttpClient();
+
+            paciente = Mapper.Map<Domain.Entities.Paciente>(viewModel);
+            endereco = Mapper.Map<Domain.Entities.Endereco>(viewModel);
+
+            //Cadastro do Endereço
+            var enderecoSerialized = JsonConvert.SerializeObject(endereco);
+            var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
+            Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/updateEndereco");
+
+            var resultado = client.PostAsync(urinho, contentinho);
+            var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
+
+            //Cadastro do Paciente
+            paciente.ClinicaId = 1;
+            paciente.EnderecoId = enderecoId;
+
+            var pacienteSerialized = JsonConvert.SerializeObject(paciente);
+
+            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/updatePaciente");
+            var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
+
+            var result = client.PostAsync(uri, content);
+
+            if (result.Result.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         void OnPropertyChanged([CallerMemberName] string name = "")
         {

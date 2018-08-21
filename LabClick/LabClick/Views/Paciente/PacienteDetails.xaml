@@ -46,6 +46,10 @@
                                Placeholder="nome completo"
                                Text="{Binding Nome}"
                                MaxLength="100"/>
+                        <Button x:Name="BtnEditarNome"
+                                Text="Editar"
+                                Clicked="BtnEditarNome_Clicked"
+                                BackgroundColor="Transparent"/>
                     </StackLayout>
 
                     <!--Data de Nascimento-->
@@ -130,6 +134,7 @@
                             <Label Text="cep:"/>
                             <Entry x:Name="TxtCep"
                                    Text="{Binding Cep}"
+                                   Unfocused="TxtCep_Unfocused"
                                    WidthRequest="500"
                                    Keyboard="Numeric"
                                    MaxLength="20"/>
@@ -205,6 +210,7 @@
                                     BorderRadius="10"
                                     BackgroundColor="#197A80"/>
                     <Button x:Name="BtnSalvar"
+                                    IsEnabled="False"
                                     Text="Salvar"
                                     TextColor="White"
                                     BackgroundColor="#197A80"
