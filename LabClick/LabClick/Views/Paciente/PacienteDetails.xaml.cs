@@ -64,6 +64,7 @@ namespace LabClick.Views.Paciente
                 if (result)
                 {
                     DisplayAlert("Sucesso", "Paciente atualizado com sucesso.", "Fechar");
+                    Navigation.PushAsync(new Home());
                 }
 
                 else

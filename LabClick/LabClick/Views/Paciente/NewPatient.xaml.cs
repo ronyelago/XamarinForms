@@ -1,7 +1,5 @@
 ﻿using LabClick.ViewModels;
-using Newtonsoft.Json;
 using System;
-using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,6 +30,7 @@ namespace LabClick.Views.Paciente
                 if (result)
                 {
                     DisplayAlert("Sucesso", "Paciente adicionado com sucesso.", "Fechar");
+                    Navigation.PushAsync(new Home());
                 }
 
                 else
@@ -48,36 +47,19 @@ namespace LabClick.Views.Paciente
 
         private void TxtCep_Unfocused(object sender, FocusEventArgs e)
         {
-            if (TxtCep.Text != null && TxtCep.Text != string.Empty)
+            var address = NewPatientViewModel.GetAddress(TxtCep.Text);
+
+            if (address != null)
             {
-                Uri urinho = new Uri($@"http://viacep.com.br/ws/{TxtCep.Text}/json/");
-                HttpClient client = new HttpClient();
+                this.NewPatientViewModel.Cidade = address.Cidade;
+                this.NewPatientViewModel.UF = address.UF;
+                this.NewPatientViewModel.Bairro = address.Bairro;
+                this.NewPatientViewModel.Logradouro = address.Logradouro;
+            }
 
-                var result = client.GetAsync(urinho);
-
-                if (result.Result.IsSuccessStatusCode)
-                {
-                    var content = result.Result.Content.ReadAsStringAsync();
-                    var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
-
-                    if (endereco.IsValid())
-                    {
-                        txtUf.Text = endereco.Uf;
-                        txtCidade.Text = endereco.Localidade;
-                        txtBairro.Text = endereco.Bairro;
-                        txtRua.Text = endereco.Logradouro;
-
-                        txtNumero.Focus();
-                    }
-                    else
-                    {
-                        DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Fechar");
-                    }
-                }
-                else
-                {
-                    DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Fechar");
-                }
+            else
+            {
+                DisplayAlert("Erro", "Endereço não localizado. Tente novamente ou preencha manualmente.", "Fechar");
             }
         }
 
