@@ -84,5 +84,71 @@ namespace LabClick.Views.Paciente
             BtnSalvar.IsEnabled = true;
             txtNome.IsEnabled = true;
         }
+
+        private void BtnEditarData_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            dataNascimento.IsEnabled = true;
+        }
+
+        private void BtnEditarCpf_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtCpf.IsEnabled = true;
+        }
+
+        private void BtnEditarGenero_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            pickerGenero.IsEnabled = true;
+        }
+
+        private void BtnEditarEmail_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtEmail.IsEnabled = true;
+        }
+
+        private void BtnEditarTelefone_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtPhone.IsEnabled = true;
+        }
+
+        private void BtnEditarCep_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            TxtCep.IsEnabled = true;
+        }
+
+        private void BtnEditarUf_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtUf.IsEnabled = true;
+        }
+
+        private void BtnEditarCidade_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtCidade.IsEnabled = true;
+        }
+
+        private void BtnEditarBairro_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtBairro.IsEnabled = true;
+        }
+
+        private void BtnEditarRua_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtRua.IsEnabled = true;
+        }
+
+        private void BtnEditarNumero_Clicked(object sender, System.EventArgs e)
+        {
+            BtnSalvar.IsEnabled = true;
+            txtNumero.IsEnabled = true;
+        }
     }
 }
