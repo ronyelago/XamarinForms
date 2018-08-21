@@ -109,7 +109,7 @@ namespace LabClick.Views.Teste
 
                 else
                 {
-                    await DisplayAlert("Falha", "Algo errado não deu certo.", "Ok");
+                    await DisplayAlert("Erro", "Não foi possível enviar o teste.", "Ok");
                     DigitalizarTesteViewModel.IsBusy = false;
                 }
             }
