@@ -32,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Services\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Graficos\GraficosTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

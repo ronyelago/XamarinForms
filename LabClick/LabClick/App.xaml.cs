@@ -1,4 +1,5 @@
 using LabClick.Mappers;
+using LabClick.Services;
 using LabClick.Views;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -14,12 +15,15 @@ namespace LabClick
         public static MasterDetailPage MasterPage { get; set; }
         //HttpClient usado para as requisições à api
         public static HttpClient Client { get; set; }
+        public static LoadingPage LoadingPage { get; set; }
 
         public App ()
 		{
             InitializeComponent();
 
             Client = new HttpClient();
+
+            LoadingPage = new LoadingPage();
 
             MainPage = new NavigationPage(new Login())
             {

@@ -17,6 +17,7 @@ namespace LabClick.Views.Paciente
         List<Domain.Entities.Paciente> pacientes = new List<Domain.Entities.Paciente>();
         public List<SearchListViewItem> ListSearchItem { get; set; }
         public bool Scanning { get; set; }
+        public LoadingPage LoadingPage { get; set; }
 
         // construtor com parâmetro que indica que
         // a navegação será direto para page de digitalização 
@@ -24,6 +25,7 @@ namespace LabClick.Views.Paciente
         {
             InitializeComponent();
 
+            this.LoadingPage = new LoadingPage();
             this.Scanning = scanning;
             this.MainLabel.Text = "Selecione o Paciente";
         }
@@ -34,21 +36,24 @@ namespace LabClick.Views.Paciente
 		{
 			InitializeComponent ();
 
+            this.LoadingPage = new LoadingPage();
             this.MainLabel.Text = "Busca de Paciente";
         }
 
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
             // Busca os pacientes pelo nome
-            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(20) };
+            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(1) };
 
             try
             {
+                await Navigation.PushAsync(App.LoadingPage);
+
                 var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
                 var content = result.Content.ReadAsStringAsync();
                 // cria lista com retorno da busca
                 pacientes = JsonConvert.DeserializeObject<List<Domain.Entities.Paciente>>(content.Result);
-
+                 
                 // lista de itens que possuem nome e cor
                 ListSearchItem = new List<SearchListViewItem>();
 
@@ -75,11 +80,14 @@ namespace LabClick.Views.Paciente
 
                 // Adiciona os ítens à lista resultante da busca
                 PacientesListView.ItemsSource = ListSearchItem;
+
+                Navigation.RemovePage(App.LoadingPage);
             }
 
             catch (TaskCanceledException ex)
             {
                 await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message}", "Fechar");
+                Navigation.RemovePage(App.LoadingPage);
             }
         }
 

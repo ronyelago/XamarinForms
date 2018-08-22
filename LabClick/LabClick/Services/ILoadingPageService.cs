@@ -4,8 +4,7 @@ namespace LabClick.Services
 {
     interface ILoadingPageService
     {
-        void InitLoadingPage
-              (ContentPage loadingIndicatorPage = null);
+        void InitLoadingPage(ContentPage loadingIndicatorPage = null);
 
         void ShowLoadingPage();
 
