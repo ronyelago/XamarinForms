@@ -1,5 +1,7 @@
-﻿using LabClick.Views.Teste;
+﻿using LabClick.Services;
+using LabClick.Views.Teste;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -35,42 +37,50 @@ namespace LabClick.Views.Paciente
             this.MainLabel.Text = "Busca de Paciente";
         }
 
-        private async Task PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
+        private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
             // Busca os pacientes pelo nome
-            var client = new HttpClient();
-            var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
-            var content = result.Content.ReadAsStringAsync();
+            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(10) };
 
-            // cria lista com retorno da busca
-            pacientes = JsonConvert.DeserializeObject<List<Domain.Entities.Paciente>>(content.Result);
-
-            // lista de itens que possuem nome e cor
-            ListSearchItem = new List<SearchListViewItem>();
-
-            // inserindo os nomes e números que definirão o background
-            for (int i = 0; i < pacientes.Count; i++)
+            try
             {
-                ListSearchItem.Add(new SearchListViewItem { Name = pacientes[i].Nome, SetColor = i });
+                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
+                var content = result.Content.ReadAsStringAsync();
+                // cria lista com retorno da busca
+                pacientes = JsonConvert.DeserializeObject<List<Domain.Entities.Paciente>>(content.Result);
+
+                // lista de itens que possuem nome e cor
+                ListSearchItem = new List<SearchListViewItem>();
+
+                // inserindo os nomes e números que definirão o background
+                for (int i = 0; i < pacientes.Count; i++)
+                {
+                    ListSearchItem.Add(new SearchListViewItem { Name = pacientes[i].Nome, SetColor = i });
+                }
+
+                // define o background de cada ítem da lista
+                foreach (var item in ListSearchItem)
+                {
+                    if (item.SetColor % 2 == 0)
+                    {
+                        //verde com 90% de transparência
+                        item.Color = Color.FromHex("#1A126683");
+                    }
+                    else
+                    {
+                        //branco com 50% de transparência
+                        item.Color = Color.FromHex("#80FFFFFF");
+                    }
+                }
+
+                // Adiciona os ítens à lista resultante da busca
+                PacientesListView.ItemsSource = ListSearchItem;
             }
 
-            // define o background de cada ítem da lista de acordo com o número (ímpar ou par)
-            foreach (var item in ListSearchItem)
+            catch (Exception ex)
             {
-                if (item.SetColor % 2 == 0)
-                {
-                    //verde com 90% de transparência
-                    item.Color = Color.FromHex("#1A126683");
-                }
-                else
-                {
-                    //branco com 50% de transparência
-                    item.Color = Color.FromHex("#80FFFFFF");
-                }
+                await DisplayAlert("Erro", $"{ex.Message}", "Fechar");
             }
-
-            // Adiciona os ítens à lista resultante da busca
-            PacientesListView.ItemsSource = ListSearchItem;
         }
 
         private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
