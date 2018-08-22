@@ -40,7 +40,7 @@ namespace LabClick.Views.Paciente
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
             // Busca os pacientes pelo nome
-            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(10) };
+            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(20) };
 
             try
             {
@@ -77,9 +77,9 @@ namespace LabClick.Views.Paciente
                 PacientesListView.ItemsSource = ListSearchItem;
             }
 
-            catch (Exception ex)
+            catch (TaskCanceledException ex)
             {
-                await DisplayAlert("Erro", $"{ex.Message}", "Fechar");
+                await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message}", "Fechar");
             }
         }
 
