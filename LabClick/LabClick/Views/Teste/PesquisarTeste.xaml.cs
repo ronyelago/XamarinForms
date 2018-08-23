@@ -90,5 +90,12 @@ namespace LabClick.Views.Teste
         {
             //Navigation.PushAsync(new )
         }
+
+        private void BtnDetalhar_Clicked(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            var parent = btn.Parent;
+            int id = int.Parse(parent.FindByName<Label>("LblPacienteId").Text);
+        }
     }
 }
