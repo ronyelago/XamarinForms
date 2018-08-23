@@ -28,7 +28,6 @@ namespace LabClick.Views.Paciente
             this.LoadingPage = new LoadingPage();
             this.Scanning = scanning;
             this.MainLabel.Text = "Selecione o Paciente";
-            this.PacienteSearchBar.Focus();
         }
 
         // construtor sem parâmetros que indica que
@@ -39,7 +38,6 @@ namespace LabClick.Views.Paciente
 
             this.LoadingPage = new LoadingPage();
             this.MainLabel.Text = "Busca de Paciente";
-            this.PacienteSearchBar.Focus();
         }
 
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
@@ -92,6 +90,7 @@ namespace LabClick.Views.Paciente
                 {
                     await DisplayAlert("Resultado da busca", "Nenhum paciente encontrado.", "Fechar");
                     Navigation.RemovePage(App.LoadingPage);
+                    this.PacienteSearchBar.Text = string.Empty;
                 }
             }
 
