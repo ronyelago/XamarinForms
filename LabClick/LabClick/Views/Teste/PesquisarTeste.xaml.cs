@@ -95,7 +95,7 @@ namespace LabClick.Views.Teste
         {
             Button btn = (Button)sender;
             var parent = btn.Parent;
-            int id = int.Parse(parent.FindByName<Label>("LblPacienteId").Text);
+            int pacienteId = int.Parse(parent.FindByName<Label>("LblPacienteId").Text);
         }
     }
 }
