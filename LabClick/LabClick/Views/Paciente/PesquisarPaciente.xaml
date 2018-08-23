@@ -32,9 +32,10 @@
         <StackLayout Orientation="Vertical"
                      Margin="70,50,70,50">
             <StackLayout>
-                <SearchBar x:Name="PacienteSearchBar" 
-                       SearchButtonPressed="PacienteSearchBar_SearchButtonPressed"
-                       WidthRequest="400"/>
+                <SearchBar x:Name="PacienteSearchBar"
+                           Placeholder="Nome do Paciente"
+                           SearchButtonPressed="PacienteSearchBar_SearchButtonPressed"
+                           WidthRequest="400"/>
             </StackLayout>
             <Grid>
                 <StackLayout Spacing="15">
