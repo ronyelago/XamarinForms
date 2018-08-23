@@ -2,7 +2,8 @@
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Paciente.PacienteMasterPage"
-             Title="Menu - Paciente">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#197A80">
     <MasterDetailPage.Master>
         <ContentPage Title="PacienteMasterPage">
             <!--Barra Lateral (sandwich menu)-->
@@ -13,7 +14,7 @@
                 </Grid.RowDefinitions>
                 <!--Imagem do header-->
                 <Grid>
-                    <Image Source="logolabclick.png" Aspect="AspectFit"/>
+                    <Image Source="logolabclick.png" Aspect="AspectFill"/>
                     <StackLayout>
                         <StackLayout Padding="0,20,0,0" 
                                      HorizontalOptions="CenterAndExpand" 

@@ -28,6 +28,7 @@ namespace LabClick.Views.Paciente
             this.LoadingPage = new LoadingPage();
             this.Scanning = scanning;
             this.MainLabel.Text = "Selecione o Paciente";
+            this.PacienteSearchBar.Focus();
         }
 
         // construtor sem parâmetros que indica que
@@ -38,12 +39,12 @@ namespace LabClick.Views.Paciente
 
             this.LoadingPage = new LoadingPage();
             this.MainLabel.Text = "Busca de Paciente";
+            this.PacienteSearchBar.Focus();
         }
 
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
-            // Busca os pacientes pelo nome
-            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(1) };
+            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(30) };
 
             try
             {
@@ -51,42 +52,52 @@ namespace LabClick.Views.Paciente
 
                 var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
                 var content = result.Content.ReadAsStringAsync();
+
                 // cria lista com retorno da busca
                 pacientes = JsonConvert.DeserializeObject<List<Domain.Entities.Paciente>>(content.Result);
-                 
-                // lista de itens que possuem nome e cor
-                ListSearchItem = new List<SearchListViewItem>();
 
-                // inserindo os nomes e números que definirão o background
-                for (int i = 0; i < pacientes.Count; i++)
+                if (pacientes != null)
                 {
-                    ListSearchItem.Add(new SearchListViewItem { Name = pacientes[i].Nome, SetColor = i });
+                    // lista de itens que possuem nome e cor
+                    ListSearchItem = new List<SearchListViewItem>();
+
+                    // inserindo os nomes e números que definirão o background
+                    for (int i = 0; i < pacientes.Count; i++)
+                    {
+                        ListSearchItem.Add(new SearchListViewItem { Name = pacientes[i].Nome, SetColor = i });
+                    }
+
+                    // define o background de cada ítem da lista
+                    foreach (var item in ListSearchItem)
+                    {
+                        if (item.SetColor % 2 == 0)
+                        {
+                            //verde com 90% de transparência
+                            item.Color = Color.FromHex("#1A126683");
+                        }
+                        else
+                        {
+                            //branco com 50% de transparência
+                            item.Color = Color.FromHex("#80FFFFFF");
+                        }
+                    }
+
+                    // Adiciona os ítens à lista resultante da busca
+                    PacientesListView.ItemsSource = ListSearchItem;
+
+                    Navigation.RemovePage(App.LoadingPage);
                 }
 
-                // define o background de cada ítem da lista
-                foreach (var item in ListSearchItem)
+                else
                 {
-                    if (item.SetColor % 2 == 0)
-                    {
-                        //verde com 90% de transparência
-                        item.Color = Color.FromHex("#1A126683");
-                    }
-                    else
-                    {
-                        //branco com 50% de transparência
-                        item.Color = Color.FromHex("#80FFFFFF");
-                    }
+                    await DisplayAlert("Resultado da busca", "Nenhum paciente encontrado.", "Fechar");
+                    Navigation.RemovePage(App.LoadingPage);
                 }
-
-                // Adiciona os ítens à lista resultante da busca
-                PacientesListView.ItemsSource = ListSearchItem;
-
-                Navigation.RemovePage(App.LoadingPage);
             }
 
             catch (TaskCanceledException ex)
             {
-                await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message}", "Fechar");
+                await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message} \n {ex.InnerException.Message}", "Fechar");
                 Navigation.RemovePage(App.LoadingPage);
             }
         }
