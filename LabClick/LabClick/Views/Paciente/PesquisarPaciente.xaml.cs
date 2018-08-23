@@ -17,7 +17,6 @@ namespace LabClick.Views.Paciente
         List<Domain.Entities.Paciente> pacientes = new List<Domain.Entities.Paciente>();
         public List<SearchListViewItem> ListSearchItem { get; set; }
         public bool Scanning { get; set; }
-        public LoadingPage LoadingPage { get; set; }
 
         // construtor com parâmetro que indica que
         // a navegação será direto para page de digitalização 
@@ -25,7 +24,6 @@ namespace LabClick.Views.Paciente
         {
             InitializeComponent();
 
-            this.LoadingPage = new LoadingPage();
             this.Scanning = scanning;
             this.MainLabel.Text = "Selecione o Paciente";
         }
@@ -36,7 +34,6 @@ namespace LabClick.Views.Paciente
 		{
 			InitializeComponent ();
 
-            this.LoadingPage = new LoadingPage();
             this.MainLabel.Text = "Busca de Paciente";
         }
 

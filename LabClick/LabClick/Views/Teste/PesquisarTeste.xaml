@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Teste.PesquisarTeste">
+             x:Class="LabClick.Views.Teste.PesquisarTeste"
+             BackgroundImage="bgcadastro.jpg">
     <StackLayout>
         <Grid HorizontalOptions="FillAndExpand"
                     VerticalOptions="Center">
@@ -13,20 +14,83 @@
             </Grid.ColumnDefinitions>
 
             <Image Aspect="AspectFill"
-                        HeightRequest="70"
-                        Source="footer.png"
-                        Grid.Row="0"
-                        Grid.Column="0"/>
+                    HeightRequest="70"
+                    Source="footer.png"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
             <Label HorizontalOptions="Center"
-                        x:Name="MainLabel"
-                        Text="Busca de Exame"
-                        Font="30"
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        Margin="0,10,0,0"
-                        Grid.Row="0"
-                        Grid.Column="0"/>
+                    x:Name="MainLabel"
+                    Text="Busca de Exame"
+                    Font="30"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    Margin="0,10,0,0"
+                    Grid.Row="0"
+                    Grid.Column="0"/>
         </Grid>
-        <SearchBar Placeholder="Nome do Paciente"/>
+        <StackLayout>
+            <StackLayout Margin="10,20,10,20">
+                <SearchBar Placeholder="Nome do Paciente"
+                           x:Name="PesquisarTesteSearchBar"
+                           SearchButtonPressed="PesquisarTesteSearchBar_SearchButtonPressed"/>
+            </StackLayout>
+            <Grid>
+                <StackLayout Spacing="15">
+                    <ListView x:Name="TestesListView"
+                              SeparatorVisibility="None"
+                              RowHeight="100"
+                              ItemTapped="TestesListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout BackgroundColor="{Binding Color}"
+                                                 VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical"
+                                                     WidthRequest="300"
+                                                     HorizontalOptions="Start"
+                                                     Margin="10,5,10,5">
+                                            <Label Text="{Binding NomeTeste}"
+                                                   Font="20"
+                                                   TextColor="#126683"/>
+                                            <Label Text="{Binding NomePaciente}"
+                                                   FontAttributes="Bold"
+                                                   Font="15"/>
+                                            <Label Text="{Binding DataTeste}"
+                                                   FontAttributes="Bold"
+                                                   Font="15"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+                                                     HorizontalOptions="StartAndExpand"
+                                                     WidthRequest="200"
+                                                     Margin="10,5,10,5">
+                                            <Label Text="Status"
+                                                   Font="20"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   TextColor="#126683"/>
+                                            <Label Text="{Binding Status}"
+                                                   FontAttributes="Bold"/>
+                                            <Label Text="{Binding PacienteId}"      
+                                                   IsVisible="False"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical"
+                                                     HorizontalOptions="EndAndExpand"
+                                                     WidthRequest="200"
+                                                     Margin="20,5,20,5"
+                                                     Padding="5,30,5,5">
+                                            <Button Text="Detalhar"
+                                                    BackgroundColor="#126683"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    TextColor="White"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+        
     </StackLayout>
 </ContentPage>
