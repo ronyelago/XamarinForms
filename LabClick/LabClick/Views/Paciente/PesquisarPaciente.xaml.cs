@@ -1,5 +1,4 @@
-﻿using LabClick.Services;
-using LabClick.Views.Teste;
+﻿using LabClick.Views.Teste;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -45,7 +44,7 @@ namespace LabClick.Views.Paciente
             {
                 await Navigation.PushAsync(App.LoadingPage);
 
-                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
+                var result = await client.GetAsync($@"http://192.168.0.15:3000/paciente/getByName={PacienteSearchBar.Text}");
                 var content = result.Content.ReadAsStringAsync();
 
                 // cria lista com retorno da busca

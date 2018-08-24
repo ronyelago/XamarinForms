@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -28,7 +29,7 @@ namespace LabClick.Views.Teste
                 await Navigation.PushAsync(App.LoadingPage);
 
                 // Busca os testes pelo nome ou trecho do nome do paciente
-                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/teste/getAllByPatientName={PesquisarTesteSearchBar.Text}");
+                var result = await client.GetAsync($@"http://192.168.0.15:3000/teste/getAllByPatientName={PesquisarTesteSearchBar.Text}");
                 var content = result.Content.ReadAsStringAsync();
 
                 // cria lista com retorno da busca
@@ -93,9 +94,11 @@ namespace LabClick.Views.Teste
 
         private void BtnDetalhar_Clicked(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+            Button btn = sender as Button;
             var parent = btn.Parent;
             int pacienteId = int.Parse(parent.FindByName<Label>("LblPacienteId").Text);
+            var teste = testes.FirstOrDefault(t => t.PacienteId == pacienteId);
+
         }
     }
 }
