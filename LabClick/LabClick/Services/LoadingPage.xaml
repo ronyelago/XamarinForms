@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Services.LoadingPage"
-             BackgroundColor="#80000000"
+             BackgroundColor="#803E9D75"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout
             Padding="30"
-            BackgroundColor="Black"
+            BackgroundColor="#004D2C"
             HorizontalOptions="Center"
             VerticalOptions="Center">
             <ActivityIndicator IsRunning="True" Color="White" />

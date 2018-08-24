@@ -91,7 +91,7 @@ namespace LabClick.Views.Teste
                 var serialized = JsonConvert.SerializeObject(teste);
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri(@"http://192.168.0.15:3000/teste/testes");
+                Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
                 var content = new StringContent(serialized, Encoding.UTF8, "application/json");
 
                 var result = await client.PostAsync(uri, content);

@@ -8,7 +8,6 @@ namespace LabClick.Mappers
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Domain.Entities.Paciente, PacienteViewModel>();
-
             CreateMap<Domain.Entities.Paciente, NewPatientViewModel>()
                 .ForMember(end => end.EnderecoId, opt => opt.MapFrom(p => p.Endereco.Id))
                 .ForMember(end => end.Cep, opt => opt.MapFrom(p => p.Endereco.Cep))
@@ -19,8 +18,9 @@ namespace LabClick.Mappers
                 .ForMember(end => end.Numero, opt => opt.MapFrom(p => p.Endereco.Numero));
 
             CreateMap<Domain.Entities.Endereco, NewPatientViewModel>();
-
             CreateMap<Domain.Entities.Teste, DigitalizarTesteViewModel>();
+            CreateMap<Domain.Entities.Teste, TestDetailsViewModel>()
+                .ForMember(t => t.DataCadastro, opt => opt.MapFrom(test => test.DataCadastro.ToShortDateString()));
         }
     }
 }
