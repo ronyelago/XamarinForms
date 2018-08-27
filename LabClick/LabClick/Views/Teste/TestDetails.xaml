@@ -7,10 +7,24 @@
     <StackLayout Orientation="Vertical"
                  Margin="25,25,25,25"
                  BackgroundColor="#80FF0000">
-        <Label Text="{Binding Exame.Nome, StringFormat='Exame: {0:F0}'}"/>
-        <Label Text="{Binding Paciente.Nome}"/>
-        <Label Text="{Binding Code}"/>
-        <Label Text="{Binding DataCadastro}"/>
-        <Label Text="{Binding Status}"/>
+        <StackLayout BackgroundColor="LightGreen"
+                     Orientation="Horizontal">
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="StartAndExpand"
+                         BackgroundColor="Purple">
+                <Label Text="{Binding Exame.Nome, StringFormat='Exame - {0:F0} Vírus'}"
+                       Font="20"
+                       FontAttributes="Bold"
+                       Margin="10,10,10,10"/>
+                <Label Text="{Binding Paciente.Nome, StringFormat='Nome do Paciente: {0:F0}'}"/>
+                <Label Text="{Binding Code}"/>
+            </StackLayout>
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="Start"
+                         BackgroundColor="LightSkyBlue">
+                <Label Text="{Binding DataCadastro}"/>
+                <Label Text="{Binding Status}"/>
+            </StackLayout>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
