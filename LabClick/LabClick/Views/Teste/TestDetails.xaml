@@ -22,15 +22,18 @@
                 <Label Text="Resultado:"
                        HorizontalOptions="End"/>
             </StackLayout>
-            <Label Text="{Binding Exame.Nome}"
+            <StackLayout Orientation="Vertical"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Exame.Nome}"
                    HorizontalOptions="Start"/>
-            <Label Text="{Binding Paciente.Nome}"
+                <Label Text="{Binding Paciente.Nome}"
                    HorizontalOptions="Start"/>
-            <Label Text="{Binding DataCadastro}"
+                <Label Text="{Binding DataCadastro}"
                    HorizontalOptions="Start"/>
-            <Label Text="{Binding Status}"
+                <Label Text="{Binding Status}"
                    HorizontalOptions="Start"/>
-            <Label Text="{Binding }"/>
+                <Label Text="{Binding }"/>
+            </StackLayout>
         </StackLayout>
     </StackLayout>
 </ContentPage>
