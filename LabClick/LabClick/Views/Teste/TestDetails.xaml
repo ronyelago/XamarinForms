@@ -8,23 +8,29 @@
                  Margin="25,25,25,25"
                  BackgroundColor="#80FF0000">
         <StackLayout BackgroundColor="LightGreen"
-                     Orientation="Horizontal">
-            <StackLayout Orientation="Vertical"
-                         HorizontalOptions="StartAndExpand"
-                         BackgroundColor="Purple">
-                <Label Text="{Binding Exame.Nome, StringFormat='Exame - {0:F0} Vírus'}"
-                       Font="20"
-                       FontAttributes="Bold"
-                       Margin="10,10,10,10"/>
-                <Label Text="{Binding Paciente.Nome, StringFormat='Nome do Paciente: {0:F0}'}"/>
-                <Label Text="{Binding Code}"/>
+                     Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand">
+            <StackLayout>
+                <Label Text="Exame:"
+                       HorizontalOptions="End"/>
+                <Label Text="Nome do Paciente:"
+                       HorizontalOptions="End"/>
+                <Label Text="Data do Teste:"
+                       HorizontalOptions="End"/>
+                <Label Text="Status:"
+                       HorizontalOptions="End"/>
+                <Label Text="Resultado:"
+                       HorizontalOptions="End"/>
             </StackLayout>
-            <StackLayout Orientation="Vertical"
-                         HorizontalOptions="Start"
-                         BackgroundColor="LightSkyBlue">
-                <Label Text="{Binding DataCadastro}"/>
-                <Label Text="{Binding Status}"/>
-            </StackLayout>
+            <Label Text="{Binding Exame.Nome}"
+                   HorizontalOptions="Start"/>
+            <Label Text="{Binding Paciente.Nome}"
+                   HorizontalOptions="Start"/>
+            <Label Text="{Binding DataCadastro}"
+                   HorizontalOptions="Start"/>
+            <Label Text="{Binding Status}"
+                   HorizontalOptions="Start"/>
+            <Label Text="{Binding }"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
