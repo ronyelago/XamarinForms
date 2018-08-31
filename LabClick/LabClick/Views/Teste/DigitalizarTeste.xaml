@@ -53,8 +53,10 @@
             <StackLayout HorizontalOptions="Center"
                          Orientation="Horizontal"
                          Margin="10,10,10,20">
-                <Button x:Name="btnQrCode"
-                    Text="Escanear QR Code"
+                <!--<Button x:Name="btnQrCode"
+                    Image="qrcode.png"
+                    HorizontalOptions="StartAndExpand"
+                    VerticalOptions="StartAndExpand"
                     Clicked="BtnQrCode_ClickedAsync"
                     BackgroundColor="#197A80"
                     WidthRequest="200" 
@@ -62,7 +64,13 @@
                     TextColor="White"
                     FontAttributes="Bold"
                     Margin="10,10,10,10"
-                    BorderRadius="10"/>
+                    BorderRadius="10"/>-->
+                <Image Source="qrcode.png">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedAsync"/>
+                    </Image.GestureRecognizers>
+                    <Image.Effects />
+                </Image>
             </StackLayout>
         </StackLayout>
         <!--buttons-->

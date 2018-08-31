@@ -118,7 +118,18 @@ namespace LabClick.Views.Teste
             }
         }
 
-        private async Task BtnQrCode_ClickedAsync(object sender, EventArgs e)
+        //private async Task BtnQrCode_ClickedAsync(object sender, EventArgs e)
+        //{
+        //    var scanner = new MobileBarcodeScanner();
+        //    var result = await scanner.Scan();
+
+        //    if (result != null)
+        //    {
+        //        DigitalizarTesteViewModel.Code = result.Text;
+        //    }
+        //}
+
+        private async Task TapGestureRecognizer_TappedAsync(object sender, EventArgs e)
         {
             var scanner = new MobileBarcodeScanner();
             var result = await scanner.Scan();
