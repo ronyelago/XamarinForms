@@ -61,7 +61,7 @@ namespace LabClick.Views.Teste
             if (foto == null)
             {
                 return;
-            }
+            } 
 
             Stream stm = foto.GetStream();
             MemoryStream ms = new MemoryStream();
