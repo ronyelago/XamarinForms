@@ -11,9 +11,9 @@ namespace LabClick
 {
     public partial class App : Application
 	{
-        //Propriedade usada para controlar ações da master detail
+        //Propriedade usada para controlar aï¿½ï¿½es da master detail
         public static MasterDetailPage MasterPage { get; set; }
-        //HttpClient usado para as requisições à api
+        //HttpClient usado para as requisiï¿½ï¿½es ï¿½ api
         public static HttpClient Client { get; set; }
         public static LoadingPage LoadingPage { get; set; }
 
@@ -31,14 +31,14 @@ namespace LabClick
             };
 		}
 
-        //Invocar esta task ao clicar em um ítem da master detail
-        //passando a págica a ser aberta por parâmetro
+        //Invocar esta task ao clicar em um ï¿½tem da master detail
+        //passando a pï¿½gica a ser aberta por parï¿½metro
         public async static Task NavigateMasterDetail(Page page)
         {
             //oculta a master
             App.MasterPage.IsPresented = false;
             
-            //exibe outra página
+            //exibe outra pï¿½gina
             await App.MasterPage.Navigation.PushAsync(page);
         }
 
@@ -55,7 +55,7 @@ namespace LabClick
 
 		protected override void OnResume ()
 		{
-			// Handle when your app resumes
+			// Handle when your app resumess
 		}
 	}
 }
