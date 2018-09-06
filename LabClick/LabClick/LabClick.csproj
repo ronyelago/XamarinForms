@@ -7,7 +7,8 @@
   <ItemGroup>
     <PackageReference Include="automapper" Version="7.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.1" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />
     <PackageReference Include="ZXing.Net.Mobile.Forms" Version="2.4.1" />
@@ -15,7 +16,7 @@
 
   <ItemGroup>
     <Reference Include="LabClick.Domain">
-      <HintPath>..\..\..\labclick\LabClick.Domain\bin\Debug\LabClick.Domain.dll</HintPath>
+      <HintPath>..\..\..\Jobs\labclick\LabClick.Domain\bin\Debug\LabClick.Domain.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -1,5 +1,4 @@
 ﻿using LabClick.Domain.Entities;
-using System;
 
 namespace LabClick.ViewModels
 {

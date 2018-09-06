@@ -1,93 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Teste.DigitalizarTeste"
-             BackgroundImage="bgcadastro.jpg"
-             Title="Teste: Zika Vírus"
-             BackgroundColor="#197A80">
-    <StackLayout Orientation="Vertical">
-        <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                     Margin="20,20,20,20">
-            <Label x:Name="lblNomePaciente"
-                       Font="20"
-                       FontAttributes="Bold"/>
+             x:Class="LabClick.Views.Teste.DigitalizarTeste">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
-        <!--foto-->
-        <StackLayout Orientation="Vertical"
-                     Margin="100,20,100,20">
-            <Image x:Name="imgFoto"
-                   Aspect="AspectFit"
-                   BackgroundColor="#80f1f1f1"
-                   Source="{Binding Imagem}"
-                   WidthRequest="800"
-                   HeightRequest="400"
-                   HorizontalOptions="CenterAndExpand"/>
-            <Button x:Name="btnTeste"
-                    Text="Fotografar Teste"
-                    BackgroundColor="#197A80"
-                    WidthRequest="200" 
-                    HeightRequest="40"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    Margin="10,10,10,10"
-                    BorderRadius="10"
-                    Clicked="BtnTeste_ClickedAsync"
-                    HorizontalOptions="Center"/>
-        </StackLayout>
-        <ActivityIndicator x:Name="Loading"
-                           Color="Black"
-                           IsRunning="{Binding IsBusy}"/>
-        <!--QR Code-->
-        <StackLayout Orientation="Vertical"
-                     Margin="100,20,100,20">
-            <StackLayout Orientation="Horizontal"
-                         HorizontalOptions="CenterAndExpand">
-                <Label Text="QR Code: "
-                       Font="30"/>
-                <Label x:Name="LblQrCode"
-                       Text="{Binding Code}"
-                       Font="30"
-                       BackgroundColor="#80f1f1f1"/>
-            </StackLayout>
-            <StackLayout HorizontalOptions="Center"
-                         Orientation="Horizontal"
-                         Margin="10,10,10,20">
-                <!--<Button x:Name="btnQrCode"
-                    Image="qrcode.png"
-                    HorizontalOptions="StartAndExpand"
-                    VerticalOptions="StartAndExpand"
-                    Clicked="BtnQrCode_ClickedAsync"
-                    BackgroundColor="#197A80"
-                    WidthRequest="200" 
-                    HeightRequest="40"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    Margin="10,10,10,10"
-                    BorderRadius="10"/>-->
-                <Image Source="qrcode.png">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_TappedAsync"/>
-                    </Image.GestureRecognizers>
-                    <Image.Effects />
-                </Image>
-            </StackLayout>
-        </StackLayout>
-        <!--buttons-->
-        <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                     Margin="10,100,10,10">
-            <Button x:Name="BtnEnviarTeste"
-                    Text="Enviar Teste"
-                    Clicked="BtnEnviarTeste_ClickedAsync"
-                    BackgroundColor="#197A80"
-                    WidthRequest="250" 
-                    HeightRequest="80"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    Margin="10,10,10,10"
-                    BorderRadius="10"/>
-        </StackLayout>
-
-    </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

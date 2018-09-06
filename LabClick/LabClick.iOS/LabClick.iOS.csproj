@@ -148,21 +148,26 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NETStandard.Library">
-      <Version>2.0.3</Version>
+      <Version>2.0.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.583944" />
+    <PackageReference Include="Plugin.Permissions">
+      <Version>3.0.0.12</Version>
+    </PackageReference>
+    <PackageReference Include="ZXing.Net.Mobile">
+      <Version>2.4.1</Version>
+    </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile.Forms">
       <Version>2.4.1</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\LabClick\LabClick.csproj">
-      <Project>{19A62745-153A-4595-A7B2-9D5E04A0CDC1}</Project>
-      <Name>LabClick</Name>
-    </ProjectReference>
+    <BundleResource Include="Resources\menu.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\menu.png" />
+    <ProjectReference Include="..\LabClick\LabClick.csproj">
+      <Project>{4829651b-0034-4666-b000-a7276133025e}</Project>
+      <Name>LabClick</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
