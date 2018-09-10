@@ -16,7 +16,6 @@ namespace LabClick.ViewModels
         private bool scanned;
         private string imagemShow;
 
-        public bool Scanned { get; set; }
         public string ImageShow
         {
             get { return this.ImageShow; }
@@ -65,10 +64,10 @@ namespace LabClick.ViewModels
             get { return this.dataCadastro; }
             set { this.dataCadastro = value; }
         }
-        public bool IsBusy
+        public bool Scanned
         {
-            get { return this.isBusy; }
-            set { this.isBusy = value; }
+            get { return this.scanned; }
+            set { this.scanned = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
