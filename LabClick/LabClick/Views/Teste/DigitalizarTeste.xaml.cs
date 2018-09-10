@@ -28,7 +28,6 @@ namespace LabClick.Views.Teste
             // Inicialização dos campos do view model
             this.DigitalizarTesteViewModel = new DigitalizarTesteViewModel
             {
-                IsBusy = false,
                 PacienteId = paciente.Id,
                 DataCadastro = DateTime.Now,
                 ClinicaId = 1,
@@ -76,7 +75,6 @@ namespace LabClick.Views.Teste
                 return stream;
             });
 
-            DigitalizarTesteViewModel.IsBusy = true;
             BtnEnviarTeste.IsEnabled = true;
             btnTeste.Text = "Fotografar Novamente";
         }
@@ -85,8 +83,6 @@ namespace LabClick.Views.Teste
         {
             if (DigitalizarTesteViewModel.IsValid())
             {
-                DigitalizarTesteViewModel.IsBusy = true;
-
                 var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
                 var serialized = JsonConvert.SerializeObject(teste);
 
@@ -99,15 +95,12 @@ namespace LabClick.Views.Teste
                 if (result.IsSuccessStatusCode)
                 {
                     await DisplayAlert("Sucesso", "Teste enviado para análise com sucesso.", "Ok");
-                    DigitalizarTesteViewModel.IsBusy = false;
-
                     await Navigation.PushAsync(new Home());
                 }
 
                 else
                 {
                     await DisplayAlert("Erro", "Não foi possível enviar o teste.", "Ok");
-                    DigitalizarTesteViewModel.IsBusy = false;
                 }
             }
 
@@ -126,6 +119,7 @@ namespace LabClick.Views.Teste
             if (result != null)
             {
                 DigitalizarTesteViewModel.Code = result.Text;
+                DigitalizarTesteViewModel.Scanned = true;
             }
         }
     }
