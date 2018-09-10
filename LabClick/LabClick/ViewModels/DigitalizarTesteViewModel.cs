@@ -13,9 +13,10 @@ namespace LabClick.ViewModels
         private byte[] imagem;
         private string code;
         private DateTime dataCadastro;
-        private bool isBusy;
+        private bool scanned;
         private string imagemShow;
 
+        public bool Scanned { get; set; }
         public string ImageShow
         {
             get { return this.ImageShow; }
