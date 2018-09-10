@@ -39,18 +39,16 @@
             </StackLayout>
         </StackLayout>
         
-        
         <!--QR Code-->
         <StackLayout Orientation="Vertical"
-                     Margin="100,20,100,20"
-                     BackgroundColor="LightSkyBlue">
+                     Margin="100,20,100,20">
             
             <StackLayout Orientation="Horizontal"
                          Margin="10,10,10,20"
                          HorizontalOptions="Center"
-                         WidthRequest="200" 
-                         HeightRequest="60"
-                         BackgroundColor="LightGray">
+                         WidthRequest="400" 
+                         HeightRequest="100"
+                         BackgroundColor="#BFF7F9F8">
                 <Label x:Name="LblQrCode"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="CenterAndExpand"
@@ -61,8 +59,7 @@
             
             <StackLayout HorizontalOptions="Center"
                          Orientation="Horizontal"
-                         Margin="10,10,10,20"
-                         BackgroundColor="LightGreen">
+                         Margin="10,10,10,20">
                 <Button x:Name="BtnEscanear"
                         BackgroundColor="#197A80"
                         WidthRequest="200" 
@@ -79,7 +76,18 @@
         <!--buttons-->
         <StackLayout HorizontalOptions="Center"
                      VerticalOptions="Center"
-                     Margin="10,100,10,10">
+                     Margin="10,100,10,10"
+                     Orientation="Horizontal">
+            <Button x:Name="BtnCancelar"
+                    Text="Cancelar"
+                    Clicked="BtnCancelar_Clicked"
+                    BackgroundColor="Gray"
+                    WidthRequest="200" 
+                    HeightRequest="40"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Margin="10,10,10,10"
+                    BorderRadius="10"/>
             <Button x:Name="BtnEnviarTeste"
                     Text="Enviar Teste"
                     Clicked="BtnEnviarTeste_ClickedAsync"

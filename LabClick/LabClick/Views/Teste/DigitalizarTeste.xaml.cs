@@ -33,7 +33,8 @@ namespace LabClick.Views.Teste
                 ClinicaId = 1,
                 Status = "Em Análise",
                 ExameId = 1,
-                ImageShow = "bgfoto.jpeg"
+                ImageShow = "bgfoto.jpeg",
+                Code = " _ _ _ _ _ _ _ "
             };
 
             this.BindingContext = DigitalizarTesteViewModel;
@@ -98,6 +99,8 @@ namespace LabClick.Views.Teste
         {
             if (DigitalizarTesteViewModel.IsValid())
             {
+                await Navigation.PushAsync(App.LoadingPage);
+
                 var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
                 var serialized = JsonConvert.SerializeObject(teste);
 
@@ -117,13 +120,20 @@ namespace LabClick.Views.Teste
                 {
                     await DisplayAlert("Erro", "Não foi possível enviar o teste.", "Ok");
                 }
+
+                Navigation.RemovePage(App.LoadingPage);
             }
 
             else
             {
-                await DisplayAlert("Erro", "Antes de enviar o Exame, o Teste Rápido deve ser fotografado" +
-                    "e o QR-Code escaneado.", "Ok");
+                await DisplayAlert("Erro", "Antes de enviar o Teste, você deve fotografar o " +
+                    "teste rápido e escanear o QR-Code do mesmo.", "Ok");
             }
+        }
+
+        private void BtnCancelar_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Home());
         }
     }
 }

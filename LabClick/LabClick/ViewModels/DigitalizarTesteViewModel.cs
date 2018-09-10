@@ -79,7 +79,7 @@ namespace LabClick.ViewModels
 
         public bool IsValid()
         {
-            if (this.imagem == null || string.IsNullOrEmpty(this.code))
+            if (this.imagem == null || string.IsNullOrEmpty(this.code) && Scanned)
             {
                 return false;
             }
