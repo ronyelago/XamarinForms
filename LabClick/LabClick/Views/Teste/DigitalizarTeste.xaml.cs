@@ -39,6 +39,7 @@ namespace LabClick.Views.Teste
             this.BindingContext = DigitalizarTesteViewModel;
         }
 
+        // Evento que abre a câmera para fotografar o Teste
         private async Task BtnTeste_ClickedAsync(object sender, EventArgs e)
         {
             await CrossMedia.Current.Initialize();
@@ -79,6 +80,20 @@ namespace LabClick.Views.Teste
             btnTeste.Text = "Fotografar Novamente";
         }
 
+        // Evento que abre a câmera para escanear o QR-Code do Teste
+        private async Task BtnEscanear_ClickedAsync(object sender, EventArgs e)
+        {
+            var scanner = new MobileBarcodeScanner();
+            var result = await scanner.Scan();
+
+            if (result != null)
+            {
+                DigitalizarTesteViewModel.Code = result.Text;
+                DigitalizarTesteViewModel.Scanned = true;
+            }
+        }
+
+        // Evento que envia o teste para o banco de dados
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)
         {
             if (DigitalizarTesteViewModel.IsValid())
@@ -108,18 +123,6 @@ namespace LabClick.Views.Teste
             {
                 await DisplayAlert("Erro", "Antes de enviar o Exame, o Teste Rápido deve ser fotografado" +
                     "e o QR-Code escaneado.", "Ok");
-            }
-        }
-
-        private async Task BtnEscanear_ClickedAsync(object sender, EventArgs e)
-        {
-            var scanner = new MobileBarcodeScanner();
-            var result = await scanner.Scan();
-
-            if (result != null)
-            {
-                DigitalizarTesteViewModel.Code = result.Text;
-                DigitalizarTesteViewModel.Scanned = true;
             }
         }
     }
