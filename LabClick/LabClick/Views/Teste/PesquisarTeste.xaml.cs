@@ -53,6 +53,7 @@ namespace LabClick.Views.Teste
                         });
                     }
 
+                    // definição dos backgrounds
                     foreach (var item in ListItems)
                     {
                         if (item.SetColor % 2 == 0)
@@ -68,7 +69,6 @@ namespace LabClick.Views.Teste
 
                     // Adiciona os ítens à lista resultante da busca
                     TestesListView.ItemsSource = ListItems;
-
                     Navigation.RemovePage(App.LoadingPage);
                 }
 
@@ -80,7 +80,7 @@ namespace LabClick.Views.Teste
                 }
             }
 
-            catch (TaskCanceledException ex)
+            catch (Exception ex)
             {
                 await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message} \n {ex.InnerException.Message}", "Fechar");
                 Navigation.RemovePage(App.LoadingPage);

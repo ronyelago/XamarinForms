@@ -1,27 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="LabClick.Views.Teste.ListaTeste" x:Name="ExamesPage" Appearing="ExamesPage_Appearing">
+             x:Class="LabClick.Views.Teste.ListaTeste" x:Name="TestList" Appearing="TestList_Appearing">
     <StackLayout>
-        
-        <StackLayout>
-            <Label Text="Exames" Font="20" FontAttributes="Bold"/>
-        </StackLayout>
-        <ScrollView>
-            <StackLayout>
-
-                <ListView x:Name="TestesLista" ItemTapped="TestesLista_ItemTapped">
-                    <ListView.ItemTemplate x:Uid="test">
+        <Grid>
+            <StackLayout Spacing="15">
+                <ListView x:Name="TestesListView"
+                              SeparatorVisibility="None"
+                              RowHeight="100"
+                              ItemTapped="TestesListView_ItemTapped">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Exame.Nome, StringFormat='Teste: {0}'}" 
-                                      Detail="{Binding Status, StringFormat='Status: {0}'}"/>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="{Binding Color}"
+                                                 VerticalOptions="FillAndExpand"
+                                                 Orientation="Horizontal">
+                                    <StackLayout Orientation="Vertical"
+                                                     WidthRequest="300"
+                                                     HorizontalOptions="Start"
+                                                     Margin="10,5,10,5">
+                                        <Label Text="{Binding NomeTeste}"
+                                                   Font="20"
+                                                   TextColor="#126683"/>
+                                        <Label Text="{Binding NomePaciente}"
+                                                   FontAttributes="Bold"
+                                                   Font="15"/>
+                                        <Label Text="{Binding DataTeste}"
+                                                   FontAttributes="Bold"
+                                                   Font="15"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical"
+                                                     HorizontalOptions="StartAndExpand"
+                                                     WidthRequest="200"
+                                                     Margin="10,5,10,5">
+                                        <Label Text="Status"
+                                                   Font="20"
+                                                   HorizontalOptions="StartAndExpand"
+                                                   TextColor="#126683"/>
+                                        <Label Text="{Binding Status}"
+                                                   FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Vertical"
+                                                     HorizontalOptions="EndAndExpand"
+                                                     WidthRequest="200"
+                                                     Margin="20,5,20,5"
+                                                     Padding="5,30,5,5">
+                                        <Button Text="Detalhar"
+                                                    x:Name="BtnDetalhar"
+                                                    BackgroundColor="#126683"
+                                                    HorizontalOptions="EndAndExpand"
+                                                    TextColor="White"
+                                                    Clicked="BtnDetalhar_Clicked"/>
+                                        <Label x:Name="LblPacienteId"
+                                                   Text="{Binding PacienteId}"      
+                                                   IsVisible="False"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
             </StackLayout>
-        </ScrollView>
-        
+        </Grid>
     </StackLayout>
 
 </ContentPage>
