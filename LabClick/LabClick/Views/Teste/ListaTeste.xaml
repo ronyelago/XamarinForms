@@ -6,7 +6,7 @@
              x:Name="TestList"
              Appearing="TestList_Appearing"
              Title="Lista de Exames">
-    <StackLayout>
+    <ScrollView>
         <Grid>
             <StackLayout Spacing="15">
                 <ListView x:Name="TestesListView"
@@ -64,13 +64,13 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </StackLayout>
-        </Grid>
-        <ActivityIndicator x:Name="Loading"
+                <ActivityIndicator x:Name="Loading"
                            IsRunning="False"
                            Color="DarkGreen"
                            Margin="10,0,10,600"
                            BackgroundColor="Transparent"/>
-    </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 
 </ContentPage>
