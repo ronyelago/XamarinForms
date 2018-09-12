@@ -17,17 +17,18 @@ namespace LabClick.Views.Teste
 		{
 			InitializeComponent ();
             pacienteId = paciente.Id;
+
+
         }
 
-        // Evento Appearing (aparecer) carrega todos os exames de um paciente
+        // Evento Appearing => carrega todos os exames de um paciente
         private async void TestList_Appearing(object sender, EventArgs e)
         {
             var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(60) };
+            this.IsBusy = true;
 
             try
             {
-                await Navigation.PushAsync(App.LoadingPage);
-
                 var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/teste/getAllByPacienteId={pacienteId}");
                 var content = result.Content.ReadAsStringAsync();
 
@@ -67,14 +68,15 @@ namespace LabClick.Views.Teste
                     }
 
                     TestesListView.ItemsSource = ListItems;
-                    Navigation.RemovePage(App.LoadingPage);
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message} \n {ex.InnerException.Message}", "Fechar");
+                await DisplayAlert("Erro", $"Não foi possível carregar a lista de testes.", "Fechar");
                 Navigation.RemovePage(App.LoadingPage);
             }
+
+            this.IsBusy = false;
         }
 
         private void TestesListView_ItemTapped(object sender, ItemTappedEventArgs e)
