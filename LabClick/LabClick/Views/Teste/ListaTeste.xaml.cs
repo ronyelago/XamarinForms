@@ -25,7 +25,7 @@ namespace LabClick.Views.Teste
         private async void TestList_Appearing(object sender, EventArgs e)
         {
             var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(60) };
-            this.IsBusy = true;
+            this.Loading.IsRunning = true;
 
             try
             {
@@ -67,16 +67,26 @@ namespace LabClick.Views.Teste
                         }
                     }
 
+                    this.Loading.IsRunning = false;
+                    this.Loading.IsVisible = false;
+
                     TestesListView.ItemsSource = ListItems;
+                }
+
+                else
+                {
+                    await DisplayAlert("Aviso", $"Nenhum exame encontrado.", "Fechar");
+                    this.Loading.IsRunning = false;
+                    this.Loading.IsVisible = false;
                 }
             }
             catch (Exception ex)
             {
                 await DisplayAlert("Erro", $"Não foi possível carregar a lista de testes.", "Fechar");
                 Navigation.RemovePage(App.LoadingPage);
+                this.Loading.IsRunning = false;
+                this.Loading.IsVisible = false;
             }
-
-            this.IsBusy = false;
         }
 
         private void TestesListView_ItemTapped(object sender, ItemTappedEventArgs e)
