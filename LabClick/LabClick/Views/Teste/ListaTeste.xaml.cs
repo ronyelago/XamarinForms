@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using LabClick.Views.Paciente;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,14 +12,14 @@ namespace LabClick.Views.Teste
 	public partial class ListaTeste : ContentPage
 	{
         List<TestListViewItem> ListItems;
+        private Domain.Entities.Paciente paciente;
         private int pacienteId;
 
 		public ListaTeste(Domain.Entities.Paciente paciente)
 		{
 			InitializeComponent ();
             pacienteId = paciente.Id;
-
-
+            this.paciente = paciente;
         }
 
         // Evento Appearing => carrega todos os exames de um paciente
@@ -35,7 +36,7 @@ namespace LabClick.Views.Teste
                 // Lista de testes de um paciente
                 var testes = JsonConvert.DeserializeObject<List<Domain.Entities.Teste>>(content.Result);
 
-                if (testes != null)
+                if (testes != null && testes.Count > 0)
                 {
                     ListItems = new List<TestListViewItem>();
 
@@ -76,8 +77,11 @@ namespace LabClick.Views.Teste
                 else
                 {
                     await DisplayAlert("Aviso", $"Nenhum exame encontrado.", "Fechar");
+
                     this.Loading.IsRunning = false;
                     this.Loading.IsVisible = false;
+
+                    await Navigation.PushAsync(new PacienteMasterPage(this.paciente));
                 }
             }
             catch (Exception ex)

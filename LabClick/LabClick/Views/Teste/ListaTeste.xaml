@@ -4,7 +4,8 @@
              x:Class="LabClick.Views.Teste.ListaTeste"
              BackgroundImage="bgcadastro.jpg"
              x:Name="TestList"
-             Appearing="TestList_Appearing">
+             Appearing="TestList_Appearing"
+             Title="Lista de Exames">
     <StackLayout>
         <Grid>
             <StackLayout Spacing="15">

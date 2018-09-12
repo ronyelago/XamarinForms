@@ -5,7 +5,8 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#197A80">
     <MasterDetailPage.Master>
-        <ContentPage Title="PacienteMasterPage">
+        <ContentPage Title="PacienteMasterPage"
+                     BackgroundColor="DarkGreen">
             <!--Barra Lateral (sandwich menu)-->
             <Grid BackgroundColor="Transparent">
                 <Grid.RowDefinitions>
