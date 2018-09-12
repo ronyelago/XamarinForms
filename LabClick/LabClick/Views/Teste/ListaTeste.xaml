@@ -64,12 +64,11 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <ActivityIndicator x:Name="Loading"
-                           IsRunning="False"
-                           Color="DarkGreen"
-                           Margin="10,0,10,600"
-                           BackgroundColor="Transparent"/>
             </StackLayout>
+            <ActivityIndicator x:Name="Loading"
+                               IsRunning="False"
+                               Color="DarkGreen"
+                               BackgroundColor="Transparent"/>
         </Grid>
     </ScrollView>
 

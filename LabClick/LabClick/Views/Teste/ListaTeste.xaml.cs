@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,8 @@ namespace LabClick.Views.Teste
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListaTeste : ContentPage
 	{
-        List<TestListViewItem> ListItems;
+        private List<TestListViewItem> ListItems;
+        private List<Domain.Entities.Teste> listTests;
         private Domain.Entities.Paciente paciente;
         private int pacienteId;
 
@@ -34,23 +36,23 @@ namespace LabClick.Views.Teste
                 var content = result.Content.ReadAsStringAsync();
 
                 // Lista de testes de um paciente
-                var testes = JsonConvert.DeserializeObject<List<Domain.Entities.Teste>>(content.Result);
+                listTests = JsonConvert.DeserializeObject<List<Domain.Entities.Teste>>(content.Result);
 
-                if (testes != null && testes.Count > 0)
+                if (listTests != null && listTests.Count > 0)
                 {
                     ListItems = new List<TestListViewItem>();
 
                     // preenchimento da lista
-                    for (int i = 0; i < testes.Count; i++)
+                    for (int i = 0; i < listTests.Count; i++)
                     {
                         ListItems.Add(new TestListViewItem()
                         {
                             SetColor = i,
-                            NomeTeste = testes[i].Exame.Nome,
-                            NomePaciente = $"Paciente: {testes[i].Paciente.Nome}",
-                            PacienteId = testes[i].Paciente.Id,
-                            Status = testes[i].Status,
-                            DataTeste = $"Data do Exame: {testes[i].DataCadastro.ToShortDateString()}"
+                            NomeTeste = listTests[i].Exame.Nome,
+                            NomePaciente = $"Paciente: {listTests[i].Paciente.Nome}",
+                            PacienteId = listTests[i].Paciente.Id,
+                            Status = listTests[i].Status,
+                            DataTeste = $"Data do Exame: {listTests[i].DataCadastro.ToShortDateString()}"
                         });
                     }
 
@@ -95,12 +97,21 @@ namespace LabClick.Views.Teste
 
         private void TestesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            var t = e.Item as TestListViewItem;
+            var teste = listTests.FirstOrDefault(m => m.PacienteId == t.PacienteId);
 
+            Navigation.PushAsync(new TestDetails(teste), true);
         }
 
         private void BtnDetalhar_Clicked(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+            btn.IsEnabled = false;
+            var parent = btn.Parent;
+            int pacienteId = int.Parse(parent.FindByName<Label>("LblPacienteId").Text);
+            var teste = listTests.FirstOrDefault(t => t.PacienteId == pacienteId);
 
+            Navigation.PushAsync(new TestDetails(teste), true);
         }
     }
 }
