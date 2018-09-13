@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using LabClick.ViewModels;
+using System.IO;
+using Xamarin.Forms;
 
 namespace LabClick.Mappers
 {

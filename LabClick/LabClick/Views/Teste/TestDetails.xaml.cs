@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LabClick.ViewModels;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,6 +19,13 @@ namespace LabClick.Views.Teste
             ViewModel = Mapper.Map<TestDetailsViewModel>(teste);
 
             this.BindingContext = ViewModel;
+
+            Stream stm = new MemoryStream(ViewModel.Imagem);
+
+            ImgTeste.Source = ImageSource.FromStream(() => 
+            {
+                return stm;
+            });
 		}
 	}
 }
