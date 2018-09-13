@@ -9,7 +9,8 @@
                  BackgroundColor="#80FF0000">
         <StackLayout BackgroundColor="LightGreen"
                      Orientation="Horizontal"
-                     HorizontalOptions="CenterAndExpand">
+                     HorizontalOptions="CenterAndExpand"
+                     Margin="50,10,10,20">
             <StackLayout>
                 <Label Text="Exame:"
                        HorizontalOptions="End"
@@ -44,7 +45,8 @@
                      Orientation="Horizontal"
                      Margin="10,20,10,20"
                      HorizontalOptions="CenterAndExpand">
-            <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical"
+                         BackgroundColor="LightGray">
                 <Label HorizontalOptions="CenterAndExpand"
                        Text="Imagem do Teste"
                        Font="20"/>
@@ -52,8 +54,12 @@
                        WidthRequest="300"
                        HeightRequest="600"/>
             </StackLayout>
-            <StackLayout>
-                
+            <StackLayout Margin="70,100,10,10"
+                         Orientation="Vertical"
+                         HorizontalOptions="CenterAndExpand"
+                         BackgroundColor="Orange">
+                <Label Text="Resultado da Avaliação"
+                       Font="20"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>
