@@ -12,28 +12,34 @@
                      HorizontalOptions="CenterAndExpand">
             <StackLayout>
                 <Label Text="Exame:"
-                       HorizontalOptions="End"/>
+                       HorizontalOptions="End"
+                       Font="20"/>
                 <Label Text="Nome do Paciente:"
-                       HorizontalOptions="End"/>
+                       HorizontalOptions="End"
+                       Font="20"/>
                 <Label Text="Data do Teste:"
-                       HorizontalOptions="End"/>
+                       HorizontalOptions="End"
+                       Font="20"/>
                 <Label Text="Status:"
-                       HorizontalOptions="End"/>
-                <Label Text="Resultado:"
-                       HorizontalOptions="End"/>
+                       HorizontalOptions="End"
+                       Font="20"/>
             </StackLayout>
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="CenterAndExpand">
                 <Label Text="{Binding Exame.Nome}"
-                   HorizontalOptions="Start"/>
+                       HorizontalOptions="Start"
+                       Font="20"/>
                 <Label Text="{Binding Paciente.Nome}"
-                   HorizontalOptions="Start"/>
+                       HorizontalOptions="Start"
+                       Font="20"/>
                 <Label Text="{Binding DataCadastro}"
-                   HorizontalOptions="Start"/>
+                       HorizontalOptions="Start"
+                       Font="20"/>
                 <Label Text="{Binding Status}"
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding }"/>
+                       HorizontalOptions="Start"
+                       Font="20"/>
             </StackLayout>
         </StackLayout>
+        
     </StackLayout>
 </ContentPage>
