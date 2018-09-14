@@ -82,8 +82,8 @@
                                                     HorizontalOptions="EndAndExpand"
                                                     TextColor="White"
                                                     Clicked="BtnDetalhar_Clicked"/>
-                                            <Label x:Name="LblPacienteId"
-                                                   Text="{Binding PacienteId}"      
+                                            <Label x:Name="LblTesteId"
+                                                   Text="{Binding TesteId}"      
                                                    IsVisible="False"/>
                                         </StackLayout>
                                     </StackLayout>

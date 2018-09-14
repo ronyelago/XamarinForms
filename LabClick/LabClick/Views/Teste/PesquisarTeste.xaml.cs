@@ -45,6 +45,7 @@ namespace LabClick.Views.Teste
                         {
                             SetColor = i,
                             NomeTeste = testes[i].Exame.Nome,
+                            TesteId = testes[i].Id,
                             NomePaciente = $"Paciente: {testes[i].Paciente.Nome}",
                             PacienteId = testes[i].Paciente.Id,
                             Status = testes[i].Status,
@@ -89,7 +90,7 @@ namespace LabClick.Views.Teste
         private void TestesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var t = e.Item as TestListViewItem;
-            var teste = testes.FirstOrDefault(m => m.PacienteId == t.PacienteId);
+            var teste = testes.FirstOrDefault(test => test.Id == t.TesteId);
 
             Navigation.PushAsync(new TestDetails(teste), true);
         }
@@ -98,8 +99,8 @@ namespace LabClick.Views.Teste
         {
             Button btn = sender as Button;
             var parent = btn.Parent;
-            int pacienteId = int.Parse(parent.FindByName<Label>("LblPacienteId").Text);
-            var teste = testes.FirstOrDefault(t => t.PacienteId == pacienteId);
+            int testeId = int.Parse(parent.FindByName<Label>("LblTesteId").Text);
+            var teste = testes.FirstOrDefault(test => test.Id == testeId);
 
             Navigation.PushAsync(new TestDetails(teste), true);
         }

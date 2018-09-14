@@ -27,5 +27,10 @@ namespace LabClick.Views.Teste
                 return stm;
             });
 		}
-	}
+
+        private void BtnFechar_Clicked(object sender, System.EventArgs e)
+        {
+            Navigation.RemovePage(this);
+        }
+    }
 }

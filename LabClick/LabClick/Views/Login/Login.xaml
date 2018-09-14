@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Login"
              Title="LabClick - Login"
-             BackgroundImage="bglogin.png">
+             BackgroundImage="bglogin.png"
+             MinimumHeightRequest="100"
+             MinimumWidthRequest="100">
 
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Vertical" 
+            <StackLayout Orientation="Vertical"
                          HorizontalOptions="CenterAndExpand"
                          Margin="0,30,0,0">
-                <Image Source="logolabclick.png" 
+                <Image Source="logolabclick.png"
                        HeightRequest="400"
                        WidthRequest="400"/>
             </StackLayout>
@@ -39,7 +41,7 @@
                             x:Name="btnEntrar"
                             Clicked="btnEntrar_Clicked"
                             BackgroundColor="#197A80"
-                            WidthRequest="200" 
+                            WidthRequest="200"
                             HeightRequest="40"
                             TextColor="White"
                             FontAttributes="Bold"

@@ -5,12 +5,11 @@
              BackgroundImage="bgcadastro.jpg"
              Title="Detalhes do Exame">
     <StackLayout Orientation="Vertical"
-                 Margin="25,25,25,25"
-                 BackgroundColor="#80FF0000">
-        <StackLayout BackgroundColor="LightGreen"
-                     Orientation="Horizontal"
+                 Margin="25,25,25,25">
+        <StackLayout Orientation="Horizontal"
                      HorizontalOptions="CenterAndExpand"
-                     Margin="50,10,10,20">
+                     Margin="50,10,10,20"
+                     BackgroundColor="#80197A80">
             <StackLayout>
                 <Label Text="Exame:"
                        HorizontalOptions="End"
@@ -41,12 +40,10 @@
                        Font="20"/>
             </StackLayout>
         </StackLayout>
-        <StackLayout BackgroundColor="LightSkyBlue"
-                     Orientation="Horizontal"
+        <StackLayout Orientation="Horizontal"
                      Margin="10,20,10,20"
                      HorizontalOptions="CenterAndExpand">
-            <StackLayout Orientation="Vertical"
-                         BackgroundColor="LightGray">
+            <StackLayout Orientation="Vertical">
                 <Label HorizontalOptions="CenterAndExpand"
                        Text="Imagem do Teste"
                        Font="20"/>
@@ -56,11 +53,24 @@
             </StackLayout>
             <StackLayout Margin="70,100,10,10"
                          Orientation="Vertical"
-                         HorizontalOptions="CenterAndExpand"
-                         BackgroundColor="Orange">
+                         HorizontalOptions="CenterAndExpand">
                 <Label Text="Resultado da Avaliação"
                        Font="20"/>
+                <Label Text="{Binding Resultado}"/>
+                <Label Text="{Binding ResultadoDetalhes}"/>
             </StackLayout>
+        </StackLayout>
+        <StackLayout>
+            <Button Text="Fechar"
+                    x:Name="BtnFechar"
+                    Clicked="BtnFechar_Clicked"
+                    BackgroundColor="#197A80"
+                    WidthRequest="200" 
+                    HeightRequest="40"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Margin="10,10,10,10"
+                    BorderRadius="10"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>

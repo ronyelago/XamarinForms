@@ -4,6 +4,32 @@ namespace LabClick.ViewModels
 {
     public class TestDetailsViewModel
     {
+        private string resultado;
+        private string resultadoDetalhes;
+
+        public string Resultado
+        {
+            get { return this.resultado; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    this.resultado = "Resultado indisponível";
+                else
+                    this.resultado = value;
+            }
+        }
+
+        public string ResultadoDetalhes
+        {
+            get { return this.resultadoDetalhes; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    this.resultadoDetalhes = "Exame em análise laboratorial";
+                else this.resultadoDetalhes = value;
+            }
+        }
+
         public int Id { get; set; }
         public int ExameId { get; set; }
         public int ClinicaId { get; set; }
