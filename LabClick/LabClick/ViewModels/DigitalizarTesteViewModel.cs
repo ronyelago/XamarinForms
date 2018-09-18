@@ -41,15 +41,7 @@ namespace LabClick.ViewModels
             get { return this.exameId; }
             set { this.exameId = value; }
         }
-        public byte[] Imagem
-        {
-            get { return this.imagem; }
-            set
-            {
-                this.imagem = value;
-                OnPropertyChanged();
-            }
-        }
+        public TesteImagemViewModel TesteImagemViewModel { get; set; }
         public string Code
         {
             get { return this.code; }
