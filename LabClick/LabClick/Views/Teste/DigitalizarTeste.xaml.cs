@@ -47,7 +47,7 @@ namespace LabClick.Views.Teste
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
-                await DisplayAlert("Nenhuma Câmera", ":( Nenuma Câmera disponível.", "OK");
+                await DisplayAlert("Nenhuma Câmera", "Nenuma Câmera disponível.", "Fechar");
                 return;
             }
 
@@ -78,7 +78,7 @@ namespace LabClick.Views.Teste
             });
 
             BtnEnviarTeste.IsEnabled = true;
-            btnTeste.Text = "Fotografar Novamente";
+            btnTeste.Text = "Fotografar novamente";
         }
 
         // Evento que abre a câmera para escanear o QR-Code do Teste
