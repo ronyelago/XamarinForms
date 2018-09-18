@@ -6,11 +6,15 @@ namespace LabClick.ViewModels
 {
     public class DigitalizarTesteViewModel : INotifyPropertyChanged
     {
+        public DigitalizarTesteViewModel()
+        {
+            this.TesteImagemViewModel = new TesteImagemViewModel();
+        }
+
         private int pacienteId;
         private int clinicaId;
         private string status;
         private int exameId;
-        private byte[] imagem;
         private string code;
         private DateTime dataCadastro;
         private bool scanned;
@@ -71,7 +75,7 @@ namespace LabClick.ViewModels
 
         public bool IsValid()
         {
-            if (this.imagem == null || string.IsNullOrEmpty(this.code) && Scanned)
+            if (this.TesteImagemViewModel.Imagem == null || string.IsNullOrEmpty(this.code) && Scanned)
             {
                 return false;
             }

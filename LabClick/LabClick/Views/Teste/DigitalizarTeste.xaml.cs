@@ -68,7 +68,7 @@ namespace LabClick.Views.Teste
             MemoryStream ms = new MemoryStream();
 
             stm.CopyTo(ms);
-            DigitalizarTesteViewModel.Imagem = ms.ToArray();
+            DigitalizarTesteViewModel.TesteImagemViewModel.Imagem = ms.ToArray();
 
             imgFoto.Source = ImageSource.FromStream(() =>
             {

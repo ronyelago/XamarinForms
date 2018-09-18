@@ -21,7 +21,7 @@ namespace LabClick.Views.Teste
                 lblResultado.Text = $"Resultado: {teste.Laudo.Resultado}";
             }
 
-            ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(teste.Imagem.ToArray()));
+            ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(teste.TesteImagem.Imagem.ToArray()));
             ExameImg.Source = imageSource;
 		}
     }
