@@ -23,6 +23,8 @@ namespace LabClick.Mappers
                 .ForMember(t => t.DataCadastro, opt => opt.MapFrom(test => test.DataCadastro.ToShortDateString()))
                 .ForMember(t => t.Resultado, opt => opt.MapFrom(test => test.Laudo.Resultado))
                 .ForMember(t => t.ResultadoDetalhes, opt => opt.MapFrom(test => test.Laudo.ResultadoDetalhes));
+
+            CreateMap<Domain.Entities.TesteImagem, TesteImagemViewModel>();
         }
     }
 }

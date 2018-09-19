@@ -18,6 +18,7 @@ namespace LabClick.Views.Teste
     public partial class DigitalizarTeste : ContentPage
     {
         public DigitalizarTesteViewModel DigitalizarTesteViewModel { get; set; }
+        public TesteImagemViewModel TesteImagemViewModel { get; set;}
 
         public DigitalizarTeste(Domain.Entities.Paciente paciente)
         {
@@ -68,7 +69,7 @@ namespace LabClick.Views.Teste
             MemoryStream ms = new MemoryStream();
 
             stm.CopyTo(ms);
-            DigitalizarTesteViewModel.TesteImagemViewModel.Imagem = ms.ToArray();
+            TesteImagemViewModel = new TesteImagemViewModel { Imagem = ms.ToArray() };
 
             imgFoto.Source = ImageSource.FromStream(() =>
             {
@@ -105,15 +106,29 @@ namespace LabClick.Views.Teste
                 var serialized = JsonConvert.SerializeObject(teste);
 
                 HttpClient client = new HttpClient();
-                Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
+                Uri uri = new Uri(@"http://192.168.0.15:3000/teste/testes");
                 var content = new StringContent(serialized, Encoding.UTF8, "application/json");
 
                 var result = await client.PostAsync(uri, content);
 
                 if (result.IsSuccessStatusCode)
                 {
-                    await DisplayAlert("Sucesso", "Teste enviado para análise com sucesso.", "Ok");
-                    await Navigation.PushAsync(new Home());
+                    var stringTest = result.Content.ReadAsStringAsync().Result;
+                    var test = JsonConvert.DeserializeObject<Domain.Entities.Teste>(stringTest);
+
+                    var img = Mapper.Map<Domain.Entities.TesteImagem>(TesteImagemViewModel);
+                    img.TesteId = test.Id;
+                    var imgJson = JsonConvert.SerializeObject(img);
+                    var imgContent = new StringContent(imgJson, Encoding.UTF8, "application/json");
+                    uri = new Uri(@"http://192.168.0.15:3000/imagem/new");
+
+                    var postResult = await client.PostAsync(uri, imgContent);
+
+                    if (postResult.IsSuccessStatusCode)
+                    {
+                        await DisplayAlert("Sucesso", "Teste enviado para análise com sucesso.", "Ok");
+                        await Navigation.PushAsync(new Home());
+                    }
                 }
 
                 else

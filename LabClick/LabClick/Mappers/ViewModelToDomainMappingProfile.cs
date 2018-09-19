@@ -18,6 +18,8 @@ namespace LabClick.Mappers
 
             CreateMap<EnderecoViewModel, Domain.Entities.Endereco>()
                 .ForMember(e => e.Cidade, c => c.MapFrom(cid => cid.Localidade));
+
+            CreateMap<TesteImagemViewModel, Domain.Entities.TesteImagem>();
         }
     }
 }

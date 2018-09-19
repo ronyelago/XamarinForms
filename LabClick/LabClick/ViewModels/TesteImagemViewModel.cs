@@ -5,6 +5,7 @@
         private byte[] imagem;
 
         public int Id { get; set; }
+        public int TesteId { get; set; }
         public byte[] Imagem
         {
             get { return this.imagem; }
