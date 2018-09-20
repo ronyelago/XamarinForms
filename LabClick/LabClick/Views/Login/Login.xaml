@@ -3,41 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Login"
              Title="LabClick - Login"
-             BackgroundImage="bglogin.png"
-             MinimumHeightRequest="100"
-             MinimumWidthRequest="100">
-
+             BackgroundImage="bglogin.png">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Vertical"
+        <FlexLayout>
+                <StackLayout Orientation="Vertical"
                          HorizontalOptions="CenterAndExpand"
                          Margin="0,30,0,0">
-                <Image Source="logolabclick.png"
+                    <Image Source="logolabclick.png"
                        HeightRequest="400"
                        WidthRequest="400"/>
-            </StackLayout>
-            <StackLayout Orientation="Vertical"
+                </StackLayout>
+                <StackLayout Orientation="Vertical"
                          Padding="20,20,20,20"
                          Spacing="20"
                          HorizontalOptions="Center"
                          WidthRequest="300">
-                <StackLayout Orientation="Horizontal"
+                    <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
-                    <Image Source="mail.png"/>
-                    <Entry Placeholder="Usuário"
+                        <Image Source="mail.png"/>
+                        <Entry Placeholder="Usuário"
                            WidthRequest="270"
                            HeightRequest="30"/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal"
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
-                    <Image Source="hold.png"/>
-                    <Entry Placeholder="Senha"
+                        <Image Source="hold.png"/>
+                        <Entry Placeholder="Senha"
                            WidthRequest="270"
                            HeightRequest="30"
                        IsPassword="True"/>
-                </StackLayout>
-                <StackLayout Padding="0,40,0,0">
-                    <Button Text="Entrar"
+                    </StackLayout>
+                    <StackLayout Padding="0,40,0,0">
+                        <Button Text="Entrar"
                             x:Name="btnEntrar"
                             Clicked="btnEntrar_Clicked"
                             BackgroundColor="#197A80"
@@ -47,8 +44,8 @@
                             FontAttributes="Bold"
                             Margin="10,10,10,10"
                             BorderRadius="10"/>
+                    </StackLayout>
                 </StackLayout>
-            </StackLayout>
-        </StackLayout>
+            </FlexLayout>
     </ContentPage.Content>
 </ContentPage>
