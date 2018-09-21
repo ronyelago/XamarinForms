@@ -14,7 +14,17 @@ namespace LabClick.Views
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                
+                DigitalizarExameImg.WidthRequest = 100;
+                DigitalizarExameImg.HeightRequest = 100;
+
+                PesquisarPacienteImg.WidthRequest = 100;
+                PesquisarPacienteImg.HeightRequest = 100;
+
+                NovoPacienteImg.WidthRequest = 100;
+                NovoPacienteImg.HeightRequest = 100;
+
+                listaLaudosImg.WidthRequest = 100;
+                listaLaudosImg.HeightRequest = 100;
             }
         }
 
