@@ -14,22 +14,24 @@
                     <TapGestureRecognizer Tapped="DigitalizarExameImg_Tapped"/>
                 </Image.GestureRecognizers>
             </Image>
-            <Button Image="pesquisarpaciente.png"
-                    Margin="0,10,0,0"
-                    BackgroundColor="Transparent"
-                    x:Name="PesquisarPaciente"
-                    Clicked="PesquisarPaciente_Clicked"/>
-            <Button Image="novopaciente.png"
-                    Margin="0,10,0,0"
-                    BackgroundColor="Transparent"
-                    x:Name="NovoPaciente"
-                    Clicked="NovoPaciente_Clicked"/>
-            <Button Image="listalaudos.png"
-                    Margin="0,10,0,0"
-                    BackgroundColor="Transparent"
-                    x:Name="PesquisarLaudo"
-                    Clicked="PesquisarLaudo_Clicked"/>
+            <Image Source="pesquisarpaciente.png"
+                   x:Name="PesquisarPacienteImg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PesquisarPacienteImg_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="novopaciente.png"
+                   x:Name="NovoPacienteImg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NovoPacienteImg_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="listalaudos.png"
+                   x:Name="listaLaudosImg">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="listaLaudosImg_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>
