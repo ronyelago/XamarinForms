@@ -21,7 +21,7 @@ namespace LabClick.Views.Teste
             ViewModel = Mapper.Map<TestDetailsViewModel>(teste);
             this.BindingContext = ViewModel;
 
-            Uri urinho = new Uri($@"http://192.168.0.15:3000/imagem/getByTesteId={teste.Id}");
+            Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/imagem/getByTesteId={teste.Id}");
             var result = App.Client.GetAsync(urinho);
             var content = result.Result.Content.ReadAsStringAsync();
 

@@ -32,7 +32,7 @@ namespace LabClick.Views.Teste
 
             try
             {
-                var result = await client.GetAsync($@"http://192.168.0.15:3000/teste/getAllByPacienteId={pacienteId}");
+                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.brteste/getAllByPacienteId={pacienteId}");
                 var content = result.Content.ReadAsStringAsync();
 
                 // Lista de testes de um paciente
