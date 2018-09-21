@@ -10,7 +10,47 @@ namespace LabClick.Views
 		public Login ()
 		{
 			InitializeComponent ();
-		}
+
+            if (Device.Idiom == TargetIdiom.Tablet)
+            {
+                //Sizes to tablet
+                MainStackLayout.WidthRequest = 300;
+
+                ImageLogo.WidthRequest = 400;
+                ImageLogo.HeightRequest = 400;
+
+                btnEntrar.WidthRequest = 200;
+                btnEntrar.HeightRequest = 40;
+                btnEntrar.FontSize = 15;
+                btnEntrar.CornerRadius = 10;
+
+                nameEntry.WidthRequest = 270;
+                nameEntry.HeightRequest = 30;
+
+
+                senhaEntry.WidthRequest = 270;
+                senhaEntry.HeightRequest = 30;
+            }
+            else if (Device.Idiom == TargetIdiom.Phone)
+            {
+                //Sizes to phone
+                MainStackLayout.WidthRequest = 150;
+
+                ImageLogo.WidthRequest = 200;
+                ImageLogo.HeightRequest = 200;
+
+                btnEntrar.WidthRequest = 50;
+                btnEntrar.HeightRequest = 30;
+                btnEntrar.FontSize = 7;
+                btnEntrar.CornerRadius = 5;
+
+                nameEntry.WidthRequest = 135;
+                nameEntry.HeightRequest = 20;
+
+                senhaEntry.WidthRequest = 135;
+                senhaEntry.HeightRequest = 30;
+            }
+        }
 
         private async void btnEntrar_Clicked(object sender, EventArgs e)
         {

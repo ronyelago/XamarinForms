@@ -4,49 +4,42 @@
              x:Class="LabClick.Views.Login"
              Title="LabClick - Login"
              BackgroundImage="bglogin.png">
-    <RelativeLayout VerticalOptions="FillAndExpand"
-                    HorizontalOptions="FillAndExpand">
-        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
-                     AbsoluteLayout.LayoutFlags="All"
-                     Orientation="Vertical"
-                     HorizontalOptions="CenterAndExpand">
+
+    <ContentPage.Content>
+        <StackLayout>
             <StackLayout Orientation="Vertical"
-                     HorizontalOptions="CenterAndExpand">
-                <Image Source="logolabclick.png"/>
+                         HorizontalOptions="CenterAndExpand"
+                         Margin="0,30,0,0">
+                <Image x:Name="ImageLogo"
+                       Source="logolabclick.png"/>
             </StackLayout>
-            <StackLayout Orientation="Vertical"
-                        Padding="20,20,20,20"
-                        Spacing="20"
-                        HorizontalOptions="Center"
-                        WidthRequest="300">
+            <StackLayout x:Name="MainStackLayout"
+                         Orientation="Vertical"
+                         Padding="20,20,20,20"
+                         Spacing="20"
+                         HorizontalOptions="Center">
                 <StackLayout Orientation="Horizontal"
-                            HorizontalOptions="Center">
+                             HorizontalOptions="Center">
                     <Image Source="mail.png"/>
-                    <Entry Placeholder="Usuário"
-                        WidthRequest="270"
-                        HeightRequest="30"/>
+                    <Entry x:Name="nameEntry"
+                           Placeholder="Usuário"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal"
-                            HorizontalOptions="Center">
+                             HorizontalOptions="Center">
                     <Image Source="hold.png"/>
-                    <Entry Placeholder="Senha"
-                        WidthRequest="270"
-                        HeightRequest="30"
-                    IsPassword="True"/>
+                    <Entry x:Name="senhaEntry"
+                           Placeholder="Senha"
+                           IsPassword="True"/>
                 </StackLayout>
                 <StackLayout Padding="0,40,0,0">
                     <Button Text="Entrar"
-                        x:Name="btnEntrar"
-                        Clicked="btnEntrar_Clicked"
-                        BackgroundColor="#197A80"
-                        WidthRequest="200"
-                        HeightRequest="40"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        Margin="10,10,10,10"
-                        BorderRadius="10"/>
+                            x:Name="btnEntrar"
+                            Clicked="btnEntrar_Clicked"
+                            BackgroundColor="#197A80"
+                            TextColor="White"
+                            Margin="10,10,10,10"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
-    </RelativeLayout>
+    </ContentPage.Content>
 </ContentPage>
