@@ -39,6 +39,18 @@ namespace LabClick.Views.Teste
             };
 
             this.BindingContext = DigitalizarTesteViewModel;
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                lblNomePaciente.FontSize = 15;
+                ImagemStackLayout.Margin = new Thickness(50, 10, 50, 10);
+                imgFoto.WidthRequest = 450;
+                imgFoto.HeightRequest = 250;
+                btnTeste.WidthRequest = 150;
+                btnTeste.HeightRequest = 30;
+                btnTeste.FontSize = 8;
+                btnTeste.CornerRadius = 10;
+            }
         }
 
         // Evento que abre a câmera para fotografar o Teste

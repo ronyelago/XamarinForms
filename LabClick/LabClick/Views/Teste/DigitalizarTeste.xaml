@@ -14,7 +14,8 @@
         </StackLayout>
         <!--foto-->
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Vertical"
+            <StackLayout x:Name="ImagemStackLayout"
+                         Orientation="Vertical"
                          Margin="100,20,100,20">
                 <Image x:Name="imgFoto"
                        Source="bgfotografar.jpg"
@@ -41,7 +42,6 @@
         <!--QR Code-->
         <StackLayout Orientation="Vertical"
                      Margin="100,20,100,20">
-            
             <StackLayout Orientation="Horizontal"
                          Margin="10,10,10,20"
                          HorizontalOptions="Center"

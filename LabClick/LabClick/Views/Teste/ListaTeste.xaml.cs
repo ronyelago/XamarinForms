@@ -27,12 +27,12 @@ namespace LabClick.Views.Teste
         // Evento Appearing => carrega todos os exames de um paciente
         private async void TestList_Appearing(object sender, EventArgs e)
         {
-            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(60) };
+            var client = new HttpClient();
             this.Loading.IsRunning = true;
 
             try
             {
-                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.brteste/getAllByPacienteId={pacienteId}");
+                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/teste/getAllByPacienteId={pacienteId}");
                 var content = result.Content.ReadAsStringAsync();
 
                 // Lista de testes de um paciente
@@ -89,7 +89,6 @@ namespace LabClick.Views.Teste
             catch (Exception ex)
             {
                 await DisplayAlert("Erro", $"Não foi possível carregar a lista de testes.", "Fechar");
-                Navigation.RemovePage(App.LoadingPage);
                 this.Loading.IsRunning = false;
                 this.Loading.IsVisible = false;
             }
