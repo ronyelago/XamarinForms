@@ -17,6 +17,17 @@ namespace LabClick.Views.Teste
         public PesquisarTeste ()
 		{
 			InitializeComponent ();
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                PesquisarTesteSearchBar.HeightRequest = 40;
+                PesquisarTesteSearchBar.WidthRequest = 100;
+                PesquisarTesteSearchBar.FontSize = 15;
+            }
+            else
+            {
+
+            }
 		}
 
         private async void PesquisarTesteSearchBar_SearchButtonPressed(object sender, EventArgs e)
