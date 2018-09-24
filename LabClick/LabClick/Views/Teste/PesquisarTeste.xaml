@@ -30,6 +30,7 @@
         <StackLayout Margin="10,20,10,20">
             <SearchBar Placeholder="Nome do Paciente"
                        x:Name="PesquisarTesteSearchBar"
+                       WidthRequest="400"
                        SearchButtonPressed="PesquisarTesteSearchBar_SearchButtonPressed"/>
         </StackLayout>
         <StackLayout>

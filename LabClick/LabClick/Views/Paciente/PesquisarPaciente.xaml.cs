@@ -25,6 +25,17 @@ namespace LabClick.Views.Paciente
 
             this.Scanning = scanning;
             this.MainLabel.Text = "Selecione o Paciente";
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                PacienteSearchBar.HeightRequest = 40;
+                PacienteSearchBar.WidthRequest = 100;
+                PacienteSearchBar.FontSize = 15;
+            }
+            else
+            {
+
+            }
         }
 
         // construtor sem parâmetros que indica que
@@ -34,6 +45,17 @@ namespace LabClick.Views.Paciente
 			InitializeComponent ();
 
             this.MainLabel.Text = "Busca de Paciente";
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                PacienteSearchBar.HeightRequest = 40;
+                PacienteSearchBar.WidthRequest = 100;
+                PacienteSearchBar.FontSize = 15;
+            }
+            else
+            {
+
+            }
         }
 
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
