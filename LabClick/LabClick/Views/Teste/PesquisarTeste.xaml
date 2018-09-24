@@ -34,7 +34,6 @@
             <SearchBar Placeholder="Nome do Paciente"
                        x:Name="PesquisarTesteSearchBar"
                        SearchButtonPressed="PesquisarTesteSearchBar_SearchButtonPressed"
-                       BackgroundColor="Chocolate"
                        IsVisible="True"
                        HeightRequest="50"
                        WidthRequest="200"/>
