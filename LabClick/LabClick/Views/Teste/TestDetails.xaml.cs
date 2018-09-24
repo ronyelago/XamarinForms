@@ -33,6 +33,24 @@ namespace LabClick.Views.Teste
             {
                 return stm;
             });
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                labelsStack.Margin = new Thickness(25, 5, 5, 10);
+
+                lblExame.FontSize = 15;
+                lblNomePaciente.FontSize = 15;
+                lblDataTeste.FontSize = 15;
+                lblStatus.FontSize = 15;
+
+                lblExameDados.FontSize = 15;
+                lblNomePacienteDados.FontSize = 15;
+                lblDataCadastroDados.FontSize = 15;
+                lblStatusDados.FontSize = 15;
+
+                ImgTeste.WidthRequest = 150;
+                ImgTeste.HeightRequest = 300;
+            }
 		}
 
         private void BtnFechar_Clicked(object sender, System.EventArgs e)
