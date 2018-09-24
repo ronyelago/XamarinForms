@@ -123,7 +123,8 @@
 
                         </StackLayout>
                         <!--CEP-->
-                        <StackLayout Orientation="Horizontal"
+                        <StackLayout x:Name="CepStack"
+                                     Orientation="Horizontal"
                                      Margin="50,10,50,10">
                             <Label Text="cep:"/>
                             <Entry x:Name="TxtCep"

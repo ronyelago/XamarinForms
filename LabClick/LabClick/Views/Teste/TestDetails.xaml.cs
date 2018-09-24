@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace LabClick.Views.Teste
@@ -29,7 +30,7 @@ namespace LabClick.Views.Teste
 
             Stream stm = new MemoryStream(testeImagem.Imagem);
 
-            ImgTeste.Source = ImageSource.FromStream(() => 
+            ImgTeste.Source = ImageSource.FromStream(() =>
             {
                 return stm;
             });
@@ -48,8 +49,16 @@ namespace LabClick.Views.Teste
                 lblDataCadastroDados.FontSize = 15;
                 lblStatusDados.FontSize = 15;
 
+                lblImagemTeste.FontSize = 15;
                 ImgTeste.WidthRequest = 150;
                 ImgTeste.HeightRequest = 300;
+
+                lblTituloResultado.FontSize = 15;
+
+                BtnFechar.WidthRequest = 150;
+                BtnFechar.HeightRequest = 30;
+                BtnFechar.FontSize = 10;
+                BtnFechar.CornerRadius = 7;
             }
 		}
 
@@ -57,5 +66,12 @@ namespace LabClick.Views.Teste
         {
             Navigation.RemovePage(this);
         }
+
+        private void BtnVerPdf_Clicked(object sender, EventArgs e)
+        {
+            
+        }
+
+        
     }
 }

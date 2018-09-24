@@ -49,14 +49,15 @@ namespace LabClick.Views.Teste
                 lblNomePaciente.FontSize = 15;
 
                 ImagemStackLayout.Margin = new Thickness(50, 5, 50, 5);
-                imgFoto.WidthRequest = 450;
-                imgFoto.HeightRequest = 250;
+                imgFoto.WidthRequest = 400;
+                imgFoto.HeightRequest = 200;
 
                 btnTeste.WidthRequest = 150;
                 btnTeste.HeightRequest = 30;
                 btnTeste.FontSize = 8;
                 btnTeste.CornerRadius = 10;
 
+                btnEscanearStack.Margin = new Thickness(10, 5, 10, 10);
                 BtnEscanear.WidthRequest = 150;
                 BtnEscanear.HeightRequest = 30;
                 BtnEscanear.FontSize = 8;
@@ -69,7 +70,7 @@ namespace LabClick.Views.Teste
 
                 LblQrCode.FontSize = 20;
 
-                buttonsStackLayout.Margin = new Thickness(10, 10, 10, 10);
+                buttonsStackLayout.Margin = new Thickness(10, 0, 10, 5);
 
                 BtnCancelar.WidthRequest = 150;
                 BtnCancelar.HeightRequest = 30;

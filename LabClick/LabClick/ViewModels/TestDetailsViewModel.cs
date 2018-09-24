@@ -13,7 +13,7 @@ namespace LabClick.ViewModels
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    this.resultado = "Resultado indisponível";
+                    this.resultado = "";
                 else
                     this.resultado = value;
             }

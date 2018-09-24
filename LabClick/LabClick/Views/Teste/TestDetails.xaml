@@ -52,7 +52,8 @@
                      Margin="10,20,10,20"
                      HorizontalOptions="CenterAndExpand">
             <StackLayout Orientation="Vertical">
-                <Label HorizontalOptions="CenterAndExpand"
+                <Label x:Name="lblImagemTeste"
+                       HorizontalOptions="CenterAndExpand"
                        Text="Imagem do Teste"
                        Font="20"/>
                 <Image x:Name="ImgTeste"
@@ -62,22 +63,27 @@
             <StackLayout Margin="70,100,10,10"
                          Orientation="Vertical"
                          HorizontalOptions="CenterAndExpand">
-                <Label Text="Resultado da Avaliação"
+                <Label x:Name="lblTituloResultado"
+                       Text="Resultado da Avaliação"
                        Font="20"/>
                 <Label Text="{Binding Resultado}"/>
                 <Label Text="{Binding ResultadoDetalhes}"/>
             </StackLayout>
         </StackLayout>
-        <StackLayout>
+        <StackLayout Orientation="Vertical"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center">
+            <Button Text="Ver PDF"
+                    x:Name="BtnVerPdf"
+                    Clicked="BtnVerPdf_Clicked"/>
             <Button Text="Fechar"
                     x:Name="BtnFechar"
                     Clicked="BtnFechar_Clicked"
                     BackgroundColor="#197A80"
-                    WidthRequest="200" 
+                    WidthRequest="150" 
                     HeightRequest="40"
                     TextColor="White"
                     FontAttributes="Bold"
-                    Margin="10,10,10,10"
                     BorderRadius="10"/>
         </StackLayout>
     </StackLayout>

@@ -60,7 +60,8 @@
                        FontAttributes="Bold"/>
             </StackLayout>
             
-            <StackLayout HorizontalOptions="Center"
+            <StackLayout x:Name="btnEscanearStack"
+                         HorizontalOptions="Center"
                          Orientation="Horizontal"
                          Margin="10,10,10,20">
                 <Button x:Name="BtnEscanear"

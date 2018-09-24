@@ -19,6 +19,12 @@ namespace LabClick.Views.Paciente
             this.dataNascimento.Date = DateTime.Now;
             this.txtNumero.Text = string.Empty;
             this.dataNascimento.MaximumDate = DateTime.Now;
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+                CepStack.Margin = new Thickness(10, 5, 10, 5);
+                TxtCep.WidthRequest = 200;
+            }
 		}
 
         private void BtnSalvar_Clicked(object sender, EventArgs e)

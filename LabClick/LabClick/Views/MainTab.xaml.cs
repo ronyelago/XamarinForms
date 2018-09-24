@@ -18,7 +18,7 @@ namespace LabClick.Views
             this.Children.Add(new PesquisarPaciente(true)
             {
                 Icon = "smallscan.png",
-                Title = "Digitalizar Teste"
+                Title = "Digitalizar Teste",
             });
 
             // Adiciona à MainTab uma page PesquisarPaciente [1]
