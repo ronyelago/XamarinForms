@@ -42,14 +42,44 @@ namespace LabClick.Views.Teste
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
+                pacienteStackLayout.Margin = new Thickness(10, 5, 5, 10);
+
+                DigitalizarTesteBar.HeightRequest = 30;
+
                 lblNomePaciente.FontSize = 15;
-                ImagemStackLayout.Margin = new Thickness(50, 10, 50, 10);
+
+                ImagemStackLayout.Margin = new Thickness(50, 5, 50, 5);
                 imgFoto.WidthRequest = 450;
                 imgFoto.HeightRequest = 250;
+
                 btnTeste.WidthRequest = 150;
                 btnTeste.HeightRequest = 30;
                 btnTeste.FontSize = 8;
                 btnTeste.CornerRadius = 10;
+
+                BtnEscanear.WidthRequest = 150;
+                BtnEscanear.HeightRequest = 30;
+                BtnEscanear.FontSize = 8;
+                BtnEscanear.CornerRadius = 10;
+
+                codeStackLayout.Margin = new Thickness(50, 5, 50, 5);
+
+                codeLabelStackLayout.WidthRequest = 250;
+                codeLabelStackLayout.HeightRequest = 30;
+
+                LblQrCode.FontSize = 20;
+
+                buttonsStackLayout.Margin = new Thickness(10, 10, 10, 10);
+
+                BtnCancelar.WidthRequest = 150;
+                BtnCancelar.HeightRequest = 30;
+                BtnCancelar.FontSize = 8;
+                BtnCancelar.CornerRadius = 10;
+
+                BtnEnviarTeste.WidthRequest = 150;
+                BtnEnviarTeste.HeightRequest = 30;
+                BtnEnviarTeste.FontSize = 8;
+                BtnEnviarTeste.CornerRadius = 10;
             }
         }
 
@@ -76,6 +106,8 @@ namespace LabClick.Views.Teste
             {
                 return;
             }
+
+            DigitalizarTesteViewModel.Fotografado = true;
 
             Stream stm = foto.GetStream();
             MemoryStream ms = new MemoryStream();

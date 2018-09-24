@@ -60,6 +60,8 @@ namespace LabClick.ViewModels
             set { this.scanned = value; }
         }
 
+        public bool Fotografado { get; set; }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string name = "")
@@ -69,12 +71,12 @@ namespace LabClick.ViewModels
 
         public bool IsValid()
         {
-            if (string.IsNullOrEmpty(this.code) && Scanned)
+            if (Fotografado && Scanned)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
     }
 }

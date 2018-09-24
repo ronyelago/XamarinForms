@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Teste.DigitalizarTeste"
              BackgroundImage="bgcadastro.jpg"
-             Title="Teste: Zika Vírus">
+             Title="Teste: Zika Vírus"
+             x:Name="DigitalizarTesteBar">
     <StackLayout Orientation="Vertical">
-        <StackLayout HorizontalOptions="Center"
+        <StackLayout x:Name="pacienteStackLayout"
+                     HorizontalOptions="Center"
                      VerticalOptions="Center"
                      Margin="20,20,20,20">
             <Label x:Name="lblNomePaciente"
@@ -40,9 +42,11 @@
         </StackLayout>
         
         <!--QR Code-->
-        <StackLayout Orientation="Vertical"
+        <StackLayout x:Name="codeStackLayout"
+                     Orientation="Vertical"
                      Margin="100,20,100,20">
-            <StackLayout Orientation="Horizontal"
+            <StackLayout x:Name="codeLabelStackLayout"
+                         Orientation="Horizontal"
                          Margin="10,10,10,20"
                          HorizontalOptions="Center"
                          WidthRequest="400" 
@@ -73,7 +77,8 @@
             
         </StackLayout>
         <!--buttons-->
-        <StackLayout HorizontalOptions="Center"
+        <StackLayout x:Name="buttonsStackLayout"
+                     HorizontalOptions="Center"
                      VerticalOptions="Center"
                      Margin="10,100,10,10"
                      Orientation="Horizontal">
@@ -89,6 +94,7 @@
                     BorderRadius="10"/>
             <Button x:Name="BtnEnviarTeste"
                     Text="Enviar Teste"
+                    IsEnabled="False"
                     Clicked="BtnEnviarTeste_ClickedAsync"
                     BackgroundColor="#197A80"
                     WidthRequest="200" 
