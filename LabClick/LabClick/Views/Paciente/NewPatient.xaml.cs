@@ -52,6 +52,9 @@ namespace LabClick.Views.Paciente
                 txtUf.WidthRequest = 250;
 
                 txtCidade.WidthRequest = 230;
+                txtBairro.WidthRequest = 230;
+                txtRua.WidthRequest = 250;
+                txtNumero.WidthRequest = 230;
 
             }
 		}

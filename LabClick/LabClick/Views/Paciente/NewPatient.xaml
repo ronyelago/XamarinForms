@@ -161,10 +161,9 @@
                         </StackLayout>
 
                         <!--Bairro-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                        <StackLayout Orientation="Horizontal">
                             <Label Text="Bairro:"/>
-                            <Entry x:Name="txtBairro" 
+                            <Entry x:Name="txtBairro"
                                    Text="{Binding Bairro}"
                                    Keyboard="Text"
                                    WidthRequest="500"
@@ -172,8 +171,7 @@
                         </StackLayout>
 
                         <!--Rua-->
-                        <StackLayout  Orientation="Horizontal"
-                                      Margin="50,10,50,10">
+                        <StackLayout  Orientation="Horizontal">
                             <Label Text="Rua:"/>
                             <Entry x:Name="txtRua"
                                    Text="{Binding Logradouro}"
@@ -183,8 +181,7 @@
                         </StackLayout>
 
                         <!--Número-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                        <StackLayout Orientation="Horizontal">
                             <Label Text="Número:"/>
                             <Entry x:Name="txtNumero"
                                    Text="{Binding Numero}"
