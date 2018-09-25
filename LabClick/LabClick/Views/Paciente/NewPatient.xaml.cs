@@ -43,8 +43,10 @@ namespace LabClick.Views.Paciente
                 txtPhone.WidthRequest = 250;
                 txtPhone.FontSize = 15;
 
-                CepStack.Margin = new Thickness(10, 5, 10, 5);
-                TxtCep.WidthRequest = 200;
+                enderecoStack.Margin = new Thickness(50, 10, 20, 10);
+
+                
+                TxtCep.WidthRequest = 250;
             }
 		}
 

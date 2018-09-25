@@ -115,19 +115,21 @@
                     </StackLayout>
 
                     <!--Endereço-->
-                    <StackLayout>
+                    <StackLayout x:Name="enderecoStack">
                         <StackLayout>
-                            <Label Text="Endereço" 
-                           Font="18" VerticalTextAlignment="Center" 
-                           HorizontalOptions="Center" 
-                           TextColor="#197A80">
+                            <Label x:Name="lblEndereco"
+                                   FontAttributes="Bold"
+                                   Text="Endereço" 
+                                   Font="18" 
+                                   VerticalTextAlignment="Center" 
+                                   HorizontalOptions="Center" 
+                                   TextColor="#197A80">
                             </Label>
 
                         </StackLayout>
                         <!--CEP-->
                         <StackLayout x:Name="CepStack"
-                                     Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                                     Orientation="Horizontal">
                             <Label Text="cep:"/>
                             <Entry x:Name="TxtCep"
                                    Text="{Binding Cep}"
