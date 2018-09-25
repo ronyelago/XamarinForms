@@ -45,8 +45,14 @@ namespace LabClick.Views.Paciente
 
                 enderecoStack.Margin = new Thickness(50, 10, 20, 10);
 
-                
                 TxtCep.WidthRequest = 250;
+
+                lblUf.FontSize = 13;
+                lblUf.Margin = new Thickness(0, 0, 10, 0);
+                txtUf.WidthRequest = 250;
+
+                txtCidade.WidthRequest = 230;
+
             }
 		}
 
