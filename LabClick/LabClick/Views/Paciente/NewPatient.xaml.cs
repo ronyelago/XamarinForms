@@ -34,6 +34,9 @@ namespace LabClick.Views.Paciente
                 txtCpf.WidthRequest = 250;
                 txtCpf.FontSize = 15;
 
+                pickerGenero.WidthRequest = 250;
+                pickerGenero.FontSize = 15;
+
                 CepStack.Margin = new Thickness(10, 5, 10, 5);
                 TxtCep.WidthRequest = 200;
             }
