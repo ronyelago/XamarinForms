@@ -31,6 +31,9 @@ namespace LabClick.Views.Paciente
                 lblDataNascimento.FontSize = 15;
                 dataNascimentoPicker.FontSize = 15;
 
+                txtCpf.WidthRequest = 250;
+                txtCpf.FontSize = 15;
+
                 CepStack.Margin = new Thickness(10, 5, 10, 5);
                 TxtCep.WidthRequest = 200;
             }
