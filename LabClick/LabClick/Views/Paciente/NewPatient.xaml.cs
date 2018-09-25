@@ -25,6 +25,9 @@ namespace LabClick.Views.Paciente
                 mainImage.HeightRequest = 40;
                 MainLabel.FontSize = 20;
 
+                txtNome.WidthRequest = 250;
+                txtNome.FontSize = 15;
+
                 CepStack.Margin = new Thickness(10, 5, 10, 5);
                 TxtCep.WidthRequest = 200;
             }
