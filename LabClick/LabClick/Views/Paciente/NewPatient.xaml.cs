@@ -16,9 +16,9 @@ namespace LabClick.Views.Paciente
             this.NewPatientViewModel = new NewPatientViewModel();
             this.BindingContext = NewPatientViewModel;
 
-            this.dataNascimento.Date = DateTime.Now;
+            this.dataNascimentoPicker.Date = DateTime.Now;
             this.txtNumero.Text = string.Empty;
-            this.dataNascimento.MaximumDate = DateTime.Now;
+            this.dataNascimentoPicker.MaximumDate = DateTime.Now;
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
@@ -27,6 +27,9 @@ namespace LabClick.Views.Paciente
 
                 txtNome.WidthRequest = 250;
                 txtNome.FontSize = 15;
+
+                lblDataNascimento.FontSize = 15;
+                dataNascimentoPicker.FontSize = 15;
 
                 CepStack.Margin = new Thickness(10, 5, 10, 5);
                 TxtCep.WidthRequest = 200;

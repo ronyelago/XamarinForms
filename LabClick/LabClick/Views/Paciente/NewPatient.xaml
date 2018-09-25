@@ -52,11 +52,12 @@
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="date.png"/>
-                        <Label Text="  data de nascimento  "
+                        <Label x:Name="lblDataNascimento"
+                               Text="  data de nascimento  "
                                TextColor="LightSlateGray"
                                Font="18"/>
                         <DatePicker HorizontalOptions="Start"
-                                    x:Name="dataNascimento" 
+                                    x:Name="dataNascimentoPicker" 
                                     Date="{Binding DataNascimento}"
                                     MinimumDate="01-01-1900"/>
                     </StackLayout>
