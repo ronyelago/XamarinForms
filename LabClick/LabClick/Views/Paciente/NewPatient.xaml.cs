@@ -22,6 +22,9 @@ namespace LabClick.Views.Paciente
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
+                mainImage.HeightRequest = 40;
+                MainLabel.FontSize = 20;
+
                 CepStack.Margin = new Thickness(10, 5, 10, 5);
                 TxtCep.WidthRequest = 200;
             }
