@@ -143,10 +143,11 @@ namespace LabClick.Views.Teste
         // Evento que envia o teste para o banco de dados
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)
         {
+            BtnEnviarTeste.IsEnabled = false;
+            await Navigation.PushAsync(App.LoadingPage);
+
             if (DigitalizarTesteViewModel.IsValid())
             {
-                await Navigation.PushAsync(App.LoadingPage);
-
                 var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
                 var serialized = JsonConvert.SerializeObject(teste);
 
@@ -179,6 +180,7 @@ namespace LabClick.Views.Teste
                 else
                 {
                     await DisplayAlert("Erro", "Não foi possível enviar o teste.", "Ok");
+                    BtnEnviarTeste.IsEnabled = true;
                 }
 
                 Navigation.RemovePage(App.LoadingPage);
@@ -188,6 +190,8 @@ namespace LabClick.Views.Teste
             {
                 await DisplayAlert("Erro", "Antes de enviar o Teste, você deve fotografar o " +
                     "teste rápido e escanear o QR-Code do mesmo.", "Ok");
+
+                BtnEnviarTeste.IsEnabled = true;
             }
         }
 
