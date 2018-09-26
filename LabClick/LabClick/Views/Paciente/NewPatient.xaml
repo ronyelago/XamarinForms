@@ -125,7 +125,6 @@
                                    HorizontalOptions="Center" 
                                    TextColor="#197A80">
                             </Label>
-
                         </StackLayout>
                         <!--CEP-->
                         <StackLayout x:Name="CepStack"

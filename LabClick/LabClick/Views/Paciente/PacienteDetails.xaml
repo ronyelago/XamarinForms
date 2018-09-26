@@ -18,7 +18,8 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Image Aspect="AspectFill"
+                    <Image x:Name="mainImage"
+                           Aspect="AspectFill"
                            HeightRequest="70"
                            Source="footer.png"
                            Grid.Row="0"
@@ -57,11 +58,12 @@
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="date.png"/>
-                        <Label Text="  data de nascimento  "
+                        <Label x:Name="lblDataNascimento"
+                               Text="  data de nascimento  "
                                TextColor="LightSlateGray"
                                Font="18"/>
                         <DatePicker HorizontalOptions="Start"
-                                    x:Name="dataNascimento" 
+                                    x:Name="dataNascimentoPicker" 
                                     Date="{Binding DataNascimento}"
                                     MinimumDate="01-01-1900"/>
                         <Button x:Name="BtnEditarData"
@@ -144,24 +146,26 @@
                     </StackLayout>
 
                     <!--Endereço-->
-                    <StackLayout>
+                    <StackLayout x:Name="enderecoStack">
                         <StackLayout>
-                            <Label Text="Endereço" 
-                           Font="18" VerticalTextAlignment="Center" 
-                           HorizontalOptions="Center" 
-                           TextColor="#197A80">
+                            <Label x:Name="lblEndereco"
+                                   FontAttributes="Bold"
+                                   Text="Endereço" 
+                                   Font="18" 
+                                   VerticalTextAlignment="Center" 
+                                   HorizontalOptions="Center" 
+                                   TextColor="#197A80">
                             </Label>
-
                         </StackLayout>
                         <!--CEP-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                        <StackLayout x:Name="CepStack"
+                                     Orientation="Horizontal">
                             <Label Text="cep:"/>
                             <Entry x:Name="TxtCep"
                                    Text="{Binding Cep}"
-                                   Unfocused="TxtCep_Unfocused"
-                                   WidthRequest="400"
+                                   WidthRequest="500"
                                    Keyboard="Numeric"
+                                   Unfocused="TxtCep_Unfocused"
                                    MaxLength="20"/>
                             <Button x:Name="BtnEditarCep"
                                 Text="Editar"
@@ -171,12 +175,12 @@
                         </StackLayout>
 
                         <!--UF-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
-                            <Label Text="UF:"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="lblUf"
+                                   Text="UF:"/>
                             <Entry x:Name="txtUf"
                                    Text="{Binding UF}"
-                                   WidthRequest="400"
+                                   WidthRequest="500"
                                    Keyboard="Text"
                                    MaxLength="2"/>
                             <Button x:Name="BtnEditarUf"

@@ -15,7 +15,7 @@ namespace LabClick.Views.Paciente
 			InitializeComponent ();
 
             txtNome.IsEnabled = false;
-            dataNascimento.IsEnabled = false;
+            dataNascimentoPicker.IsEnabled = false;
             txtCpf.IsEnabled = false;
             pickerGenero.IsEnabled = false;
             txtEmail.IsEnabled = false;
@@ -33,7 +33,49 @@ namespace LabClick.Views.Paciente
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
+                mainImage.HeightRequest = 40;
+                MainLabel.FontSize = 20;
 
+                txtNome.WidthRequest = 250;
+                txtNome.FontSize = 15;
+
+                lblDataNascimento.FontSize = 15;
+                dataNascimentoPicker.FontSize = 15;
+
+                txtCpf.WidthRequest = 250;
+                txtCpf.FontSize = 15;
+
+                pickerGenero.WidthRequest = 250;
+                pickerGenero.FontSize = 15;
+
+                txtEmail.WidthRequest = 250;
+                txtEmail.FontSize = 15;
+
+                txtPhone.WidthRequest = 250;
+                txtPhone.FontSize = 15;
+
+                enderecoStack.Margin = new Thickness(50, 10, 20, 10);
+
+                TxtCep.WidthRequest = 200;
+
+                lblUf.FontSize = 13;
+                lblUf.Margin = new Thickness(0, 0, 10, 0);
+                txtUf.WidthRequest = 200;
+
+                txtCidade.WidthRequest = 150;
+                txtBairro.WidthRequest = 200;
+                txtRua.WidthRequest = 200;
+                txtNumero.WidthRequest = 200;
+
+                BtnSalvar.WidthRequest = 150;
+                BtnSalvar.HeightRequest = 30;
+                BtnSalvar.FontSize = 8;
+                BtnSalvar.CornerRadius = 10;
+
+                BtnCancelar.WidthRequest = 150;
+                BtnCancelar.HeightRequest = 30;
+                BtnCancelar.FontSize = 8;
+                BtnCancelar.CornerRadius = 10;
             }
         }
 
@@ -93,7 +135,7 @@ namespace LabClick.Views.Paciente
         private void BtnEditarData_Clicked(object sender, System.EventArgs e)
         {
             BtnSalvar.IsEnabled = true;
-            dataNascimento.IsEnabled = true;
+            dataNascimentoPicker.IsEnabled = true;
         }
 
         private void BtnEditarCpf_Clicked(object sender, System.EventArgs e)
