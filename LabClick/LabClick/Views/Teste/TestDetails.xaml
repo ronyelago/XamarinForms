@@ -57,8 +57,7 @@
                        Text="Imagem do Teste"
                        Font="20"/>
                 <Image x:Name="ImgTeste"
-                       WidthRequest="300"
-                       HeightRequest="600"/>
+                       Source="bgfoto.jpg"/>
             </StackLayout>
             <StackLayout Margin="70,100,10,10"
                          Orientation="Vertical"

@@ -49,8 +49,8 @@ namespace LabClick.Views.Teste
                 lblStatusDados.FontSize = 13;
 
                 lblImagemTeste.FontSize = 15;
-                ImgTeste.WidthRequest = 150;
-                ImgTeste.HeightRequest = 300;
+                ImgTeste.WidthRequest = 100;
+                ImgTeste.HeightRequest = 250;
 
                 lblTituloResultado.FontSize = 15;
 

@@ -30,6 +30,11 @@ namespace LabClick.Views.Paciente
             this.NewPatientViewModel = new NewPatientViewModel();
             this.NewPatientViewModel = Mapper.Map<NewPatientViewModel>(paciente);
             this.BindingContext = NewPatientViewModel;
+
+            if (Device.Idiom == TargetIdiom.Phone)
+            {
+
+            }
         }
 
         private void TxtCep_Unfocused(object sender, FocusEventArgs e)
