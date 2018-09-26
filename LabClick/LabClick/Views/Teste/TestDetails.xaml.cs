@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 namespace LabClick.Views.Teste
@@ -39,15 +38,15 @@ namespace LabClick.Views.Teste
             {
                 labelsStack.Margin = new Thickness(25, 5, 5, 10);
 
-                lblExame.FontSize = 15;
-                lblNomePaciente.FontSize = 15;
-                lblDataTeste.FontSize = 15;
-                lblStatus.FontSize = 15;
+                lblExame.FontSize = 13;
+                lblNomePaciente.FontSize = 13;
+                lblDataTeste.FontSize = 13;
+                lblStatus.FontSize = 13;
 
-                lblExameDados.FontSize = 15;
-                lblNomePacienteDados.FontSize = 15;
-                lblDataCadastroDados.FontSize = 15;
-                lblStatusDados.FontSize = 15;
+                lblExameDados.FontSize = 13;
+                lblNomePacienteDados.FontSize = 13;
+                lblDataCadastroDados.FontSize = 13;
+                lblStatusDados.FontSize = 13;
 
                 lblImagemTeste.FontSize = 15;
                 ImgTeste.WidthRequest = 150;
@@ -60,7 +59,7 @@ namespace LabClick.Views.Teste
                 BtnFechar.FontSize = 10;
                 BtnFechar.CornerRadius = 7;
             }
-		}
+        }
 
         private void BtnFechar_Clicked(object sender, System.EventArgs e)
         {

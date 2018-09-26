@@ -47,25 +47,25 @@
                                                  VerticalOptions="FillAndExpand"
                                                  Orientation="Horizontal">
                                         <StackLayout Orientation="Vertical"
-                                                     WidthRequest="300"
+                                                     WidthRequest="{Binding LeftHeaderStackWidth}"
                                                      HorizontalOptions="Start"
                                                      Margin="10,5,10,5">
                                             <Label Text="{Binding NomeTeste}"
-                                                   Font="20"
+                                                   FontSize="{Binding LabelNomeTesteFontSize}"
                                                    TextColor="#126683"/>
                                             <Label Text="{Binding NomePaciente}"
                                                    FontAttributes="Bold"
-                                                   Font="15"/>
+                                                   FontSize="{Binding LabelNomePacienteFontSize}"/>
                                             <Label Text="{Binding DataTeste}"
                                                    FontAttributes="Bold"
-                                                   Font="15"/>
+                                                   FontSize="{Binding LabelDataTesteFontSize}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical"
                                                      HorizontalOptions="StartAndExpand"
-                                                     WidthRequest="200"
+                                                     WidthRequest="{Binding CenterHeaderStackWidth}"
                                                      Margin="10,5,10,5">
                                             <Label Text="Status"
-                                                   Font="20"
+                                                   FontSize="{Binding LabelStatusFontSize}"
                                                    HorizontalOptions="StartAndExpand"
                                                    TextColor="#126683"/>
                                             <Label Text="{Binding Status}"
@@ -73,7 +73,7 @@
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical"
                                                      HorizontalOptions="EndAndExpand"
-                                                     WidthRequest="200"
+                                                     WidthRequest="{Binding RightHeaderStackWidth}"
                                                      Margin="20,5,20,5"
                                                      Padding="5,30,5,5">
                                             <Button Text="Detalhar"

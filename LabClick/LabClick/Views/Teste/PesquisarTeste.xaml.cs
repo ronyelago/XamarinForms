@@ -23,10 +23,8 @@ namespace LabClick.Views.Teste
                 PesquisarTesteSearchBar.HeightRequest = 40;
                 PesquisarTesteSearchBar.WidthRequest = 100;
                 PesquisarTesteSearchBar.FontSize = 15;
-            }
-            else
-            {
 
+                
             }
 		}
 
@@ -75,6 +73,17 @@ namespace LabClick.Views.Teste
                         else
                         {
                             item.Color = Color.FromHex("#80FFFFFF");
+                        }
+
+                        if (Device.Idiom == TargetIdiom.Phone)
+                        {
+                            item.LeftHeaderStackWidth = 150;
+                            item.LabelNomeTesteFontSize = 12;
+                            item.LabelNomePacienteFontSize = 12;
+                            item.LabelDataTesteFontSize = 12;
+                            item.CenterHeaderStackWidth = 100;
+                            item.LabelStatusFontSize = 12;
+                            item.RightHeaderStackWidth = 100;
                         }
                     }
 
