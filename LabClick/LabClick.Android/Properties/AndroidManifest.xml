@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="beta" package="LabClick.Android" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="18" android:targetSdkVersion="27" />
-	<application android:label="LabClick.Android">
+	<application android:label="LabClick.Android" android:icon="@drawable/appicon">
 		<provider android:name="android.support.v4.content.FileProvider" android:authorities="LabClick.Android.fileprovider" android:exported="false" android:grantUriPermissions="true">
 			<meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"></meta-data>
 		</provider>

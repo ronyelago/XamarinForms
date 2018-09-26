@@ -52,8 +52,9 @@
                                                  Padding="20,10,0,10"
                                                  Spacing="20"
                                                  BackgroundColor="{Binding Color}">
-                                        <Label Text="{Binding Name}"
-                                               Font="20"
+                                        <Label x:Name="lblName"
+                                               Text="{Binding Name}"
+                                               FontSize="{Binding FontSize}"
                                                TextColor="#197A80"
                                                Margin="5,5,0,5"/>
                                     </StackLayout>

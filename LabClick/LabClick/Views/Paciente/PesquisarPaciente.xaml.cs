@@ -44,6 +44,8 @@ namespace LabClick.Views.Paciente
 		{
 			InitializeComponent ();
 
+            this.BindingContext = 
+
             this.MainLabel.Text = "Busca de Paciente";
 
             if (Device.Idiom == TargetIdiom.Phone)
@@ -51,6 +53,7 @@ namespace LabClick.Views.Paciente
                 PacienteSearchBar.HeightRequest = 40;
                 PacienteSearchBar.WidthRequest = 100;
                 PacienteSearchBar.FontSize = 15;
+                PacientesListView.RowHeight = 50;
             }
             else
             {
@@ -96,6 +99,8 @@ namespace LabClick.Views.Paciente
                             //branco com 50% de transparência
                             item.Color = Color.FromHex("#80FFFFFF");
                         }
+
+                        item.FontSize = Device.Idiom == TargetIdiom.Phone ? 10 : 15;
                     }
 
                     // Adiciona os ítens à lista resultante da busca
