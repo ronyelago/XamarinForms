@@ -23,8 +23,6 @@ namespace LabClick.Views.Teste
                 PesquisarTesteSearchBar.HeightRequest = 40;
                 PesquisarTesteSearchBar.WidthRequest = 100;
                 PesquisarTesteSearchBar.FontSize = 15;
-
-                
             }
 		}
 
@@ -62,7 +60,7 @@ namespace LabClick.Views.Teste
                         });
                     }
 
-                    // definição dos backgrounds
+                    // definição dos backgrounds e responsividade para smartphones
                     foreach (var item in ListItems)
                     {
                         if (item.SetColor % 2 == 0)
