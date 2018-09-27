@@ -43,7 +43,7 @@ namespace LabClick.Views.Teste
                 // cria lista com retorno da busca
                 testes = JsonConvert.DeserializeObject<List<Domain.Entities.Teste>>(content.Result);
 
-                if (testes != null)
+                if (testes.Count > 0)
                 {
                     // source da lista de ítens apresentados na page
                     ListItems = new List<TestListViewItem>();
@@ -94,6 +94,7 @@ namespace LabClick.Views.Teste
 
                 else
                 {
+                    TestesListView.ItemsSource = null;
                     await DisplayAlert("Resultado da busca", "Nenhum paciente encontrado.", "Fechar");
                     Navigation.RemovePage(App.LoadingPage);
                     this.PesquisarTesteSearchBar.Text = string.Empty;
@@ -113,6 +114,7 @@ namespace LabClick.Views.Teste
             var teste = testes.FirstOrDefault(test => test.Id == t.TesteId);
 
             Navigation.PushAsync(new TestDetails(teste), true);
+            TestesListView.SelectedItem = null;
         }
 
         private void BtnDetalhar_Clicked(object sender, EventArgs e)
