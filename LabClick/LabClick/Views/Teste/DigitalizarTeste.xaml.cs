@@ -197,7 +197,7 @@ namespace LabClick.Views.Teste
 
         private void BtnCancelar_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Home());
+            Navigation.RemovePage(this);
         }
     }
 }

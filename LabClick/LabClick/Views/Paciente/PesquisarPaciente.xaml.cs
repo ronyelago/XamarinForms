@@ -114,6 +114,7 @@ namespace LabClick.Views.Paciente
                     await DisplayAlert("Resultado da busca", "Nenhum paciente encontrado.", "Fechar");
                     Navigation.RemovePage(App.LoadingPage);
                     this.PacienteSearchBar.Text = string.Empty;
+                    PacientesListView.ItemsSource = null;
                 }
             }
 
