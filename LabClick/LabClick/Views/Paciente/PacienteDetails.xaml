@@ -191,8 +191,9 @@
                         </StackLayout>
 
                         <!--Cidade-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+
+                        
+                        <StackLayout Orientation="Horizontal">
                             <Label Text="Cidade:"/>
                             <Entry x:Name="txtCidade"
                                    Text="{Binding Cidade}"
@@ -207,8 +208,7 @@
                         </StackLayout>
 
                         <!--Bairro-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                        <StackLayout Orientation="Horizontal">
                             <Label Text="Bairro:"/>
                             <Entry x:Name="txtBairro" 
                                    Text="{Binding Bairro}"
@@ -223,8 +223,7 @@
                         </StackLayout>
 
                         <!--Rua-->
-                        <StackLayout  Orientation="Horizontal"
-                                      Margin="50,10,50,10">
+                        <StackLayout  Orientation="Horizontal">
                             <Label Text="Rua:"/>
                             <Entry x:Name="txtRua"
                                    Text="{Binding Logradouro}"
@@ -239,8 +238,7 @@
                         </StackLayout>
 
                         <!--Número-->
-                        <StackLayout Orientation="Horizontal"
-                                     Margin="50,10,50,10">
+                        <StackLayout Orientation="Horizontal">
                             <Label Text="Número:"/>
                             <Entry x:Name="txtNumero"
                                    Text="{Binding Numero}"

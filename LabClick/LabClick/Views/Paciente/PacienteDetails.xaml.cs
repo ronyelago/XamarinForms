@@ -62,10 +62,10 @@ namespace LabClick.Views.Paciente
                 lblUf.Margin = new Thickness(0, 0, 10, 0);
                 txtUf.WidthRequest = 200;
 
-                txtCidade.WidthRequest = 150;
+                txtCidade.WidthRequest = 180;
                 txtBairro.WidthRequest = 200;
                 txtRua.WidthRequest = 200;
-                txtNumero.WidthRequest = 200;
+                txtNumero.WidthRequest = 150;
 
                 BtnSalvar.WidthRequest = 150;
                 BtnSalvar.HeightRequest = 30;
