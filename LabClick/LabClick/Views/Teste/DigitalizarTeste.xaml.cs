@@ -144,10 +144,11 @@ namespace LabClick.Views.Teste
         public async Task BtnEnviarTeste_ClickedAsync(object sender, EventArgs e)
         {
             BtnEnviarTeste.IsEnabled = false;
-            await Navigation.PushAsync(App.LoadingPage);
 
             if (DigitalizarTesteViewModel.IsValid())
             {
+                await Navigation.PushAsync(App.LoadingPage);
+
                 var teste = Mapper.Map<Domain.Entities.Teste>(DigitalizarTesteViewModel);
                 var serialized = JsonConvert.SerializeObject(teste);
 
@@ -189,7 +190,7 @@ namespace LabClick.Views.Teste
             else
             {
                 await DisplayAlert("Erro", "Antes de enviar o Teste, você deve fotografar o " +
-                    "teste rápido e escanear o QR-Code do mesmo.", "Ok");
+                                   "teste rápido e escanear o QR-Code do mesmo.", "Ok");
 
                 BtnEnviarTeste.IsEnabled = true;
             }
