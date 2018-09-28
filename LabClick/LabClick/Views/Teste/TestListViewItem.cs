@@ -22,5 +22,6 @@ namespace LabClick.Views.Teste
         public double CenterHeaderStackWidth { get; set; }
         public double LabelStatusFontSize { get; set; }
         public double RightHeaderStackWidth { get; set; }
+        public bool IsEnable { get; set; }
     }
 }
