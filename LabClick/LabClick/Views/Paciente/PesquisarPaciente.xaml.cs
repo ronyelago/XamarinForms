@@ -55,10 +55,6 @@ namespace LabClick.Views.Paciente
                 PacienteSearchBar.FontSize = 15;
                 PacientesListView.RowHeight = 50;
             }
-            else
-            {
-
-            }
         }
 
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
@@ -101,6 +97,7 @@ namespace LabClick.Views.Paciente
                         }
 
                         item.FontSize = Device.Idiom == TargetIdiom.Phone ? 10 : 15;
+                        item.IsEnable = true;
                     }
 
                     // Adiciona os ítens à lista resultante da busca
@@ -127,6 +124,8 @@ namespace LabClick.Views.Paciente
 
         private void PacientesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            PacientesListView.IsEnabled = false;
+
             // captura o ítem que foi selecionado na lista
             var item = (SearchListViewItem)e.Item;
 
@@ -153,6 +152,8 @@ namespace LabClick.Views.Paciente
 
                 Navigation.PushAsync(pacienteMasterPage);
             }
+
+            PacientesListView.IsEnabled = true;
         }
     }
 }

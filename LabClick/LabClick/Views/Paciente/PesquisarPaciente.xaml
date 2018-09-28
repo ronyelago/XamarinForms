@@ -45,7 +45,7 @@
                               ItemTapped="PacientesListView_ItemTapped">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell>
+                                <ViewCell IsEnabled="{Binding IsEnable}">
                                     <StackLayout VerticalOptions="FillAndExpand"
                                                  x:Name="ListItemStack"
                                                  Orientation="Horizontal" 
