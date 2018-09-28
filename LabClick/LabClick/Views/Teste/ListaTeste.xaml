@@ -65,10 +65,14 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <ActivityIndicator x:Name="Loading"
+            <AbsoluteLayout x:Name="loadingAbsoluteLayout">
+                <ActivityIndicator x:Name="Loading"
                                IsRunning="False"
                                Color="DarkGreen"
-                               BackgroundColor="Transparent"/>
+                               BackgroundColor="Transparent"
+                               AbsoluteLayout.LayoutBounds="0.5,0.5,100,100" 
+                               AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
         </Grid>
     </ScrollView>
 

@@ -106,17 +106,20 @@ namespace LabClick.Views.Paciente
         {
             if (this.NewPatientViewModel.IsValid())
             {
+                Navigation.PushAsync(App.LoadingPage);
+
                 var result = NewPatientViewModel.Update(NewPatientViewModel);
 
                 if (result)
                 {
                     DisplayAlert("Sucesso", "Paciente atualizado com sucesso.", "Fechar");
-                    Navigation.PushAsync(new Home());
+                    Navigation.RemovePage(App.LoadingPage);
                 }
 
                 else
                 {
                     DisplayAlert("Erro", "Erro ao tentar atualizar o paciente.", "Fechar");
+                    Navigation.RemovePage(App.LoadingPage);
                 }
             }
 

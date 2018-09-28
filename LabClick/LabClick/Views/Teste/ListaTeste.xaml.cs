@@ -72,6 +72,7 @@ namespace LabClick.Views.Teste
 
                     this.Loading.IsRunning = false;
                     this.Loading.IsVisible = false;
+                    this.loadingAbsoluteLayout.IsVisible = false;
 
                     TestesListView.ItemsSource = ListItems;
                 }
