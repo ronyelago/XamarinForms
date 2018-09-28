@@ -116,16 +116,22 @@ namespace LabClick.Views.Teste
 
             Navigation.PushAsync(new TestDetails(teste), true);
             TestesListView.SelectedItem = null;
+
+            TestesListView.IsEnabled = true;
         }
 
         private void BtnDetalhar_Clicked(object sender, EventArgs e)
         {
+            TestesListView.IsEnabled = false;
+
             Button btn = sender as Button;
             var parent = btn.Parent;
             int testeId = int.Parse(parent.FindByName<Label>("LblTesteId").Text);
             var teste = testes.FirstOrDefault(test => test.Id == testeId);
 
             Navigation.PushAsync(new TestDetails(teste), true);
+
+            TestesListView.IsEnabled = true;
         }
     }
 }
