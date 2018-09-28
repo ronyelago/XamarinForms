@@ -8,5 +8,6 @@ namespace LabClick.Views.Paciente
         public Color Color { get; set; }
         public int SetColor { get; set; }
         public double FontSize { get; set; }
+        public bool IsEnable { get; set; }
     }
 }
