@@ -78,6 +78,7 @@ namespace LabClick.Views.Teste
                             item.CenterHeaderStackWidth = 100;
                             item.LabelStatusFontSize = 12;
                             item.RightHeaderStackWidth = 100;
+                            item.IsEnable = true;
                         }
                     }
 
@@ -108,14 +109,20 @@ namespace LabClick.Views.Teste
 
         private void TestesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            TestesListView.IsEnabled = false;
+
             var t = e.Item as TestListViewItem;
             var teste = listTests.FirstOrDefault(m => m.PacienteId == t.PacienteId);
 
             Navigation.PushAsync(new TestDetails(teste), true);
+
+            TestesListView.IsEnabled = true;
         }
 
         private void BtnDetalhar_Clicked(object sender, EventArgs e)
         {
+            TestesListView.IsEnabled = false;
+
             Button btn = sender as Button;
             btn.IsEnabled = false;
             var parent = btn.Parent;
@@ -123,6 +130,8 @@ namespace LabClick.Views.Teste
             var teste = listTests.FirstOrDefault(t => t.PacienteId == pacienteId);
 
             Navigation.PushAsync(new TestDetails(teste), true);
+
+            TestesListView.IsEnabled = true;
         }
     }
 }

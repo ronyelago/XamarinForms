@@ -15,7 +15,7 @@
                               ItemTapped="TestesListView_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <ViewCell IsEnabled="{Binding IsEnable}">
                                 <StackLayout BackgroundColor="{Binding Color}"
                                                  VerticalOptions="FillAndExpand"
                                                  Orientation="Horizontal">
@@ -50,11 +50,12 @@
                                                      Margin="20,5,20,5"
                                                      Padding="5,30,5,5">
                                         <Button Text="Detalhar"
-                                                    x:Name="BtnDetalhar"
-                                                    BackgroundColor="#126683"
-                                                    HorizontalOptions="EndAndExpand"
-                                                    TextColor="White"
-                                                    Clicked="BtnDetalhar_Clicked"/>
+                                                IsEnabled="{Binding IsEnable}"
+                                                x:Name="BtnDetalhar"
+                                                BackgroundColor="#126683"
+                                                HorizontalOptions="EndAndExpand"
+                                                TextColor="White"
+                                                Clicked="BtnDetalhar_Clicked"/>
                                         <Label x:Name="LblPacienteId"
                                                Text="{Binding PacienteId}"      
                                                IsVisible="False"/>
