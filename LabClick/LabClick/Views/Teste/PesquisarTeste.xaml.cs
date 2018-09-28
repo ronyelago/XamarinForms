@@ -82,6 +82,7 @@ namespace LabClick.Views.Teste
                             item.CenterHeaderStackWidth = 100;
                             item.LabelStatusFontSize = 12;
                             item.RightHeaderStackWidth = 100;
+                            item.IsEnable = true;
                         }
                     }
 
