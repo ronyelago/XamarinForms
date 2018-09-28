@@ -68,6 +68,17 @@ namespace LabClick.Views.Teste
                         {
                             item.Color = Color.FromHex("#80FFFFFF");
                         }
+
+                        if (Device.Idiom == TargetIdiom.Phone)
+                        {
+                            item.LeftHeaderStackWidth = 150;
+                            item.LabelNomeTesteFontSize = 12;
+                            item.LabelNomePacienteFontSize = 12;
+                            item.LabelDataTesteFontSize = 12;
+                            item.CenterHeaderStackWidth = 100;
+                            item.LabelStatusFontSize = 12;
+                            item.RightHeaderStackWidth = 100;
+                        }
                     }
 
                     this.Loading.IsRunning = false;

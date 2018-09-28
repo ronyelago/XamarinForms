@@ -36,36 +36,50 @@ namespace LabClick.Views.Paciente
                 mainImage.HeightRequest = 40;
                 MainLabel.FontSize = 20;
 
-                txtNome.WidthRequest = 250;
+                txtNome.WidthRequest = 200;
                 txtNome.FontSize = 15;
 
                 lblDataNascimento.FontSize = 15;
                 dataNascimentoPicker.FontSize = 15;
 
-                txtCpf.WidthRequest = 250;
+                txtCpf.WidthRequest = 200;
                 txtCpf.FontSize = 15;
 
-                pickerGenero.WidthRequest = 250;
+                pickerGenero.WidthRequest = 200;
                 pickerGenero.FontSize = 15;
 
-                txtEmail.WidthRequest = 250;
+                txtEmail.WidthRequest = 200;
                 txtEmail.FontSize = 15;
 
-                txtPhone.WidthRequest = 250;
+                txtPhone.WidthRequest = 200;
                 txtPhone.FontSize = 15;
 
                 enderecoStack.Margin = new Thickness(50, 10, 20, 10);
 
-                TxtCep.WidthRequest = 200;
+                lblCep.FontSize = 13;
+                TxtCep.WidthRequest = 150;
+                TxtCep.FontSize = 13;
 
                 lblUf.FontSize = 13;
                 lblUf.Margin = new Thickness(0, 0, 10, 0);
-                txtUf.WidthRequest = 200;
+                txtUf.WidthRequest = 150;
 
-                txtCidade.WidthRequest = 180;
-                txtBairro.WidthRequest = 200;
-                txtRua.WidthRequest = 200;
-                txtNumero.WidthRequest = 150;
+                lblCidade.FontSize = 13;
+                txtCidade.WidthRequest = 140;
+                txtCidade.FontSize = 13;
+
+                lblBairro.FontSize = 13;
+                txtBairro.WidthRequest = 150;
+                txtBairro.FontSize = 13;
+
+                txtRua.WidthRequest = 150;
+                txtRua.FontSize = 12;
+                txtRua.AnchorX = -3;
+                txtRua.AnchorY = 0;
+
+                lblNumero.FontSize = 13;
+                txtNumero.WidthRequest = 100;
+                txtNumero.FontSize = 13;
 
                 BtnSalvar.WidthRequest = 150;
                 BtnSalvar.HeightRequest = 30;

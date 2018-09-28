@@ -160,7 +160,8 @@
                         <!--CEP-->
                         <StackLayout x:Name="CepStack"
                                      Orientation="Horizontal">
-                            <Label Text="cep:"/>
+                            <Label  x:Name="lblCep"
+                                    Text="cep:"/>
                             <Entry x:Name="TxtCep"
                                    Text="{Binding Cep}"
                                    WidthRequest="500"
@@ -194,7 +195,8 @@
 
                         
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Cidade:"/>
+                            <Label x:Name="lblCidade"
+                                    Text="Cidade:"/>
                             <Entry x:Name="txtCidade"
                                    Text="{Binding Cidade}"
                                    Keyboard="Text"
@@ -209,7 +211,8 @@
 
                         <!--Bairro-->
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Bairro:"/>
+                            <Label x:Name="lblBairro"
+                                    Text="Bairro:"/>
                             <Entry x:Name="txtBairro" 
                                    Text="{Binding Bairro}"
                                    Keyboard="Text"
@@ -239,7 +242,8 @@
 
                         <!--Número-->
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Número:"/>
+                            <Label x:Name="lblNumero"
+                                    Text="Número:"/>
                             <Entry x:Name="txtNumero"
                                    Text="{Binding Numero}"
                                    Keyboard="Numeric"

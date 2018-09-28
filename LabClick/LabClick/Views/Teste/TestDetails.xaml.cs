@@ -54,8 +54,8 @@ namespace LabClick.Views.Teste
 
                 lblTituloResultado.FontSize = 15;
 
-                BtnFechar.WidthRequest = 150;
-                BtnFechar.HeightRequest = 30;
+                BtnFechar.WidthRequest = 200;
+                BtnFechar.HeightRequest = 40;
                 BtnFechar.FontSize = 10;
                 BtnFechar.CornerRadius = 7;
             }
