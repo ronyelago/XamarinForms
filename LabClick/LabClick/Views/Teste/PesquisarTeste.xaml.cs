@@ -108,6 +108,8 @@ namespace LabClick.Views.Teste
 
         private void TestesListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
+            TestesListView.IsEnabled = false;
+
             var t = e.Item as TestListViewItem;
             var teste = testes.FirstOrDefault(test => test.Id == t.TesteId);
 
