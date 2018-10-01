@@ -73,11 +73,15 @@ namespace LabClick.Views.Paciente
         {
             if (this.NewPatientViewModel.IsValid())
             {
+                Navigation.PushAsync(App.LoadingPage);
+
                 var result = NewPatientViewModel.Add(NewPatientViewModel);
 
                 if (result)
                 {
                     DisplayAlert("Sucesso", "Paciente adicionado com sucesso.", "Fechar");
+
+                    Navigation.RemovePage(App.LoadingPage);
                     Navigation.PushAsync(new Home());
                 }
 
