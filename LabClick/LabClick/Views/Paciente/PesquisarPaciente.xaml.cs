@@ -59,7 +59,7 @@ namespace LabClick.Views.Paciente
 
         private async void PacienteSearchBar_SearchButtonPressed(object sender, System.EventArgs e)
         {
-            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(30) };
+            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(120) };
 
             try
             {

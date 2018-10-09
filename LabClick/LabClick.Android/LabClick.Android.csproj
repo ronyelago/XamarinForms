@@ -148,7 +148,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-xxhdpi\" />
     <Folder Include="Resources\drawable-xxxhdpi\" />
@@ -250,19 +249,19 @@
     <AndroidResource Include="Resources\drawable\pesquisarpaciente2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\smallsearch.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\smallsearch.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\smalladd.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\smalladd.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\smallnewexam.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\smallscan.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\smallscan.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\smallreports.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\smallreports.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\bgfoto.jpg" />

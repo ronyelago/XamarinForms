@@ -28,7 +28,7 @@ namespace LabClick.Views.Teste
 
         private async void PesquisarTesteSearchBar_SearchButtonPressed(object sender, EventArgs e)
         {
-            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(60) };
+            var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(120) };
 
             try
             {

@@ -54,6 +54,9 @@ namespace LabClick.Views
 
         private async void btnEntrar_Clicked(object sender, EventArgs e)
         {
+
+
+
             await Navigation.PushAsync(new Home());
             NavigationPage.SetHasNavigationBar(this, false);
         }
