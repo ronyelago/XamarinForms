@@ -1,5 +1,9 @@
-﻿using LabClick.ViewModels;
+﻿using AutoMapper;
+using LabClick.Services;
+using LabClick.ViewModels;
+using Newtonsoft.Json;
 using System;
+using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +13,7 @@ namespace LabClick.Views
 	public partial class Login : ContentPage
 	{
         private LoginViewModel loginViewModel = new LoginViewModel();
+        private LoginService loginService = new LoginService();
 
 		public Login ()
 		{
@@ -58,11 +63,41 @@ namespace LabClick.Views
 
         private async void btnEntrar_Clicked(object sender, EventArgs e)
         {
+            if (loginViewModel.Email != null && loginViewModel.Senha != null )
+            {
+                var user = Mapper.Map<Domain.Entities.Usuario>(loginViewModel);
 
+                Uri urinho = new Uri($@"http://192.168.0.15:3000/usuario/getbyemail={user.Email}");
 
+                var result = App.Client.GetAsync(urinho);
 
-            await Navigation.PushAsync(new Home());
-            NavigationPage.SetHasNavigationBar(this, false);
+                if (result.Result.IsSuccessStatusCode)
+                {
+                    var content = result.Result.Content.ReadAsStringAsync();
+                    var userGot = JsonConvert.DeserializeObject<Domain.Entities.Usuario>(content.Result);
+
+                    if (userGot.Senha == user.Senha)
+                    {
+                        await Navigation.PushAsync(new Home());
+                        NavigationPage.SetHasNavigationBar(this, false);
+                    }
+
+                    else
+                    {
+                        await DisplayAlert("Erro", "Senha inválida.", "Fechar");
+                    }
+                }
+
+                else
+                {
+                    await DisplayAlert("Erro", "Usuário inválido.", "Fechar");
+                }
+            }
+
+            else
+            {
+                await DisplayAlert("Erro", "Digite seu e-mail e senha.", "Fechar");
+            }
         }
     }
 }

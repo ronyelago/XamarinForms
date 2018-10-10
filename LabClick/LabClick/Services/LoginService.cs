@@ -9,7 +9,7 @@ namespace LabClick.Services
     {
         public bool Login(Usuario usuario)
         {
-            Uri urinho = new Uri($"http://localhost:52434/usuario/getbyemail={usuario.Email}");
+            Uri urinho = new Uri(@"http://localhost:52434/usuario/getbyemail={usuario.Email}");
             HttpClient client = new HttpClient();
 
             var result = client.GetAsync(urinho);
