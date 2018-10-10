@@ -20,6 +20,8 @@ namespace LabClick.Mappers
                 .ForMember(e => e.Cidade, c => c.MapFrom(cid => cid.Localidade));
 
             CreateMap<TesteImagemViewModel, Domain.Entities.TesteImagem>();
+
+            CreateMap<LoginViewModel, Domain.Entities.Usuario>();
         }
     }
 }
