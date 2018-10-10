@@ -15,7 +15,10 @@ namespace LabClick
         public static MasterDetailPage MasterPage { get; set; }
         //HttpClient usado para as requisi��es � api
         public static HttpClient Client { get; set; }
+        // Activity page
         public static LoadingPage LoadingPage { get; set; }
+        // Usuário logado (implementar Identity posteriormente)
+        public static Domain.Entities.Usuario User { get; set; }
 
         public App ()
 		{

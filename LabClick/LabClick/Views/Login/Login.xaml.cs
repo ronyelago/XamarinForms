@@ -78,22 +78,20 @@ namespace LabClick.Views
 
                     if (userGot.Senha == user.Senha)
                     {
+                        App.User = userGot;
                         await Navigation.PushAsync(new Home());
                         NavigationPage.SetHasNavigationBar(this, false);
                     }
-
                     else
                     {
                         await DisplayAlert("Erro", "Senha inválida.", "Fechar");
                     }
                 }
-
                 else
                 {
                     await DisplayAlert("Erro", "Usuário inválido.", "Fechar");
                 }
             }
-
             else
             {
                 await DisplayAlert("Erro", "Digite seu e-mail e senha.", "Fechar");
