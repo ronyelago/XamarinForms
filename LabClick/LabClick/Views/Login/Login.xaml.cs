@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LabClick.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -7,9 +8,12 @@ namespace LabClick.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class Login : ContentPage
 	{
+        private LoginViewModel loginViewModel = new LoginViewModel();
+
 		public Login ()
 		{
 			InitializeComponent ();
+            this.BindingContext = loginViewModel;
 
             if (Device.Idiom == TargetIdiom.Tablet)
             {
@@ -24,8 +28,8 @@ namespace LabClick.Views
                 btnEntrar.FontSize = 20;
                 btnEntrar.CornerRadius = 10;
 
-                nameEntry.WidthRequest = 270;
-                nameEntry.HeightRequest = 30;
+                emailEntry.WidthRequest = 270;
+                emailEntry.HeightRequest = 30;
 
 
                 senhaEntry.WidthRequest = 270;
@@ -44,8 +48,8 @@ namespace LabClick.Views
                 btnEntrar.FontSize = 7;
                 btnEntrar.CornerRadius = 5;
 
-                nameEntry.WidthRequest = 135;
-                nameEntry.HeightRequest = 20;
+                emailEntry.WidthRequest = 135;
+                emailEntry.HeightRequest = 20;
 
                 senhaEntry.WidthRequest = 135;
                 senhaEntry.HeightRequest = 30;

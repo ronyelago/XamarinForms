@@ -21,13 +21,15 @@
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
                     <Image Source="mail.png"/>
-                    <Entry x:Name="nameEntry"
+                    <Entry x:Name="emailEntry"
+                           Text="{Binding Email}"
                            Placeholder="Usuário"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">
                     <Image Source="hold.png"/>
                     <Entry x:Name="senhaEntry"
+                           Text="{Binding Senha}"
                            Placeholder="Senha"
                            IsPassword="True"/>
                 </StackLayout>
