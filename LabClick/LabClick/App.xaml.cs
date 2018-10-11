@@ -18,7 +18,7 @@ namespace LabClick
         // Activity page
         public static LoadingPage LoadingPage { get; set; }
         // Usuário logado (implementar Identity posteriormente)
-        public static Domain.Entities.Usuario User { get; set; }
+        public static Domain.Entities.UsuarioClinica User { get; set; }
 
         public App ()
 		{

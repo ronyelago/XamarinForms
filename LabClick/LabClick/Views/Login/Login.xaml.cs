@@ -65,16 +65,16 @@ namespace LabClick.Views
         {
             if (loginViewModel.Email != null && loginViewModel.Senha != null )
             {
-                var user = Mapper.Map<Domain.Entities.Usuario>(loginViewModel);
+                var user = Mapper.Map<Domain.Entities.UsuarioClinica>(loginViewModel);
 
-                Uri urinho = new Uri($@"http://192.168.0.15:3000/usuario/getbyemail={user.Email}");
+                Uri urinho = new Uri($@"http://192.168.0.15:3000/usuarioclinica/getbyemail={user.Email}");
 
                 var result = App.Client.GetAsync(urinho);
 
                 if (result.Result.IsSuccessStatusCode)
                 {
                     var content = result.Result.Content.ReadAsStringAsync();
-                    var userGot = JsonConvert.DeserializeObject<Domain.Entities.Usuario>(content.Result);
+                    var userGot = JsonConvert.DeserializeObject<Domain.Entities.UsuarioClinica>(content.Result);
 
                     if (userGot.Senha == user.Senha)
                     {

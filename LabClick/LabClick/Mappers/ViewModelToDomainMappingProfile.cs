@@ -21,7 +21,9 @@ namespace LabClick.Mappers
 
             CreateMap<TesteImagemViewModel, Domain.Entities.TesteImagem>();
 
-            CreateMap<LoginViewModel, Domain.Entities.Usuario>();
+            CreateMap<LoginViewModel, Domain.Entities.UsuarioClinica>()
+                .ForMember(m => m.Clinica, opt => opt.MapFrom(u => u.Clinica))
+                .ForMember(m => m.ClinicaId, opt => opt.MapFrom(u => u.ClinicaId));
         }
     }
 }

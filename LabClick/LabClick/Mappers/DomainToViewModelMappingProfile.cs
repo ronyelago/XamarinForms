@@ -25,7 +25,9 @@ namespace LabClick.Mappers
                 .ForMember(t => t.ResultadoDetalhes, opt => opt.MapFrom(test => test.Laudo.ResultadoDetalhes));
 
             CreateMap<Domain.Entities.TesteImagem, TesteImagemViewModel>();
-            CreateMap<Domain.Entities.Usuario, LoginViewModel>();
+            CreateMap<Domain.Entities.UsuarioClinica, LoginViewModel>()
+                .ForMember(t => t.ClinicaId, opt => opt.MapFrom(c => c.ClinicaId))
+                .ForMember(t => t.Clinica, opt => opt.MapFrom(c => c.Clinica));
         }
     }
 }
