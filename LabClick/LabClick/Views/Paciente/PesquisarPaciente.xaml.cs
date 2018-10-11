@@ -65,7 +65,7 @@ namespace LabClick.Views.Paciente
             {
                 await Navigation.PushAsync(App.LoadingPage);
 
-                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByName={PacienteSearchBar.Text}");
+                var result = await client.GetAsync($@"http://apilabclick.mflogic.com.br/paciente/getByNameAndClinicaId/{PacienteSearchBar.Text}/{App.User.ClinicaId}");
                 var content = result.Content.ReadAsStringAsync();
 
                 // cria lista com retorno da busca

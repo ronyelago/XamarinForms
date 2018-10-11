@@ -67,7 +67,7 @@ namespace LabClick.Views
             {
                 var user = Mapper.Map<Domain.Entities.UsuarioClinica>(loginViewModel);
 
-                Uri urinho = new Uri($@"http://192.168.0.15:3000/usuarioclinica/getbyemail={user.Email}");
+                Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/usuarioclinica/getbyemail={user.Email}");
 
                 var result = App.Client.GetAsync(urinho);
 
