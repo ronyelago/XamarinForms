@@ -31,7 +31,7 @@ namespace LabClick.Views.Teste
             {
                 PacienteId = paciente.Id,
                 DataCadastro = DateTime.Now,
-                ClinicaId = 1,
+                ClinicaId = App.User.ClinicaId,
                 Status = "Em Análise",
                 ExameId = 1,
                 ImageShow = "bgfoto.jpeg",
