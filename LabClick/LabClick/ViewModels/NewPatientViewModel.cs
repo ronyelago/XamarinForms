@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace LabClick.ViewModels
 {
@@ -214,6 +215,14 @@ namespace LabClick.ViewModels
                 {
                     return false;
                 }
+            }
+
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(this.Email);
+
+            if (!match.Success)
+            {
+                return false;
             }
 
             return true;
