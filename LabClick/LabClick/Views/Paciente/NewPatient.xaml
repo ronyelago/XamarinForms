@@ -99,7 +99,11 @@
                                Keyboard="Email"
                                WidthRequest="500"
                                Placeholder="e-mail"
-                               MaxLength="30"/>
+                               MaxLength="30">
+                            <Entry.Behaviors>
+                                
+                            </Entry.Behaviors>
+                        </Entry>
                     </StackLayout>
 
                     <!--telefone-->
