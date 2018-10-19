@@ -93,7 +93,7 @@ namespace LabClick.Views.Paciente
 
             else
             {
-                DisplayAlert("Erro", "Favor preencher todos os campos", "Fechar");
+                DisplayAlert("Erro", "Favor preencher todos os campos corretamente", "Fechar");
             }
         }
 
