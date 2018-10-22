@@ -34,6 +34,12 @@ namespace LabClick
             };
 		}
 
+        // to do
+        public void ClearNavigationStack()
+        {
+            
+        }
+
         //Invocar esta task ao clicar em um �tem da master detail
         //passando a p�gica a ser aberta por par�metro
         public async static Task NavigateMasterDetail(Page page)

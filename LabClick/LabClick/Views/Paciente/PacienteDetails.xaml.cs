@@ -118,6 +118,7 @@ namespace LabClick.Views.Paciente
                 {
                     DisplayAlert("Sucesso", "Paciente atualizado com sucesso.", "Fechar");
                     Navigation.RemovePage(App.LoadingPage);
+                    Navigation.PushAsync(new Home());
                 }
 
                 else
