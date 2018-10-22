@@ -3,6 +3,7 @@ using LabClick.Services;
 using LabClick.ViewModels;
 using Newtonsoft.Json;
 using System;
+using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,7 +23,6 @@ namespace LabClick.Views
 
             if (Device.Idiom == TargetIdiom.Tablet)
             {
-                //Sizes to tablet
                 MainStackLayout.WidthRequest = 300;
 
                 ImageLogo.WidthRequest = 400;
@@ -42,9 +42,6 @@ namespace LabClick.Views
             }
             else if (Device.Idiom == TargetIdiom.Phone)
             {
-                //Sizes to phone
-                //MainStackLayout.WidthRequest = 150;
-
                 ImageLogo.WidthRequest = 200;
                 ImageLogo.HeightRequest = 200;
 
@@ -67,16 +64,19 @@ namespace LabClick.Views
         {
             if (loginViewModel.Email != null && loginViewModel.Senha != null )
             {
+                btnEntrar.IsVisible = false;
+                LoginIndicator.IsRunning = true;
+                Thread.Sleep(1000);
 
                 var user = Mapper.Map<Domain.Entities.UsuarioClinica>(loginViewModel);
 
                 Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/usuarioclinica/getbyemail={user.Email}");
 
-                var result = App.Client.GetAsync(urinho);
+                var result = await App.Client.GetAsync(urinho);
 
-                if (result.Result.IsSuccessStatusCode)
+                if (result.IsSuccessStatusCode)
                 {
-                    var content = result.Result.Content.ReadAsStringAsync();
+                    var content = result.Content.ReadAsStringAsync();
                     var userGot = JsonConvert.DeserializeObject<Domain.Entities.UsuarioClinica>(content.Result);
 
                     if (userGot.Senha == user.Senha)
@@ -84,20 +84,29 @@ namespace LabClick.Views
                         App.User = userGot;
                         await Navigation.PushAsync(new Home());
                         NavigationPage.SetHasNavigationBar(this, false);
+
+                        btnEntrar.IsVisible = true;
+                        LoginIndicator.IsRunning = false;
                     }
                     else
                     {
                         await DisplayAlert("Erro", "Senha inválida.", "Fechar");
+                        btnEntrar.IsVisible = true;
+                        LoginIndicator.IsRunning = false;
                     }
                 }
                 else
                 {
                     await DisplayAlert("Erro", "Usuário inválido.", "Fechar");
+                    btnEntrar.IsVisible = true;
+                    LoginIndicator.IsRunning = false;
                 }
             }
             else
             {
                 await DisplayAlert("Erro", "Digite seu e-mail e senha.", "Fechar");
+                btnEntrar.IsVisible = true;
+                LoginIndicator.IsRunning = false;
             }
         }
     }

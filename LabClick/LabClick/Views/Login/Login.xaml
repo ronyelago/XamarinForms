@@ -41,8 +41,8 @@
                             TextColor="White"
                             Margin="10,10,10,10"/>
                     <ActivityIndicator x:Name="LoginIndicator"
-                                       Color="DarkOliveGreen"
-                                       IsVisible="False"/>
+                                       IsRunning="false" 
+                                       Color="DarkOliveGreen" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>
