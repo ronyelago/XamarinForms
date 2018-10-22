@@ -203,7 +203,8 @@ namespace LabClick.ViewModels
         }
 
         /// <summary>
-        /// Verifica se todos os campos estão preenchidos.
+        /// Verifica se todos os campos estão preenchidos 
+        /// e se os campos CPF e Email são válidos.
         /// Se sim, retorna true, se não, retorna false.
         /// </summary>
         /// <returns></returns>

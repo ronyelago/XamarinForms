@@ -3,7 +3,6 @@ using LabClick.Services;
 using LabClick.ViewModels;
 using Newtonsoft.Json;
 using System;
-using System.Net.Http;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,6 +18,7 @@ namespace LabClick.Views
 		{
 			InitializeComponent ();
             this.BindingContext = loginViewModel;
+            NavigationPage.SetHasNavigationBar(this, false);
 
             if (Device.Idiom == TargetIdiom.Tablet)
             {
@@ -43,7 +43,7 @@ namespace LabClick.Views
             else if (Device.Idiom == TargetIdiom.Phone)
             {
                 //Sizes to phone
-                MainStackLayout.WidthRequest = 150;
+                //MainStackLayout.WidthRequest = 150;
 
                 ImageLogo.WidthRequest = 200;
                 ImageLogo.HeightRequest = 200;
@@ -51,13 +51,15 @@ namespace LabClick.Views
                 btnEntrar.WidthRequest = 50;
                 btnEntrar.HeightRequest = 30;
                 btnEntrar.FontSize = 7;
-                btnEntrar.CornerRadius = 5;
+                btnEntrar.CornerRadius = 3;
 
-                emailEntry.WidthRequest = 135;
-                emailEntry.HeightRequest = 20;
+                emailEntry.WidthRequest = 300;
+                emailEntry.HeightRequest = 40;
+                emailEntry.FontSize = 20;
 
-                senhaEntry.WidthRequest = 135;
-                senhaEntry.HeightRequest = 30;
+                senhaEntry.WidthRequest = 300;
+                senhaEntry.HeightRequest = 40;
+                senhaEntry.FontSize = 20;
             }
         }
 
@@ -65,6 +67,7 @@ namespace LabClick.Views
         {
             if (loginViewModel.Email != null && loginViewModel.Senha != null )
             {
+
                 var user = Mapper.Map<Domain.Entities.UsuarioClinica>(loginViewModel);
 
                 Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/usuarioclinica/getbyemail={user.Email}");

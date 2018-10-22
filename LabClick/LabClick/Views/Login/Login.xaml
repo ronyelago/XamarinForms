@@ -8,7 +8,6 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Vertical"
-                         HorizontalOptions="CenterAndExpand"
                          Margin="0,30,0,0">
                 <Image x:Name="ImageLogo"
                        Source="logolabclick.png"/>
@@ -17,11 +16,12 @@
                          Orientation="Vertical"
                          Padding="20,20,20,20"
                          Spacing="20"
-                         HorizontalOptions="Center">
-                <StackLayout Orientation="Horizontal"
-                             HorizontalOptions="Center">
-                    <Image Source="mail.png"/>
+                         HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="mail.png"
+                           HorizontalOptions="Center"/>
                     <Entry x:Name="emailEntry"
+                           HorizontalOptions="Center"
                            Text="{Binding Email}"
                            Placeholder="Usuário"/>
                 </StackLayout>
@@ -40,6 +40,9 @@
                             BackgroundColor="#197A80"
                             TextColor="White"
                             Margin="10,10,10,10"/>
+                    <ActivityIndicator x:Name="LoginIndicator"
+                                       Color="DarkOliveGreen"
+                                       IsVisible="False"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
