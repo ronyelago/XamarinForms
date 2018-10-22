@@ -3,6 +3,7 @@ using LabClick.Services;
 using LabClick.ViewModels;
 using Newtonsoft.Json;
 using System;
+using System.Net.Http;
 using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -66,38 +67,47 @@ namespace LabClick.Views
             {
                 btnEntrar.IsVisible = false;
                 LoginIndicator.IsRunning = true;
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
 
                 var user = Mapper.Map<Domain.Entities.UsuarioClinica>(loginViewModel);
 
                 Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/usuarioclinica/getbyemail={user.Email}");
 
-                var result = await App.Client.GetAsync(urinho);
-
-                if (result.IsSuccessStatusCode)
+                try
                 {
-                    var content = result.Content.ReadAsStringAsync();
-                    var userGot = JsonConvert.DeserializeObject<Domain.Entities.UsuarioClinica>(content.Result);
+                    var result = await App.Client.GetAsync(urinho);
 
-                    if (userGot.Senha == user.Senha)
+                    if (result.IsSuccessStatusCode)
                     {
-                        App.User = userGot;
-                        await Navigation.PushAsync(new Home());
-                        NavigationPage.SetHasNavigationBar(this, false);
+                        var content = result.Content.ReadAsStringAsync();
+                        var userGot = JsonConvert.DeserializeObject<Domain.Entities.UsuarioClinica>(content.Result);
 
-                        btnEntrar.IsVisible = true;
-                        LoginIndicator.IsRunning = false;
+                        if (userGot.Senha == user.Senha)
+                        {
+                            App.User = userGot;
+                            await Navigation.PushAsync(new Home());
+                            NavigationPage.SetHasNavigationBar(this, false);
+
+                            btnEntrar.IsVisible = true;
+                            LoginIndicator.IsRunning = false;
+                        }
+                        else
+                        {
+                            await DisplayAlert("Erro", "Senha inválida.", "Fechar");
+                            btnEntrar.IsVisible = true;
+                            LoginIndicator.IsRunning = false;
+                        }
                     }
                     else
                     {
-                        await DisplayAlert("Erro", "Senha inválida.", "Fechar");
+                        await DisplayAlert("Erro", "Usuário inválido.", "Fechar");
                         btnEntrar.IsVisible = true;
                         LoginIndicator.IsRunning = false;
                     }
                 }
-                else
+                catch (HttpRequestException ex)
                 {
-                    await DisplayAlert("Erro", "Usuário inválido.", "Fechar");
+                    await DisplayAlert("Erro", "Falha ao tentar estabelecer conexão com a internet.", "Fechar");
                     btnEntrar.IsVisible = true;
                     LoginIndicator.IsRunning = false;
                 }
