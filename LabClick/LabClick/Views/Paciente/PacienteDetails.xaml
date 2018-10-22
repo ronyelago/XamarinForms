@@ -2,50 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LabClick.Views.Paciente.PacienteDetails"
-             BackgroundImage="bgcadastro.png">
+             BackgroundImage="bgcadastro.png"
+             Title="      Cadastro de Paciente">
 
     <StackLayout>
         <ScrollView>
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="Center">
-                <Grid HorizontalOptions="FillAndExpand"
-                      VerticalOptions="Center"
-                      Margin="0,0,0,20">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Image x:Name="mainImage"
-                           Aspect="AspectFill"
-                           HeightRequest="70"
-                           Source="footer.png"
-                           Grid.Row="0"
-                           Grid.Column="0"/>
-                    <Label HorizontalOptions="Center"
-                           x:Name="MainLabel"
-                           Text="Cadastro de Paciente"
-                           Font="30"
-                           FontAttributes="Bold"
-                           TextColor="White"
-                           Margin="0,10,0,0"
-                           Grid.Row="0"
-                           Grid.Column="0"/>
-                </Grid>
 
                 <StackLayout HorizontalOptions="CenterAndExpand">
                     <!--Nome do paciente-->
                     <StackLayout Orientation="Horizontal"
                                  Margin="30,10,50,10">
                         <Image Source="name.png"/>
-                        <Entry x:Name="txtNome" 
+                        <Entry x:Name="txtNome"
                                WidthRequest="400"
                                Keyboard="Text"
                                Placeholder="nome completo"
                                Text="{Binding Nome}"
-                               MaxLength="100"/>
+                               MaxLength="100"
+                               IsEnabled="false"/>
                     </StackLayout>
 
                     <!--Data de Nascimento-->
@@ -60,7 +36,8 @@
                         <DatePicker HorizontalOptions="Start"
                                     x:Name="dataNascimentoPicker" 
                                     Date="{Binding DataNascimento}"
-                                    MinimumDate="01-01-1900"/>
+                                    MinimumDate="01-01-1900"
+                                    IsEnabled="False"/>
                     </StackLayout>
 
                     <!--CPF-->
@@ -72,7 +49,8 @@
                                Keyboard="Numeric"
                                WidthRequest="400"
                                Placeholder="cpf (somente números)"
-                               MaxLength="15"/>
+                               MaxLength="15"
+                               IsEnabled="False"/>
                     </StackLayout>
 
                     <!--Gênero-->
@@ -83,7 +61,8 @@
                                 Title="gênero"
                                 SelectedItem="{Binding Sexo}"
                                 VerticalOptions="CenterAndExpand"
-                                WidthRequest="400">
+                                WidthRequest="400"
+                                IsEnabled="False">
                             <Picker.Items>
                                 <x:String>Masculino</x:String>
                                 <x:String>Feminino</x:String>
@@ -100,7 +79,8 @@
                                Keyboard="Email"
                                WidthRequest="400"
                                Placeholder="e-mail"
-                               MaxLength="30"/>
+                               MaxLength="30"
+                               IsEnabled="False"/>
                     </StackLayout>
 
                     <!--telefone-->
@@ -112,7 +92,8 @@
                                Keyboard="Telephone"
                                WidthRequest="400"
                                Placeholder="telefone"
-                               MaxLength="20"/>
+                               MaxLength="20"
+                               IsEnabled="False"/>
                     </StackLayout>
 
                     <!--Endereço-->
@@ -137,7 +118,8 @@
                                    WidthRequest="500"
                                    Keyboard="Numeric"
                                    Unfocused="TxtCep_Unfocused"
-                                   MaxLength="20"/>
+                                   MaxLength="20"
+                                   IsEnabled="False"/>
                         </StackLayout>
 
                         <!--UF-->
@@ -148,7 +130,8 @@
                                    Text="{Binding UF}"
                                    WidthRequest="500"
                                    Keyboard="Text"
-                                   MaxLength="2"/>
+                                   MaxLength="2"
+                                   IsEnabled="False"/>
                         </StackLayout>
 
                         <!--Cidade-->
@@ -159,7 +142,8 @@
                                    Text="{Binding Cidade}"
                                    Keyboard="Text"
                                    WidthRequest="400"
-                                   MaxLength="50"/>
+                                   MaxLength="50"
+                                   IsEnabled="False"/>
                         </StackLayout>
 
                         <!--Bairro-->
@@ -170,7 +154,8 @@
                                    Text="{Binding Bairro}"
                                    Keyboard="Text"
                                    WidthRequest="400"
-                                   MaxLength="50"/>
+                                   MaxLength="50"
+                                   IsEnabled="False"/>
                         </StackLayout>
 
                         <!--Rua-->
@@ -180,7 +165,8 @@
                                    Text="{Binding Logradouro}"
                                    Keyboard="Text"
                                    WidthRequest="400"
-                                   MaxLength="100"/>
+                                   MaxLength="100"
+                                   IsEnabled="False"/>
                         </StackLayout>
 
                         <!--Número-->
@@ -191,32 +177,41 @@
                                    Text="{Binding Numero}"
                                    Keyboard="Numeric"
                                    WidthRequest="400"
-                                   MaxLength="10"/>
+                                   MaxLength="10"
+                                   IsEnabled="False"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
-                <!--Botões Cancelar e Salvar-->
+                <!--Botões Cancelar e Editar/Salvar-->
                 <StackLayout HorizontalOptions="CenterAndExpand" 
                              Spacing="20"
                              Orientation="Horizontal"
                              Margin="0,20,0,0">
                     <Button x:Name="BtnCancelar"
-                                    Text="Cancelar"
+                                    Text="Voltar"
                                     TextColor="White"
                                     Margin="10,10,10,10"
                                     Clicked="BtnCancelar_Clicked"
                                     WidthRequest="200" 
                                     BorderRadius="10"
                                     BackgroundColor="#197A80"/>
-                    <Button x:Name="BtnSalvar"
-                                    IsEnabled="False"
-                                    Text="Salvar"
+                    <Button x:Name="BtnEditar"
+                                    Text="Editar"
                                     TextColor="White"
                                     BackgroundColor="#197A80"
                                     Margin="10,10,10,10"
-                                    Clicked="BtnSalvar_Clicked"
+                                    Clicked="BtnEditar_Clicked"
                                     WidthRequest="200"
                                     BorderRadius="10"/>
+                    <Button x:Name="BtnSalvar"
+                            Text="Salvar"
+                            Clicked="BtnSalvar_Clicked"
+                            TextColor="White"
+                            BackgroundColor="#197A80"
+                            Margin="10,10,10,10"
+                            WidthRequest="200"
+                            BorderRadius="10"
+                            IsVisible="False"/>
                 </StackLayout>
             </StackLayout>
         </ScrollView>

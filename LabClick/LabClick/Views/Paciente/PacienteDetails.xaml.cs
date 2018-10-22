@@ -14,28 +14,12 @@ namespace LabClick.Views.Paciente
 		{
 			InitializeComponent ();
 
-            txtNome.IsEnabled = false;
-            dataNascimentoPicker.IsEnabled = false;
-            txtCpf.IsEnabled = false;
-            pickerGenero.IsEnabled = false;
-            txtEmail.IsEnabled = false;
-            txtPhone.IsEnabled = false;
-            TxtCep.IsEnabled = false;
-            txtUf.IsEnabled = false;
-            txtCidade.IsEnabled = false;
-            txtBairro.IsEnabled = false;
-            txtRua.IsEnabled = false;
-            txtNumero.IsEnabled = false;
-
             this.NewPatientViewModel = new NewPatientViewModel();
             this.NewPatientViewModel = Mapper.Map<NewPatientViewModel>(paciente);
             this.BindingContext = NewPatientViewModel;
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                mainImage.HeightRequest = 40;
-                MainLabel.FontSize = 20;
-
                 txtNome.WidthRequest = 200;
                 txtNome.FontSize = 15;
 
@@ -57,34 +41,39 @@ namespace LabClick.Views.Paciente
                 enderecoStack.Margin = new Thickness(50, 10, 20, 10);
 
                 lblCep.FontSize = 13;
-                TxtCep.WidthRequest = 150;
+                TxtCep.WidthRequest = 200;
                 TxtCep.FontSize = 13;
 
                 lblUf.FontSize = 13;
                 lblUf.Margin = new Thickness(0, 0, 10, 0);
-                txtUf.WidthRequest = 150;
+                txtUf.WidthRequest = 200;
 
                 lblCidade.FontSize = 13;
-                txtCidade.WidthRequest = 140;
+                txtCidade.WidthRequest = 200;
                 txtCidade.FontSize = 13;
 
                 lblBairro.FontSize = 13;
-                txtBairro.WidthRequest = 150;
+                txtBairro.WidthRequest = 200;
                 txtBairro.FontSize = 13;
 
-                txtRua.WidthRequest = 150;
+                txtRua.WidthRequest = 200;
                 txtRua.FontSize = 12;
                 txtRua.AnchorX = -3;
                 txtRua.AnchorY = 0;
 
                 lblNumero.FontSize = 13;
-                txtNumero.WidthRequest = 100;
+                txtNumero.WidthRequest = 200;
                 txtNumero.FontSize = 13;
 
                 BtnSalvar.WidthRequest = 150;
                 BtnSalvar.HeightRequest = 30;
                 BtnSalvar.FontSize = 8;
                 BtnSalvar.CornerRadius = 10;
+
+                BtnEditar.WidthRequest = 150;
+                BtnEditar.HeightRequest = 30;
+                BtnEditar.FontSize = 8;
+                BtnEditar.CornerRadius = 10;
 
                 BtnCancelar.WidthRequest = 150;
                 BtnCancelar.HeightRequest = 30;
@@ -124,7 +113,7 @@ namespace LabClick.Views.Paciente
 
                 var result = NewPatientViewModel.Update(NewPatientViewModel);
 
-                if (result)
+                if (result.IsSuccessStatusCode)
                 {
                     DisplayAlert("Sucesso", "Paciente atualizado com sucesso.", "Fechar");
                     Navigation.RemovePage(App.LoadingPage);
@@ -143,76 +132,24 @@ namespace LabClick.Views.Paciente
             }
         }
 
-        private void BtnEditarNome_Clicked(object sender, System.EventArgs e)
+        private void BtnEditar_Clicked(object sender, System.EventArgs e)
         {
-            BtnSalvar.IsEnabled = true;
             txtNome.IsEnabled = true;
-        }
-
-        private void BtnEditarData_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             dataNascimentoPicker.IsEnabled = true;
-        }
-
-        private void BtnEditarCpf_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtCpf.IsEnabled = true;
-        }
-
-        private void BtnEditarGenero_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             pickerGenero.IsEnabled = true;
-        }
-
-        private void BtnEditarEmail_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtEmail.IsEnabled = true;
-        }
-
-        private void BtnEditarTelefone_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtPhone.IsEnabled = true;
-        }
-
-        private void BtnEditarCep_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             TxtCep.IsEnabled = true;
-        }
-
-        private void BtnEditarUf_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtUf.IsEnabled = true;
-        }
-
-        private void BtnEditarCidade_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtCidade.IsEnabled = true;
-        }
-
-        private void BtnEditarBairro_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtBairro.IsEnabled = true;
-        }
-
-        private void BtnEditarRua_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtRua.IsEnabled = true;
-        }
-
-        private void BtnEditarNumero_Clicked(object sender, System.EventArgs e)
-        {
-            BtnSalvar.IsEnabled = true;
             txtNumero.IsEnabled = true;
+
+            BtnCancelar.Text = "Cancelar";
+            BtnEditar.IsVisible = false;
+            BtnSalvar.IsVisible = true;
         }
     }
 }

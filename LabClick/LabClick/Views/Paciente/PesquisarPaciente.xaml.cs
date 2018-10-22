@@ -147,10 +147,7 @@ namespace LabClick.Views.Paciente
             }
             else
             {
-                var pacienteMasterPage = new PacienteMasterPage(paciente);
-                App.MasterPage = pacienteMasterPage;
-
-                Navigation.PushAsync(pacienteMasterPage);
+                Navigation.PushAsync(new PacienteDetails(paciente));
             }
 
             PacientesListView.IsEnabled = true;

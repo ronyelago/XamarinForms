@@ -96,7 +96,7 @@ namespace LabClick.Views.Teste
                     this.Loading.IsRunning = false;
                     this.Loading.IsVisible = false;
 
-                    await Navigation.PushAsync(new PacienteMasterPage(this.paciente));
+                    await Navigation.PushAsync(new PacienteDetails(this.paciente));
                 }
             }
             catch (Exception ex)

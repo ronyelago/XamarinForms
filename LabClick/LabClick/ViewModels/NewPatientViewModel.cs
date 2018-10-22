@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -159,7 +160,7 @@ namespace LabClick.ViewModels
             }
         }
 
-        public bool Update(NewPatientViewModel viewModel)
+        public HttpResponseMessage Update(NewPatientViewModel viewModel)
         {
             Domain.Entities.Paciente paciente;
             Domain.Entities.Endereco endereco;
@@ -173,27 +174,49 @@ namespace LabClick.ViewModels
             var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
             Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/updateEndereco");
 
-            var resultado = client.PostAsync(urinho, contentinho);
-            var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
-
-            //Cadastro do Paciente
-            paciente.ClinicaId = 1;
-            paciente.EnderecoId = enderecoId;
-
-            var pacienteSerialized = JsonConvert.SerializeObject(paciente);
-
-            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/updatePaciente");
-            var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
-
-            var result = client.PostAsync(uri, content);
-
-            if (result.Result.IsSuccessStatusCode)
+            try
             {
-                return true;
+                var resultado = client.PostAsync(urinho, contentinho);
+                var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
+
+                if (resultado.Result.IsSuccessStatusCode)
+                {
+                    try
+                    {
+                        //Cadastro do Paciente
+                        paciente.ClinicaId = 1;
+                        paciente.EnderecoId = enderecoId;
+
+                        var pacienteSerialized = JsonConvert.SerializeObject(paciente);
+
+                        Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/updatePaciente");
+                        var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
+
+                        var result = client.PostAsync(uri, content);
+
+                        if (result.Result.IsSuccessStatusCode)
+                        {
+                            return new HttpResponseMessage(HttpStatusCode.OK);
+                        }
+                        else
+                        {
+                            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                    }
+                }
+                else
+                {
+                    return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                }
             }
-            else
+            catch (Exception)
             {
-                return false;
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
         }
 
