@@ -46,11 +46,6 @@
                                Placeholder="nome completo"
                                Text="{Binding Nome}"
                                MaxLength="100"/>
-                        <Button x:Name="BtnEditarNome"
-                                Text="Editar"
-                                Clicked="BtnEditarNome_Clicked"
-                                BackgroundColor="Transparent"
-                                TextColor="#197A80"/>
                     </StackLayout>
 
                     <!--Data de Nascimento-->
@@ -66,11 +61,6 @@
                                     x:Name="dataNascimentoPicker" 
                                     Date="{Binding DataNascimento}"
                                     MinimumDate="01-01-1900"/>
-                        <Button x:Name="BtnEditarData"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarData_Clicked"/>
                     </StackLayout>
 
                     <!--CPF-->
@@ -83,11 +73,6 @@
                                WidthRequest="400"
                                Placeholder="cpf (somente números)"
                                MaxLength="15"/>
-                        <Button x:Name="BtnEditarCpf"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarCpf_Clicked"/>
                     </StackLayout>
 
                     <!--Gênero-->
@@ -104,11 +89,6 @@
                                 <x:String>Feminino</x:String>
                             </Picker.Items>
                         </Picker>
-                        <Button x:Name="BtnEditarGenero"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarGenero_Clicked"/>
                     </StackLayout>
 
                     <!--email-->
@@ -121,11 +101,6 @@
                                WidthRequest="400"
                                Placeholder="e-mail"
                                MaxLength="30"/>
-                        <Button x:Name="BtnEditarEmail"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarEmail_Clicked"/>
                     </StackLayout>
 
                     <!--telefone-->
@@ -138,11 +113,6 @@
                                WidthRequest="400"
                                Placeholder="telefone"
                                MaxLength="20"/>
-                        <Button x:Name="BtnEditarTelefone"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarTelefone_Clicked"/>
                     </StackLayout>
 
                     <!--Endereço-->
@@ -168,11 +138,6 @@
                                    Keyboard="Numeric"
                                    Unfocused="TxtCep_Unfocused"
                                    MaxLength="20"/>
-                            <Button x:Name="BtnEditarCep"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarCep_Clicked"/>
                         </StackLayout>
 
                         <!--UF-->
@@ -184,16 +149,9 @@
                                    WidthRequest="500"
                                    Keyboard="Text"
                                    MaxLength="2"/>
-                            <Button x:Name="BtnEditarUf"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarUf_Clicked"/>
                         </StackLayout>
 
                         <!--Cidade-->
-
-                        
                         <StackLayout Orientation="Horizontal">
                             <Label x:Name="lblCidade"
                                     Text="Cidade:"/>
@@ -202,11 +160,6 @@
                                    Keyboard="Text"
                                    WidthRequest="400"
                                    MaxLength="50"/>
-                            <Button x:Name="BtnEditarCidade"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarCidade_Clicked"/>
                         </StackLayout>
 
                         <!--Bairro-->
@@ -218,11 +171,6 @@
                                    Keyboard="Text"
                                    WidthRequest="400"
                                    MaxLength="50"/>
-                            <Button x:Name="BtnEditarBairro"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarBairro_Clicked"/>
                         </StackLayout>
 
                         <!--Rua-->
@@ -233,11 +181,6 @@
                                    Keyboard="Text"
                                    WidthRequest="400"
                                    MaxLength="100"/>
-                            <Button x:Name="BtnEditarRua"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarRua_Clicked"/>
                         </StackLayout>
 
                         <!--Número-->
@@ -249,11 +192,6 @@
                                    Keyboard="Numeric"
                                    WidthRequest="400"
                                    MaxLength="10"/>
-                            <Button x:Name="BtnEditarNumero"
-                                Text="Editar"
-                                TextColor="#197A80"
-                                BackgroundColor="Transparent"
-                                Clicked="BtnEditarNumero_Clicked"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>
@@ -283,6 +221,4 @@
             </StackLayout>
         </ScrollView>
     </StackLayout>
-
-
 </ContentPage>
