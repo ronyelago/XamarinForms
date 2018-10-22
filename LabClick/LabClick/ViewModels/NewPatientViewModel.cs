@@ -122,7 +122,7 @@ namespace LabClick.ViewModels
             return null;
         }
 
-        public bool Add(NewPatientViewModel viewModel)
+        public HttpResponseMessage Add(NewPatientViewModel viewModel)
         {
             Domain.Entities.Paciente paciente;
             Domain.Entities.Endereco endereco;
@@ -136,27 +136,48 @@ namespace LabClick.ViewModels
             var contentinho = new StringContent(enderecoSerialized, Encoding.UTF8, "application/json");
             Uri urinho = new Uri(@"http://apilabclick.mflogic.com.br/endereco/enderecos");
 
-            var resultado = client.PostAsync(urinho, contentinho);
-            var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
-
-            //Cadastro do Paciente
-            paciente.ClinicaId = 1;
-            paciente.EnderecoId = enderecoId;
-
-            var pacienteSerialized = JsonConvert.SerializeObject(paciente);
-
-            Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/pacientes");
-            var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
-
-            var result = client.PostAsync(uri, content);
-
-            if (result.Result.IsSuccessStatusCode)
+            try
             {
-                return true;
+                var resultado = client.PostAsync(urinho, contentinho);
+                var enderecoId = int.Parse(resultado.Result.Content.ReadAsStringAsync().Result);
+
+                if (resultado.Result.IsSuccessStatusCode)
+                {
+                    try
+                    {
+                        //Cadastro do Paciente
+                        paciente.ClinicaId = 1;
+                        paciente.EnderecoId = enderecoId;
+
+                        var pacienteSerialized = JsonConvert.SerializeObject(paciente);
+
+                        Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/paciente/pacientes");
+                        var content = new StringContent(pacienteSerialized, Encoding.UTF8, "application/json");
+
+                        var result = client.PostAsync(uri, content);
+
+                        if (result.Result.IsSuccessStatusCode)
+                        {
+                            return new HttpResponseMessage(HttpStatusCode.OK);
+                        }
+                        else
+                        {
+                            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                    }
+                }
+                else
+                {
+                    return new HttpResponseMessage(HttpStatusCode.BadRequest);
+                }
             }
-            else
+            catch (Exception)
             {
-                return false;
+                return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
         }
 

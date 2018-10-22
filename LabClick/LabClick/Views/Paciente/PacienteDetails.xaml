@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:LabClick.Services.Behaviors"
              x:Class="LabClick.Views.Paciente.PacienteDetails"
              BackgroundImage="bgcadastro.png"
              Title="      Cadastro de Paciente">
@@ -44,13 +45,26 @@
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="cpf.png"/>
-                        <Entry x:Name="txtCpf"
-                               Text="{Binding Cpf}"
-                               Keyboard="Numeric"
-                               WidthRequest="400"
-                               Placeholder="cpf (somente números)"
-                               MaxLength="15"
-                               IsEnabled="False"/>
+                        <StackLayout Orientation="Vertical"
+                                     Margin="0,0,0,0"
+                                     Padding="0,0,0,0">
+                            <Entry x:Name="txtCpf"
+                                   Text="{Binding Cpf}"
+                                   Keyboard="Numeric"
+                                   WidthRequest="500"
+                                   Placeholder="cpf (somente números)"
+                                   MaxLength="15"
+                                   Unfocused="txtCpf_Unfocused"
+                                   IsEnabled="False">
+                                <Entry.Behaviors>
+                                    <behaviors:MaskedBehavior Mask="XXX.XXX.XXX-XX"/>
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label x:Name="txtCpfValidate"
+                                   Text="CPF inválido"
+                                   TextColor="Red"
+                                   IsVisible="False"/>
+                        </StackLayout>
                     </StackLayout>
 
                     <!--Gênero-->
@@ -74,13 +88,22 @@
                     <StackLayout Orientation="Horizontal"
                                  Margin="50,10,50,10">
                         <Image Source="mail.png"/>
-                        <Entry x:Name="txtEmail"
-                               Text="{Binding Email}"
-                               Keyboard="Email"
-                               WidthRequest="400"
-                               Placeholder="e-mail"
-                               MaxLength="30"
-                               IsEnabled="False"/>
+                        <StackLayout Orientation="Vertical"
+                                     Margin="0,0,0,0"
+                                     Padding="0,0,0,0">
+                            <Entry x:Name="txtEmail"
+                                   Text="{Binding Email}"
+                                   Keyboard="Email"
+                                   WidthRequest="500"
+                                   Placeholder="e-mail"
+                                   MaxLength="30"
+                                   Unfocused="txtEmail_Unfocused"
+                                   IsEnabled="False"/>
+                            <Label x:Name="txtWarning" 
+                                Text="e-mail inválido" 
+                                TextColor="Red"
+                                IsVisible="{Binding EmailIsValid}"/>
+                        </StackLayout>
                     </StackLayout>
 
                     <!--telefone-->
@@ -90,10 +113,14 @@
                         <Entry x:Name="txtPhone"
                                Text="{Binding Telefone}"
                                Keyboard="Telephone"
-                               WidthRequest="400"
+                               WidthRequest="500"
                                Placeholder="telefone"
                                MaxLength="20"
-                               IsEnabled="False"/>
+                               IsEnabled="False">
+                            <Entry.Behaviors>
+                                <behaviors:MaskedBehavior Mask="(XX)XXXXX-XXXX"/>
+                            </Entry.Behaviors>
+                        </Entry>
                     </StackLayout>
 
                     <!--Endereço-->

@@ -77,7 +77,7 @@ namespace LabClick.Views.Paciente
 
                 var result = NewPatientViewModel.Add(NewPatientViewModel);
 
-                if (result)
+                if (result.IsSuccessStatusCode)
                 {
                     DisplayAlert("Sucesso", "Paciente adicionado com sucesso.", "Fechar");
 

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using LabClick.ViewModels;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -150,6 +151,30 @@ namespace LabClick.Views.Paciente
             BtnCancelar.Text = "Cancelar";
             BtnEditar.IsVisible = false;
             BtnSalvar.IsVisible = true;
+        }
+
+        private void txtEmail_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (NewPatientViewModel.EmailValidate(NewPatientViewModel.Email) || String.IsNullOrEmpty(NewPatientViewModel.Email))
+            {
+                txtWarning.IsVisible = false;
+            }
+            else
+            {
+                txtWarning.IsVisible = true;
+            }
+        }
+
+        private void txtCpf_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (NewPatientViewModel.CpfValidade(NewPatientViewModel.Cpf) || String.IsNullOrEmpty(NewPatientViewModel.Cpf))
+            {
+                txtCpfValidate.IsVisible = false;
+            }
+            else
+            {
+                txtCpfValidate.IsVisible = true;
+            }
         }
     }
 }
