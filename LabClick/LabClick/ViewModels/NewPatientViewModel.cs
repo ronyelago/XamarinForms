@@ -26,6 +26,8 @@ namespace LabClick.ViewModels
         public string Cpf { get; set; }
         public string Sexo { get; set; }
         public string Email { get; set; }
+        public bool EmailIsValid { get; set; }
+        public bool CpfIsValid { get; set; }
         public string Telefone { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -217,10 +219,7 @@ namespace LabClick.ViewModels
                 }
             }
 
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match match = regex.Match(this.Email);
-
-            if (!match.Success)
+            if (!CpfValidade(this.Cpf) || !EmailValidate(this.Email))
             {
                 return false;
             }
@@ -243,6 +242,44 @@ namespace LabClick.ViewModels
             }
 
             return objList;
+        }
+
+        public bool EmailValidate(string email)
+        {
+            string emailPattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
+
+            if (!String.IsNullOrEmpty(email))
+            {
+                if (Regex.IsMatch(email, emailPattern))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public bool CpfValidade(string cpf)
+        {
+            string cpfPattern = @"([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})";
+
+            if (!String.IsNullOrEmpty(cpf))
+            {
+                if (Regex.IsMatch(cpf, cpfPattern))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return false;
         }
     }
 }

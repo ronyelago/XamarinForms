@@ -119,5 +119,29 @@ namespace LabClick.Views.Paciente
         {
             Navigation.PushAsync(new Home());
         }
+
+        private void txtEmail_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (NewPatientViewModel.EmailValidate(NewPatientViewModel.Email) || String.IsNullOrEmpty(NewPatientViewModel.Email))
+            {
+                txtWarning.IsVisible = false;
+            }
+            else
+            {
+                txtWarning.IsVisible = true;
+            }
+        }
+
+        private void txtCpf_Unfocused(object sender, FocusEventArgs e)
+        {
+            if (NewPatientViewModel.CpfValidade(NewPatientViewModel.Cpf) || String.IsNullOrEmpty(NewPatientViewModel.Cpf))
+            {
+                txtCpfValidate.IsVisible = false;
+            }
+            else
+            {
+                txtCpfValidate.IsVisible = true;
+            }
+        }
     }
 }
