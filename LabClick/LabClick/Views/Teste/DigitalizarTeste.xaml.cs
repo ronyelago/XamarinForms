@@ -55,13 +55,13 @@ namespace LabClick.Views.Teste
                 btnTeste.WidthRequest = 150;
                 btnTeste.HeightRequest = 30;
                 btnTeste.FontSize = 8;
-                btnTeste.CornerRadius = 10;
+                btnTeste.CornerRadius = 3;
 
                 btnEscanearStack.Margin = new Thickness(10, 5, 10, 10);
                 BtnEscanear.WidthRequest = 150;
                 BtnEscanear.HeightRequest = 30;
                 BtnEscanear.FontSize = 8;
-                BtnEscanear.CornerRadius = 10;
+                BtnEscanear.CornerRadius = 3;
 
                 codeStackLayout.Margin = new Thickness(50, 5, 50, 5);
 
@@ -75,12 +75,12 @@ namespace LabClick.Views.Teste
                 BtnCancelar.WidthRequest = 150;
                 BtnCancelar.HeightRequest = 30;
                 BtnCancelar.FontSize = 8;
-                BtnCancelar.CornerRadius = 10;
+                BtnCancelar.CornerRadius = 3;
 
                 BtnEnviarTeste.WidthRequest = 150;
                 BtnEnviarTeste.HeightRequest = 30;
                 BtnEnviarTeste.FontSize = 8;
-                BtnEnviarTeste.CornerRadius = 10;
+                BtnEnviarTeste.CornerRadius = 3;
             }
         }
 
@@ -156,41 +156,57 @@ namespace LabClick.Views.Teste
                 Uri uri = new Uri(@"http://apilabclick.mflogic.com.br/teste/testes");
                 var content = new StringContent(serialized, Encoding.UTF8, "application/json");
 
-                var result = await client.PostAsync(uri, content);
-
-                if (result.IsSuccessStatusCode)
+                try
                 {
-                    var stringTest = result.Content.ReadAsStringAsync().Result;
-                    var test = JsonConvert.DeserializeObject<Domain.Entities.Teste>(stringTest);
+                    var result = await client.PostAsync(uri, content);
 
-                    var img = Mapper.Map<Domain.Entities.TesteImagem>(TesteImagemViewModel);
-                    img.TesteId = test.Id;
-                    var imgJson = JsonConvert.SerializeObject(img);
-                    var imgContent = new StringContent(imgJson, Encoding.UTF8, "application/json");
-                    uri = new Uri(@"http://apilabclick.mflogic.com.br/imagem/new");
-
-                    var postResult = await client.PostAsync(uri, imgContent);
-
-                    if (postResult.IsSuccessStatusCode)
+                    if (result.IsSuccessStatusCode)
                     {
-                        await DisplayAlert("Sucesso", "Teste enviado para análise com sucesso.", "Ok");
-                        await Navigation.PushAsync(new Home());
-                    }
-                }
+                        var stringTest = result.Content.ReadAsStringAsync().Result;
+                        var test = JsonConvert.DeserializeObject<Domain.Entities.Teste>(stringTest);
 
-                else
+                        var img = Mapper.Map<Domain.Entities.TesteImagem>(TesteImagemViewModel);
+                        img.TesteId = test.Id;
+                        var imgJson = JsonConvert.SerializeObject(img);
+                        var imgContent = new StringContent(imgJson, Encoding.UTF8, "application/json");
+                        uri = new Uri(@"http://apilabclick.mflogic.com.br/imagem/new");
+
+                        try
+                        {
+                            var postResult = await client.PostAsync(uri, imgContent);
+
+                            if (postResult.IsSuccessStatusCode)
+                            {
+                                await DisplayAlert("Sucesso", "Teste enviado para análise com sucesso.", "Fechar");
+                                await Navigation.PushAsync(new Home());
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            await DisplayAlert("Erro", $"Não foi possível estabelecer conexção com o servidor. {ex.Message}", "Fechar");
+                            BtnEnviarTeste.IsEnabled = true;
+                        }
+                    }
+
+                    else
+                    {
+                        await DisplayAlert("Erro", "Não foi possível enviar o teste.", "Fechar");
+                        BtnEnviarTeste.IsEnabled = true;
+                    }
+
+                    Navigation.RemovePage(App.LoadingPage);
+                }
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Erro", "Não foi possível enviar o teste.", "Ok");
+                    await DisplayAlert("Erro", $"Não foi possível estabelecer conexção com o servidor. {ex.Message}", "Fechar");
                     BtnEnviarTeste.IsEnabled = true;
                 }
-
-                Navigation.RemovePage(App.LoadingPage);
             }
 
             else
             {
                 await DisplayAlert("Erro", "Antes de enviar o Teste, você deve fotografar o " +
-                                   "teste rápido e escanear o QR-Code do mesmo.", "Ok");
+                                   "teste rápido e escanear o QR-Code do mesmo.", "Fechar");
 
                 BtnEnviarTeste.IsEnabled = true;
             }
