@@ -16,7 +16,7 @@
 
             <Image x:Name="mainImage"
                            Aspect="AspectFill"
-                           HeightRequest="70"
+                           HeightRequest="40"
                            Source="footer.png"
                            Grid.Row="0"
                            Grid.Column="0"/>

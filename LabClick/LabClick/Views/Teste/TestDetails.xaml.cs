@@ -20,19 +20,39 @@ namespace LabClick.Views.Teste
             ViewModel = new TestDetailsViewModel();
             ViewModel = Mapper.Map<TestDetailsViewModel>(teste);
             this.BindingContext = ViewModel;
+            Navigation.PushAsync(App.LoadingPage);
 
-            Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/imagem/getByTesteId={teste.Id}");
-            var result = App.Client.GetAsync(urinho);
-            var content = result.Result.Content.ReadAsStringAsync();
-
-            var testeImagem = JsonConvert.DeserializeObject<TesteImagemViewModel>(content.Result);
-
-            Stream stm = new MemoryStream(testeImagem.Imagem);
-
-            ImgTeste.Source = ImageSource.FromStream(() =>
+            try
             {
-                return stm;
-            });
+                Uri urinho = new Uri($@"http://apilabclick.mflogic.com.br/imagem/getByTesteId={teste.Id}");
+                var result = App.Client.GetAsync(urinho);
+
+                if (result.Result.IsSuccessStatusCode)
+                {
+                    var content = result.Result.Content.ReadAsStringAsync();
+
+                    var testeImagem = JsonConvert.DeserializeObject<TesteImagemViewModel>(content.Result);
+
+                    Stream stm = new MemoryStream(testeImagem.Imagem);
+
+                    ImgTeste.Source = ImageSource.FromStream(() =>
+                    {
+                        return stm;
+                    });
+                }
+                else
+                {
+                    Navigation.RemovePage(App.LoadingPage);
+                    Navigation.RemovePage(this);
+                    DisplayAlert("Erro", "Não foi possível recuperar as informações do exame.", "Fechar");
+                }
+            }
+            catch (Exception ex)
+            {
+                Navigation.RemovePage(App.LoadingPage);
+                Navigation.RemovePage(this);
+                DisplayAlert("Erro", $"Não foi possível recuperar as informações do exame. {ex.Message}", "Fechar");
+            }
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
@@ -49,28 +69,13 @@ namespace LabClick.Views.Teste
                 lblStatusDados.FontSize = 13;
 
                 lblImagemTeste.FontSize = 15;
-                ImgTeste.WidthRequest = 100;
-                ImgTeste.HeightRequest = 250;
+                ImgTeste.WidthRequest = 130;
+                ImgTeste.HeightRequest = 280;
 
                 lblTituloResultado.FontSize = 15;
-
-                BtnFechar.WidthRequest = 200;
-                BtnFechar.HeightRequest = 40;
-                BtnFechar.FontSize = 10;
-                BtnFechar.CornerRadius = 7;
             }
-        }
 
-        private void BtnFechar_Clicked(object sender, System.EventArgs e)
-        {
-            Navigation.RemovePage(this);
+            Navigation.RemovePage(App.LoadingPage);
         }
-
-        private void BtnVerPdf_Clicked(object sender, EventArgs e)
-        {
-            
-        }
-
-        
     }
 }

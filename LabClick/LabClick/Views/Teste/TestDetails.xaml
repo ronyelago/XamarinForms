@@ -69,21 +69,5 @@
                 <Label Text="{Binding ResultadoDetalhes}"/>
             </StackLayout>
         </StackLayout>
-        <StackLayout Orientation="Vertical"
-                     HorizontalOptions="Center"
-                     VerticalOptions="Center">
-            <Button Text="Ver PDF"
-                    x:Name="BtnVerPdf"
-                    Clicked="BtnVerPdf_Clicked"/>
-            <Button Text="Fechar"
-                    x:Name="BtnFechar"
-                    Clicked="BtnFechar_Clicked"
-                    BackgroundColor="#197A80"
-                    WidthRequest="150" 
-                    HeightRequest="40"
-                    TextColor="White"
-                    FontAttributes="Bold"
-                    BorderRadius="10"/>
-        </StackLayout>
     </StackLayout>
 </ContentPage>
