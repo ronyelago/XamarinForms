@@ -91,29 +91,36 @@ namespace LabClick.ViewModels
 
         public Domain.Entities.Endereco GetAddress(string cep)
         {
-            if (cep != null && !string.IsNullOrEmpty(cep))
+            if (!string.IsNullOrEmpty(cep))
             {
                 Uri urinho = new Uri($@"http://viacep.com.br/ws/{cep}/json/");
                 HttpClient client = new HttpClient();
 
-                var result = client.GetAsync(urinho);
-
-                if (result.Result.IsSuccessStatusCode)
+                try
                 {
-                    var content = result.Result.Content.ReadAsStringAsync();
-                    var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
+                    var result = client.GetAsync(urinho);
 
-                    if (endereco.IsValid())
+                    if (result.Result.IsSuccessStatusCode)
                     {
-                        var address = Mapper.Map<Domain.Entities.Endereco>(endereco);
-                        return address;
+                        var content = result.Result.Content.ReadAsStringAsync();
+                        var endereco = JsonConvert.DeserializeObject<EnderecoViewModel>(content.Result);
+
+                        if (endereco.IsValid())
+                        {
+                            var address = Mapper.Map<Domain.Entities.Endereco>(endereco);
+                            return address;
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                     else
                     {
                         return null;
                     }
                 }
-                else
+                catch (Exception ex)
                 {
                     return null;
                 }

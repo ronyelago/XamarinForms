@@ -105,9 +105,9 @@ namespace LabClick.Views
                         LoginIndicator.IsRunning = false;
                     }
                 }
-                catch (HttpRequestException ex)
+                catch (Exception ex)
                 {
-                    await DisplayAlert("Erro", "Falha ao tentar estabelecer conexão com a internet.", "Fechar");
+                    await DisplayAlert("Erro", $"Falha ao tentar estabelecer conexão com a internet. {ex.Message}", "Fechar");
                     btnEntrar.IsVisible = true;
                     LoginIndicator.IsRunning = false;
                 }
