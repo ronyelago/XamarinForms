@@ -69,17 +69,17 @@ namespace LabClick.Views.Paciente
                 BtnSalvar.WidthRequest = 150;
                 BtnSalvar.HeightRequest = 30;
                 BtnSalvar.FontSize = 8;
-                BtnSalvar.CornerRadius = 10;
+                BtnSalvar.CornerRadius = 3;
 
                 BtnEditar.WidthRequest = 150;
                 BtnEditar.HeightRequest = 30;
                 BtnEditar.FontSize = 8;
-                BtnEditar.CornerRadius = 10;
+                BtnEditar.CornerRadius = 3;
 
                 BtnCancelar.WidthRequest = 150;
                 BtnCancelar.HeightRequest = 30;
                 BtnCancelar.FontSize = 8;
-                BtnCancelar.CornerRadius = 10;
+                BtnCancelar.CornerRadius = 3;
             }
         }
 
@@ -103,7 +103,7 @@ namespace LabClick.Views.Paciente
 
         private void BtnCancelar_Clicked(object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new Home());
+            Navigation.RemovePage(this);
         }
 
         private void BtnSalvar_Clicked(object sender, System.EventArgs e)

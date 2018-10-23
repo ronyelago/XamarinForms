@@ -39,7 +39,8 @@
                             Clicked="btnEntrar_Clicked"
                             BackgroundColor="#197A80"
                             TextColor="White"
-                            Margin="10,10,10,10"/>
+                            Margin="10,10,10,10"
+                            FontSize="20"/>
                     <ActivityIndicator x:Name="LoginIndicator"
                                        IsRunning="false" 
                                        Color="DarkOliveGreen" />

@@ -59,12 +59,12 @@ namespace LabClick.Views.Paciente
                 BtnSalvar.WidthRequest = 150;
                 BtnSalvar.HeightRequest = 30;
                 BtnSalvar.FontSize = 8;
-                BtnSalvar.CornerRadius = 10;
+                BtnSalvar.CornerRadius = 3;
 
                 BtnCancelar.WidthRequest = 150;
                 BtnCancelar.HeightRequest = 30;
                 BtnCancelar.FontSize = 8;
-                BtnCancelar.CornerRadius = 10;
+                BtnCancelar.CornerRadius = 3;
 
             }
 		}

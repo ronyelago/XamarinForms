@@ -24,7 +24,6 @@ namespace LabClick.Views.Paciente
             InitializeComponent();
 
             this.Scanning = scanning;
-            this.MainLabel.Text = "Selecione o Paciente";
 
             if (Device.Idiom == TargetIdiom.Phone)
             {

@@ -4,31 +4,36 @@
              x:Class="LabClick.Views.Paciente.PesquisarPaciente"
              BackgroundImage="bgcadastro.jpg">
     <StackLayout>
+        <StackLayout Orientation="Vertical"
+                     HorizontalOptions="Center">
+            <Grid HorizontalOptions="FillAndExpand"
+                      VerticalOptions="Center"
+                      Margin="0,0,0,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-        <Grid HorizontalOptions="FillAndExpand"
-              VerticalOptions="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Image x:Name="mainImage"
+                           Aspect="AspectFill"
+                           HeightRequest="70"
+                           Source="footer.png"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+                <Label HorizontalOptions="Center"
+                           x:Name="MainLabel"
+                           Text="Pesquisa de Paciente"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="White"
+                           Margin="0,10,0,0"
+                           Grid.Row="0"
+                           Grid.Column="0"/>
+            </Grid>
+        </StackLayout>
 
-            <Image Aspect="AspectFill"
-                   HeightRequest="70"
-                   Source="footer.png"
-                   Grid.Row="0"
-                   Grid.Column="0"/>
-            <Label HorizontalOptions="Center"
-                   x:Name="MainLabel"
-                   Font="30"
-                   FontAttributes="Bold"
-                   TextColor="White"
-                   Margin="0,10,0,0"
-                   Grid.Row="0"
-                   Grid.Column="0"/>
-        </Grid>
-        
         <StackLayout Orientation="Vertical"
                      Margin="70,50,70,50">
             <StackLayout>

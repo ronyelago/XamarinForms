@@ -30,7 +30,7 @@ namespace LabClick
 
             MainPage = new NavigationPage(new Login())
             {
-                BarBackgroundColor = Color.LightSeaGreen
+                BarBackgroundColor = Color.FromHex("#197A80")
             };
 		}
 

@@ -46,9 +46,9 @@ namespace LabClick.Views
                 ImageLogo.WidthRequest = 200;
                 ImageLogo.HeightRequest = 200;
 
-                btnEntrar.WidthRequest = 50;
-                btnEntrar.HeightRequest = 30;
-                btnEntrar.FontSize = 7;
+                btnEntrar.WidthRequest = 40;
+                btnEntrar.HeightRequest = 35;
+                btnEntrar.FontSize = 10;
                 btnEntrar.CornerRadius = 3;
 
                 emailEntry.WidthRequest = 300;

@@ -213,14 +213,14 @@
                 <StackLayout HorizontalOptions="CenterAndExpand" 
                              Spacing="20"
                              Orientation="Horizontal"
-                             Margin="0,20,0,0">
+                             Margin="0,20,0,20">
                     <Button x:Name="BtnCancelar"
                                     Text="Voltar"
                                     TextColor="White"
                                     Margin="10,10,10,10"
                                     Clicked="BtnCancelar_Clicked"
                                     WidthRequest="200" 
-                                    BorderRadius="10"
+                                    BorderRadius="3"
                                     BackgroundColor="#197A80"/>
                     <Button x:Name="BtnEditar"
                                     Text="Editar"
@@ -229,7 +229,7 @@
                                     Margin="10,10,10,10"
                                     Clicked="BtnEditar_Clicked"
                                     WidthRequest="200"
-                                    BorderRadius="10"/>
+                                    BorderRadius="3"/>
                     <Button x:Name="BtnSalvar"
                             Text="Salvar"
                             Clicked="BtnSalvar_Clicked"
@@ -237,7 +237,7 @@
                             BackgroundColor="#197A80"
                             Margin="10,10,10,10"
                             WidthRequest="200"
-                            BorderRadius="10"
+                            BorderRadius="3"
                             IsVisible="False"/>
                 </StackLayout>
             </StackLayout>
