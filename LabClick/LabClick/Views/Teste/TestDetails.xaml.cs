@@ -56,23 +56,19 @@ namespace LabClick.Views.Teste
 
             if (Device.Idiom == TargetIdiom.Phone)
             {
-                labelsStack.Margin = new Thickness(25, 5, 5, 10);
+                //labelsStack.Margin = new Thickness(25, 5, 5, 10);
 
-                lblExame.FontSize = 13;
-                lblNomePaciente.FontSize = 13;
-                lblDataTeste.FontSize = 13;
-                lblStatus.FontSize = 13;
+                lblNomePaciente.FontSize = 15;
+                lblDataTeste.FontSize = 15;
+                lblResultado.FontSize = 15;
 
-                lblExameDados.FontSize = 13;
-                lblNomePacienteDados.FontSize = 13;
-                lblDataCadastroDados.FontSize = 13;
-                lblStatusDados.FontSize = 13;
+                lblNomePacienteDados.FontSize = 15;
+                lblDataCadastroDados.FontSize = 15;
+                lblResultadoDados.FontSize = 15;
 
                 lblImagemTeste.FontSize = 15;
                 ImgTeste.WidthRequest = 130;
                 ImgTeste.HeightRequest = 280;
-
-                lblTituloResultado.FontSize = 15;
             }
 
             Navigation.RemovePage(App.LoadingPage);

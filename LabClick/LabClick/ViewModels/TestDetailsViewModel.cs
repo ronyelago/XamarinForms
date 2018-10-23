@@ -9,24 +9,28 @@ namespace LabClick.ViewModels
 
         public string Resultado
         {
-            get { return this.resultado; }
+            get { return string.Format($"{this.resultado} {this.ResultadoDetalhes}"); }
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    this.resultado = "";
+                    this.resultado = "Pendente";
                 else
                     this.resultado = value;
             }
         }
 
+        /// <summary>
+        /// Somente para resultado Indeterminado 
+        /// ou Positivo (IGG reagente, IGM reagente ou IGG e IGM reagente)
+        /// </summary>
         public string ResultadoDetalhes
         {
             get { return this.resultadoDetalhes; }
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    this.resultadoDetalhes = "Exame em análise laboratorial";
-                else this.resultadoDetalhes = value;
+                    this.resultadoDetalhes = "";
+                else this.resultadoDetalhes = $" - {value}";
             }
         }
 
