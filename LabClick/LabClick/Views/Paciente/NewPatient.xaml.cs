@@ -88,6 +88,7 @@ namespace LabClick.Views.Paciente
                 else
                 {
                     DisplayAlert("Erro", "Erro ao tentar adicionar o paciente.", "Fechar");
+                    Navigation.RemovePage(App.LoadingPage);
                 }
             }
 

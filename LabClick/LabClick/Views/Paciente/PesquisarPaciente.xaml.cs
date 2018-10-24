@@ -114,9 +114,9 @@ namespace LabClick.Views.Paciente
                 }
             }
 
-            catch (TaskCanceledException ex)
+            catch (Exception ex)
             {
-                await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message} \n {ex.InnerException.Message}", "Fechar");
+                await DisplayAlert("Erro", $"Servidor indisponível \n {ex.Message} \n {ex.Message}", "Fechar");
                 Navigation.RemovePage(App.LoadingPage);
             }
         }
