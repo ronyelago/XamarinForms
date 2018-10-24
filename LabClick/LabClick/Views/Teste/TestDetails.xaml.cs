@@ -58,15 +58,15 @@ namespace LabClick.Views.Teste
             {
                 //labelsStack.Margin = new Thickness(25, 5, 5, 10);
 
-                lblNomePaciente.FontSize = 15;
-                lblDataTeste.FontSize = 15;
-                lblResultado.FontSize = 15;
+                lblNomePaciente.FontSize = 12;
+                lblDataTeste.FontSize = 12;
+                lblResultado.FontSize = 12;
 
-                lblNomePacienteDados.FontSize = 15;
-                lblDataCadastroDados.FontSize = 15;
-                lblResultadoDados.FontSize = 15;
+                lblNomePacienteDados.FontSize = 12;
+                lblDataCadastroDados.FontSize = 12;
+                lblResultadoDados.FontSize = 12;
 
-                lblImagemTeste.FontSize = 15;
+                lblImagemTeste.FontSize = 12;
                 ImgTeste.WidthRequest = 130;
                 ImgTeste.HeightRequest = 280;
             }

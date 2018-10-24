@@ -97,7 +97,9 @@ namespace LabClick.Views.Teste
             var armazenamento = new StoreCameraMediaOptions()
             {
                 SaveToAlbum = true,
-                Name = "photoTest.jpg"
+                Name = "photoTest.jpg",
+                PhotoSize = PhotoSize.Small,
+                CompressionQuality = 50
             };
 
             var foto = await CrossMedia.Current.TakePhotoAsync(armazenamento);
