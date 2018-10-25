@@ -16,7 +16,7 @@ namespace LabClick.Views.Teste
 
             if (teste.LaudoOk)
             {
-                lblResultado.Text = $"Resultado: {teste.Laudo.Resultado}";
+                lblResultado.Text = $"Resultado: {teste.Resultado}";
             }
 
             //ImageSource imageSource = ImageSource.FromStream(() => new MemoryStream(teste.TesteImagem.Imagem.ToArray()));

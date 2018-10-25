@@ -20,9 +20,7 @@ namespace LabClick.Mappers
             CreateMap<Domain.Entities.Endereco, NewPatientViewModel>();
             CreateMap<Domain.Entities.Teste, DigitalizarTesteViewModel>();
             CreateMap<Domain.Entities.Teste, TestDetailsViewModel>()
-                .ForMember(t => t.DataCadastro, opt => opt.MapFrom(test => test.DataCadastro.ToShortDateString()))
-                .ForMember(t => t.Resultado, opt => opt.MapFrom(test => test.Laudo.Resultado))
-                .ForMember(t => t.ResultadoDetalhes, opt => opt.MapFrom(test => test.Laudo.ResultadoDetalhes));
+                .ForMember(t => t.DataCadastro, opt => opt.MapFrom(test => test.DataCadastro.ToShortDateString()));
 
             CreateMap<Domain.Entities.TesteImagem, TesteImagemViewModel>();
             CreateMap<Domain.Entities.UsuarioClinica, LoginViewModel>()
