@@ -6,6 +6,7 @@ namespace LabClick.ViewModels
     {
         private string resultado;
         private string resultadoDetalhes;
+        private string observacoes;
 
         public string Resultado
         {
@@ -13,7 +14,7 @@ namespace LabClick.ViewModels
             set
             {
                 if (string.IsNullOrEmpty(value))
-                    this.resultado = "Pendente";
+                    this.resultado = "Não avaliado";
                 else
                     this.resultado = value;
             }
@@ -31,6 +32,18 @@ namespace LabClick.ViewModels
                 if (string.IsNullOrEmpty(value))
                     this.resultadoDetalhes = "";
                 else this.resultadoDetalhes = $" - {value}";
+            }
+        }
+
+        public string Observacoes
+        {
+            get { return this.observacoes; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    this.observacoes = "Não avaliado";
+                else
+                    this.observacoes = value;
             }
         }
 

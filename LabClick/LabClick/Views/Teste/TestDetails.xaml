@@ -4,105 +4,106 @@
              x:Class="LabClick.Views.Teste.TestDetails"
              BackgroundImage="bgcadastro.jpg"
              Title="     Detalhes do Exame">
-    <StackLayout Orientation="Vertical"
+    <ScrollView Orientation="Vertical"
                  Margin="0,0,0,0">
-
-        <StackLayout Orientation="Horizontal"
+        <StackLayout>
+            <StackLayout Orientation="Horizontal"
                      BackgroundColor="#1A126683"
                      Margin="0,0,0,-4"
-                     Padding="10,0,0,10">
-            <Label x:Name="lblExameDados"
+                     Padding="10,10,0,10">
+                <Label x:Name="lblExameDados"
                    Text="{Binding Exame.Nome}"
                    HorizontalOptions="Start"
                    Font="15"
                    FontAttributes="Bold"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal"
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
                      BackgroundColor="#1A126683"
                      Margin="0,-2,0,-3"
                      Padding="10,0,0,10">
-            <Label x:Name="lblNomePaciente"
+                <Label x:Name="lblNomePaciente"
                    Text="Paciente:"
                    HorizontalOptions="End"
                    Font="12"
                    FontAttributes="Bold"/>
-            <Label x:Name="lblNomePacienteDados"
+                <Label x:Name="lblNomePacienteDados"
                    Text="{Binding Paciente.Nome}"
                    HorizontalOptions="Start"
                    Font="12"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal"
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
                      BackgroundColor="#1A126683"
                      Margin="0,-3,0,5"
                      Padding="10,0,0,10">
-            <Label x:Name="lblDataTeste"
+                <Label x:Name="lblDataTeste"
                    Text="Data do Exame:"
                    HorizontalOptions="End"
                    Font="12"
                    FontAttributes="Bold"/>
-            <Label x:Name="lblDataCadastroDados"
+                <Label x:Name="lblDataCadastroDados"
                        Text="{Binding DataCadastro}"
                        HorizontalOptions="Start"
                        Font="12"/>
-        </StackLayout >
-        <StackLayout Orientation="Horizontal"
+            </StackLayout >
+            <StackLayout Orientation="Horizontal"
                      BackgroundColor="#1A126683"
                      Margin="0,0,0,-6"
                      Padding="10,0,0,10">
-            <Label x:Name="lblStatus"
+                <Label x:Name="lblStatus"
                    Text="Status"
                    HorizontalOptions="End"
                    FontSize="15"
                    FontAttributes="Bold"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal"
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
                      BackgroundColor="#1A126683"
                      Margin="0"
                      Padding="10,0,0,10">
-            <Label x:Name="lblSituacao"
+                <Label x:Name="lblSituacao"
                    HorizontalOptions="End"
                    Text="Situação:"
                    FontSize="12"
                    FontAttributes="Bold"/>
-            <Label x:Name="lblStatusDados"
+                <Label x:Name="lblStatusDados"
                        Text="{Binding Status}"
                        HorizontalOptions="Start"
                        FontSize="12"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal"
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"
                      BackgroundColor="#1A126683"
                      Margin="0,-6,0,0"
                      Padding="10,0,0,10">
-            <Label x:Name="lblResultado"
+                <Label x:Name="lblResultado"
                    HorizontalOptions="End"
                    Text="Resultado:"
                    Font="15"
                    FontAttributes="Bold"/>
-            <Label x:Name="lblResultadoDados"
+                <Label x:Name="lblResultadoDados"
                    Text="{Binding Resultado}"
                    Font="15"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal"
+            </StackLayout>
+            <StackLayout Orientation="Vertical"
                      BackgroundColor="#1A126683"
                      Margin="0,-6,0,5"
                      Padding="10,0,0,10">
-            <Label x:Name="lblObservacoes"
-                   HorizontalOptions="End"
+                <Label x:Name="lblObservacoes"
+                   HorizontalOptions="Start"
                    Text="Observações:"
                    Font="12"
                    FontAttributes="Bold"/>
-            <Label x:Name="lblObservacoesDados"
-                   Text="{Binding Laudo.Observacoes}"
+                <Label x:Name="lblObservacoesDados"
+                   Text="{Binding Observacoes}"
                    Font="12"/>
-        </StackLayout>
+            </StackLayout>
 
-        <StackLayout Orientation="Vertical">
-            <Image x:Name="ImgTeste"
+            <StackLayout Orientation="Vertical">
+                <Image x:Name="ImgTeste"
                    Source="bgfoto.jpg"/>
-            <Label x:Name="lblImagemTeste"
+                <Label x:Name="lblImagemTeste"
                    HorizontalOptions="CenterAndExpand"
                    Text="Imagem do Teste"
                    Font="12"/>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>
