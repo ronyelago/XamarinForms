@@ -41,7 +41,7 @@
                 <StackLayout Spacing="15">
                     <ListView x:Name="TestesListView"
                               SeparatorVisibility="None"
-                              RowHeight="100"
+                              RowHeight="130"
                               ItemTapped="TestesListView_ItemTapped">
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -55,12 +55,11 @@
                                                      Margin="10,5,10,5">
                                             <Label Text="{Binding NomeTeste}"
                                                    FontSize="{Binding LabelNomeTesteFontSize}"
-                                                   TextColor="#126683"/>
+                                                   TextColor="#126683"
+                                                   FontAttributes="Bold"/>
                                             <Label Text="{Binding NomePaciente}"
-                                                   FontAttributes="Bold"
                                                    FontSize="{Binding LabelNomePacienteFontSize}"/>
                                             <Label Text="{Binding DataTeste}"
-                                                   FontAttributes="Bold"
                                                    FontSize="{Binding LabelDataTesteFontSize}"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical"
