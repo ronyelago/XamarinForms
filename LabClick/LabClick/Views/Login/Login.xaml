@@ -23,7 +23,8 @@
                     <Entry x:Name="emailEntry"
                            HorizontalOptions="Center"
                            Text="{Binding Email}"
-                           Placeholder="Usuário"/>
+                           Placeholder="Usuário"
+                           Keyboard="Email"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="Center">

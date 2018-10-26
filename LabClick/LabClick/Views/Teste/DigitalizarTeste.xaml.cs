@@ -201,6 +201,7 @@ namespace LabClick.Views.Teste
                 {
                     await DisplayAlert("Erro", $"Não foi possível estabelecer conexção com o servidor. {ex.Message}", "Fechar");
                     BtnEnviarTeste.IsEnabled = true;
+                    Navigation.RemovePage(App.LoadingPage);
                 }
             }
 
