@@ -18,13 +18,13 @@
 
                 <Image x:Name="mainImage"
                            Aspect="AspectFill"
-                           HeightRequest="40"
+                           HeightRequest="70"
                            Source="footer.png"
                            Grid.Row="0"
                            Grid.Column="0"/>
                 <Label HorizontalOptions="Center"
                            x:Name="MainLabel"
-                           Text="Pesquisa de Paciente"
+                           Text="Digitalizar Teste"
                            FontSize="20"
                            FontAttributes="Bold"
                            TextColor="White"
