@@ -3,6 +3,8 @@ using LabClick.ViewModels;
 using Newtonsoft.Json;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using System;
 using System.IO;
 using System.Net.Http;
@@ -86,46 +88,75 @@ namespace LabClick.Views.Teste
         // Evento que abre a câmera para fotografar o Teste
         private async void BtnTeste_ClickedAsync(object sender, EventArgs e)
         {
-            await CrossMedia.Current.Initialize();
-
-            if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            try
             {
-                await DisplayAlert("Nenhuma Câmera", "Nenuma Câmera disponível.", "Fechar");
-                return;
+                var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Camera);
+
+                if (status != PermissionStatus.Granted)
+                {
+                    if (!await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Camera))
+                    {
+                        await DisplayAlert("Permissão", "Permita o acesso à câmera.", "OK");
+                    }
+
+                    var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera });
+                    status = results[Permission.Camera];
+                }
+
+                if (status == PermissionStatus.Granted)
+                {
+                    await CrossMedia.Current.Initialize();
+
+                    if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+                    {
+                        await DisplayAlert("Nenhuma Câmera", "Nenuma Câmera disponível.", "Fechar");
+                        return;
+                    }
+
+                    var armazenamento = new StoreCameraMediaOptions()
+                    {
+                        SaveToAlbum = true,
+                        Name = "photoTest.jpg",
+                        PhotoSize = PhotoSize.Small,
+                        CompressionQuality = 50
+                    };
+
+                    var foto = await CrossMedia.Current.TakePhotoAsync(armazenamento);
+
+                    if (foto == null)
+                    {
+                        return;
+                    }
+
+                    DigitalizarTesteViewModel.Fotografado = true;
+
+                    Stream stm = foto.GetStream();
+                    MemoryStream ms = new MemoryStream();
+
+                    stm.CopyTo(ms);
+                    TesteImagemViewModel = new TesteImagemViewModel { Imagem = ms.ToArray() };
+
+                    imgFoto.Source = ImageSource.FromStream(() =>
+                    {
+                        var stream = foto.GetStream();
+                        foto.Dispose();
+                        return stream;
+                    });
+
+                    BtnEnviarTeste.IsEnabled = true;
+                    btnTeste.Text = "Fotografar novamente";
+                }
+
+                else if (status != PermissionStatus.Unknown)
+                {
+                    await DisplayAlert("Permissões", "Não foi possível continuar, tente novamente.", "OK");
+                }
             }
 
-            var armazenamento = new StoreCameraMediaOptions()
+            catch (Exception)
             {
-                SaveToAlbum = true,
-                Name = "photoTest.jpg",
-                PhotoSize = PhotoSize.Small,
-                CompressionQuality = 50
-            };
-
-            var foto = await CrossMedia.Current.TakePhotoAsync(armazenamento);
-
-            if (foto == null)
-            {
-                return;
+                await DisplayAlert("Erro", "Câmera indisponível.", "OK");
             }
-
-            DigitalizarTesteViewModel.Fotografado = true;
-
-            Stream stm = foto.GetStream();
-            MemoryStream ms = new MemoryStream();
-
-            stm.CopyTo(ms);
-            TesteImagemViewModel = new TesteImagemViewModel { Imagem = ms.ToArray() };
-
-            imgFoto.Source = ImageSource.FromStream(() =>
-            {
-                var stream = foto.GetStream();
-                foto.Dispose();
-                return stream;
-            });
-
-            BtnEnviarTeste.IsEnabled = true;
-            btnTeste.Text = "Fotografar novamente";
         }
 
         // Evento que abre a câmera para escanear o QR-Code do Teste
