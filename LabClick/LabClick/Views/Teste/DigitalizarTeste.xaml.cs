@@ -97,6 +97,7 @@ namespace LabClick.Views.Teste
                     if (!await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Camera))
                     {
                         await DisplayAlert("Permissão", "Permita o acesso à câmera.", "OK");
+                        CrossPermissions.Current.OpenAppSettings();
                     }
 
                     var results = await CrossPermissions.Current.RequestPermissionsAsync(new[] { Permission.Camera });
@@ -153,9 +154,12 @@ namespace LabClick.Views.Teste
                 }
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
                 await DisplayAlert("Erro", "Câmera indisponível.", "OK");
+                await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.Storage);
+
+
             }
         }
 
