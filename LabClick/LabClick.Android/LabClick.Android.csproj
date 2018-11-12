@@ -53,7 +53,7 @@
     <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <BundleAssemblies>false</BundleAssemblies>
-    <AndroidLinkMode>Full</AndroidLinkMode>
+    <AndroidLinkMode>None</AndroidLinkMode>
     <EnableProguard>false</EnableProguard>
     <AndroidSupportedAbis>
     </AndroidSupportedAbis>
