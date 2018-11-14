@@ -5579,26 +5579,26 @@ namespace LabClick.Droid
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
+			// aapt resource value: 0x7f020155
+			public const int avd_hide_password_1 = 2130837845;
+			
 			// aapt resource value: 0x7f020156
-			public const int avd_hide_password_1 = 2130837846;
+			public const int avd_hide_password_2 = 2130837846;
 			
 			// aapt resource value: 0x7f020157
-			public const int avd_hide_password_2 = 2130837847;
-			
-			// aapt resource value: 0x7f020158
-			public const int avd_hide_password_3 = 2130837848;
+			public const int avd_hide_password_3 = 2130837847;
 			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
 			
+			// aapt resource value: 0x7f020158
+			public const int avd_show_password_1 = 2130837848;
+			
 			// aapt resource value: 0x7f020159
-			public const int avd_show_password_1 = 2130837849;
+			public const int avd_show_password_2 = 2130837849;
 			
 			// aapt resource value: 0x7f02015a
-			public const int avd_show_password_2 = 2130837850;
-			
-			// aapt resource value: 0x7f02015b
-			public const int avd_show_password_3 = 2130837851;
+			public const int avd_show_password_3 = 2130837850;
 			
 			// aapt resource value: 0x7f020057
 			public const int bb_bottom_bar_top_shadow = 2130837591;
@@ -6311,11 +6311,11 @@ namespace LabClick.Droid
 			// aapt resource value: 0x7f020143
 			public const int notification_icon_background = 2130837827;
 			
-			// aapt resource value: 0x7f020154
-			public const int notification_template_icon_bg = 2130837844;
+			// aapt resource value: 0x7f020153
+			public const int notification_template_icon_bg = 2130837843;
 			
-			// aapt resource value: 0x7f020155
-			public const int notification_template_icon_low_bg = 2130837845;
+			// aapt resource value: 0x7f020154
+			public const int notification_template_icon_low_bg = 2130837844;
 			
 			// aapt resource value: 0x7f020144
 			public const int notification_tile_bg = 2130837828;
@@ -6333,37 +6333,34 @@ namespace LabClick.Droid
 			public const int pesquisarpaciente = 2130837832;
 			
 			// aapt resource value: 0x7f020149
-			public const int pesquisarpaciente2 = 2130837833;
+			public const int phone = 2130837833;
 			
 			// aapt resource value: 0x7f02014a
-			public const int phone = 2130837834;
+			public const int qrcode = 2130837834;
 			
 			// aapt resource value: 0x7f02014b
-			public const int qrcode = 2130837835;
+			public const int search = 2130837835;
 			
 			// aapt resource value: 0x7f02014c
-			public const int search = 2130837836;
+			public const int smalladd = 2130837836;
 			
 			// aapt resource value: 0x7f02014d
-			public const int smalladd = 2130837837;
+			public const int smallnewexam = 2130837837;
 			
 			// aapt resource value: 0x7f02014e
-			public const int smallnewexam = 2130837838;
+			public const int smallreports = 2130837838;
 			
 			// aapt resource value: 0x7f02014f
-			public const int smallreports = 2130837839;
+			public const int smallscan = 2130837839;
 			
 			// aapt resource value: 0x7f020150
-			public const int smallscan = 2130837840;
+			public const int smallsearch = 2130837840;
 			
 			// aapt resource value: 0x7f020151
-			public const int smallsearch = 2130837841;
+			public const int tooltip_frame_dark = 2130837841;
 			
 			// aapt resource value: 0x7f020152
-			public const int tooltip_frame_dark = 2130837842;
-			
-			// aapt resource value: 0x7f020153
-			public const int tooltip_frame_light = 2130837843;
+			public const int tooltip_frame_light = 2130837842;
 			
 			static Drawable()
 			{

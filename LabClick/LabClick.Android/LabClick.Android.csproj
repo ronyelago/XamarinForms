@@ -249,9 +249,6 @@
     <AndroidResource Include="Resources\drawable\pesquisarpaciente.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\pesquisarpaciente2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\smallsearch.png" />
   </ItemGroup>
   <ItemGroup>
