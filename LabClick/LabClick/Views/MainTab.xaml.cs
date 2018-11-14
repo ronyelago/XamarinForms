@@ -41,7 +41,7 @@ namespace LabClick.Views
             this.Children.Add(new PesquisarTeste()
             {
                 Icon = "smallreports.png",
-                Title = "Pesquisar Exame"
+                Title = "Pesquisar Teste"
             });
 
             // Define a página que será exibida de acordo com o parâmetro page(int)

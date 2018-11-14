@@ -22,7 +22,7 @@
                            Grid.Column="0"/>
             <Label HorizontalOptions="Center"
                            x:Name="MainLabel"
-                           Text="Pesquisar Exame"
+                           Text="Pesquisar Teste"
                            FontSize="20"
                            FontAttributes="Bold"
                            TextColor="White"
